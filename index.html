@@ -144,15 +144,28 @@
 </head>
 <body>
 
-<header>
+<header style="position: fixed; top: 0; left: 0; width: 100%; background:#fff; z-index:1000; box-shadow:0 2px 8px rgba(0,0,0,0.1); padding:10px 20px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap;">
+  
+  <!-- Logo -->
   <img src="https://raw.githubusercontent.com/bdziaul/logo.png/main/Update-uddipan-logo.png" 
-           alt="UDDIPAN Logo" style="height:70px;">
-  <h1>উদ্দীপন - ওয়েব লিংক পোর্টাল</h1>
-  <div class="info-box">
+       alt="UDDIPAN Logo" style="height:70px;">
+
+  <!-- Optional H1 or remove if only logo -->
+  <h1 style="color:#b91c1c; margin:0; font-size:22px;">উদ্দীপন - ওয়েব লিংক পোর্টাল</h1>
+
+  <!-- Live Time & Visitor -->
+  <div class="info-box" style="text-align:right;">
     <div class="time" id="liveTime">সময় লোড হচ্ছে...</div>
     <div class="visitor">ভিজিটর সংখ্যা: <span id="visitorCount">0</span></div>
   </div>
 </header>
+
+<!-- Add top padding to body so content is not hidden under fixed header -->
+<style>
+  body {
+    padding-top: 100px; /* adjust to header height */
+  }
+</style>
 
 <div class="container">
   <div class="box">
@@ -256,4 +269,5 @@
 
 </body>
 </html>
+
 
