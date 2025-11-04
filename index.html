@@ -1,147 +1,27 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <title>UDDIPAN - Weblink Portal</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    * { box-sizing: border-box; margin:0; padding:0; }
-
-    body {
-      font-family: 'Times New Roman', serif;
-      background: #f5f7fa;
-      color: #333;
-      text-align: center;
-      padding-top: 120px; /* header height offset */
-    }
-
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: #fff;
-      z-index: 1000;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      padding: 10px 20px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    header img {
-      height: 70px;
-    }
-
-    header h1 {
-      color: #008000;
-      font-size: 50px;
-      flex: 1;
-      text-align: center;
-      margin: 0;
-    }
-
-    .info-box {
-      text-align: right;
-      font-size: 14px;
-      color: #444;
-    }
-
-    .time {
-      font-weight: bold;
-      color: #c11b1b;
-      font-size: 15px;
-    }
-
-    .visitor {
-      margin-top: 4px;
-      font-size: 14px;
-    }
-
-    .container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      padding: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .box {
-      background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-      padding: 30px 20px;
-      transition: all 0.3s ease;
-    }
-
-    .box:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    }
-
-    .box h2 {
-      color: #444;
-      font-size: 20px;
-      margin-bottom: 15px;
-    }
-
-    .box a {
-      color: #c11b1b;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 16px;
-    }
-
-    select {
-      padding: 8px 12px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-size: 15px;
-      width: 100%;
-      max-width: 250px;
-    }
-
-    button {
-      background: #c11b1b;
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      padding: 10px 20px;
-      cursor: pointer;
-      font-size: 15px;
-      margin-top: 10px;
-      transition: background 0.3s ease;
-    }
-
-    button:hover {
-      background: #a11212;
-    }
-
-    footer {
-      background: #fff;
-      padding: 15px;
-      font-size: 14px;
-      color: #555;
-      box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
-      margin-top: 40px;
-    }
-
-    @media(max-width: 768px){
-      header {
-        flex-direction: column;
-        text-align: center;
-      }
-      header h1 {
-        font-size: 32px;
-      }
-      .info-box {
-        text-align: center;
-        margin-top: 8px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<title>UDDIPAN - Weblink</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body { font-family:'Times New Roman', serif; background:#f5f7fa; margin:0; padding-top:120px; text-align:center; }
+  header { position:fixed; top:0; left:0; width:100%; background:#fff; padding:10px 20px; display:flex; justify-content:space-between; align-items:center; box-shadow:0 2px 8px rgba(0,0,0,0.1); flex-wrap:wrap; }
+  header img { height:70px; }
+  header h1 { color:#008000; font-size:50px; flex:1; text-align:center; margin:0; }
+  .info-box { text-align:right; font-size:14px; color:#444; }
+  .time { font-weight:bold; color:#c11b1b; font-size:15px; }
+  .visitor { margin-top:4px; font-size:14px; }
+  .container { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; padding:20px; max-width:1200px; margin:0 auto; }
+  .box { background:#fff; border-radius:16px; padding:20px; box-shadow:0 3px 10px rgba(0,0,0,0.1); transition:0.3s; }
+  .box:hover { transform:translateY(-5px); box-shadow:0 8px 20px rgba(0,0,0,0.2); }
+  .box h2 { font-size:20px; color:#444; margin-bottom:15px; }
+  .box a, select, button { font-size:15px; }
+  select { padding:8px 12px; border-radius:6px; border:1px solid #ccc; width:100%; max-width:250px; }
+  button { background:#c11b1b; color:#fff; border:none; border-radius:8px; padding:10px 20px; cursor:pointer; margin-top:10px; }
+  button:hover { background:#a11212; }
+  footer { background:#fff; padding:15px; color:#555; box-shadow:0 -2px 6px rgba(0,0,0,0.1); margin-top:40px; }
+</style>
 </head>
 <body>
 
@@ -174,73 +54,21 @@
     <button onclick="openZone()">ওপেন করুন</button>
   </div>
 
-  <div class="box">
-    <h2>ই-মেইল / ওয়েবমেইল</h2>
-    <a href="https://mail.uddipan.org:8443/" target="_blank">লগইন করুন</a>
-  </div>
-
-  <div class="box">
-    <h2>মানবসম্পদ (HR)</h2>
-    <a href="http://172.16.11.23/hr" target="_blank">Work Time, Attendance, Leave, Employee Profile, Payroll</a>
-  </div>
-
-  <div class="box">
-    <h2>অনলাইন সাপোর্ট</h2>
-    <a href="http://103.12.205.37/uddipanonline/" target="_blank">Transaction, Asset Entry, Rm Monitoring, Report</a>
-  </div>
-
-  <div class="box">
-    <h2>আইটি মনিটরিং</h2>
-    <a href="http://103.12.205.37/itmonitoringtools/" target="_blank">Support Request-Purchase-Servising Form, Report</a>
-  </div>
-
-  <div class="box">
-    <h2>কেস লগ</h2>
-    <a href="http://103.12.205.37/CaseLog/" target="_blank">Legal Case Report Dashboard</a>
-  </div>
-
-  <div class="box">
-    <h2>উদ্দীপন শাখা ও স্টাফ</h2>
-    <a href="https://shorturl.at/8sYxF" target="_blank">Branch Address, e-Mail, Staff Number, Whatsapp Number</a>
-  </div>
-
-  <div class="box">
-    <h2>এনআইডি</h2>
-    <a href="https://nvs.mra.gov.bd/dashboard/" target="_blank">Customer NID Check</a>
-  </div>
-
-  <div class="box">
-    <h2>জন্মনিবন্ধন</h2>
-    <a href="https://everify.bdris.gov.bd/?locale=bn" target="_blank">Customer Birth Certificate Check</a>
-  </div>
+  <div class="box"><h2>ই-মেইল / ওয়েবমেইল</h2><a href="https://mail.uddipan.org:8443/" target="_blank">লগইন করুন</a></div>
+  <div class="box"><h2>মানবসম্পদ (HR)</h2><a href="http://172.16.11.23/hr" target="_blank">Work Time, Attendance, Payroll</a></div>
+  <div class="box"><h2>অনলাইন সাপোর্ট</h2><a href="http://103.12.205.37/uddipanonline/" target="_blank">Transaction, Report</a></div>
+  <div class="box"><h2>আইটি মনিটরিং</h2><a href="http://103.12.205.37/itmonitoringtools/" target="_blank">Support & Report</a></div>
 </div>
 
-<footer>
-  © 2025 UDDIPAN | Developed by MFCIB Team
-</footer>
+<footer>© 2025 UDDIPAN | Developed by MFCIB Team</footer>
 
 <script>
-  // Live Time
-  function updateTime() {
-    const now = new Date();
-    const options = { weekday:'long', year:'numeric', month:'long', day:'numeric' };
-    document.getElementById('liveTime').innerHTML = now.toLocaleDateString('bn-BD', options) + ' | ' + now.toLocaleTimeString('bn-BD');
-  }
-  setInterval(updateTime,1000);
-  updateTime();
+function updateTime(){const now=new Date();document.getElementById('liveTime').innerHTML=now.toLocaleDateString('bn-BD',{weekday:'long',year:'numeric',month:'long',day:'numeric'})+' | '+now.toLocaleTimeString('bn-BD');}
+setInterval(updateTime,1000);updateTime();
 
-  // Visitor Counter
-  let count = localStorage.getItem('visitorCount');
-  count = count ? parseInt(count)+1 : 1;
-  localStorage.setItem('visitorCount', count);
-  document.getElementById('visitorCount').textContent = count;
+let count=localStorage.getItem('visitorCount');count=count?parseInt(count)+1:1;localStorage.setItem('visitorCount',count);document.getElementById('visitorCount').textContent=count;
 
-  // Open Zone Function
-  function openZone(){
-    const url = document.getElementById('zoneSelect').value;
-    if(url) window.open(url,'_blank');
-    else alert('দয়া করে প্রথমে আপনার জোন নির্বাচন করুন!');
-  }
+function openZone(){const url=document.getElementById('zoneSelect').value;if(url)window.open(url,'_blank');else alert('দয়া করে প্রথমে আপনার জোন নির্বাচন করুন!');}
 </script>
 
 </body>
