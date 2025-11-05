@@ -15,7 +15,7 @@ body {
   margin: 0;
   color: #333;
   text-align: center;
-  padding-top: 120px; /* Header height */
+  padding-top: 120px;
 }
 
 /* ---------- Header ---------- */
@@ -76,24 +76,43 @@ header h1 {
   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
-/* ---------- Box Headline ---------- */
-.box h2 a.title-link {
-  color: #0a4d9b; /* শিরোনামের রঙ */
-  text-decoration: none;
-  font-size: 28px;
+/* H2 Styles */
+.box h2 {
+  font-size: 30px;
+  margin-bottom: 10px;
   font-weight: 700;
 }
 
-.box h2 a.title-link:hover {
+/* Hoverable & colored title */
+.title-link, .title-nolink {
+  color: #0a4d9b;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.title-link:hover {
   text-decoration: underline;
 }
 
-/* ---------- Description Text ---------- */
-.box span {
+.title-nolink:hover {
+  text-decoration: underline;
+  color: #ff6600;
+  cursor: default; /* Clickable না */
+}
+
+/* Box links */
+.box a {
   color: #c11b1b;
+  text-decoration: none;
   font-size: 16px;
-  display: block;
-  margin-top: 6px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.box a:hover {
+  text-decoration: underline;
+  color: #ff6600;
 }
 
 /* ---------- Dropdown ---------- */
@@ -132,8 +151,9 @@ footer {
   margin-top: 40px;
 }
 
-footer a.uddipan { color: #008000; text-decoration: none; font-weight: bold; }
-footer a.mfcib { color: #008000; text-decoration: none; font-weight: bold; }
+footer a.uddipan { color: #008000; }
+footer a.mfcib { color: #008000; }
+footer a:hover { color: #ff6600; }
 
 /* ---------- Responsive ---------- */
 @media(max-width:600px){
@@ -155,10 +175,9 @@ footer a.mfcib { color: #008000; text-decoration: none; font-weight: bold; }
 </header>
 
 <div class="container">
-
-  <!-- Automation Dropdown -->
+  <!-- অটোমেশন লিংক -->
   <div class="box">
-    <h2>অটোমেশন লিংক</h2>
+    <h2><span class="title-nolink">অটোমেশন লিংক</span></h2>
     <div class="zone">
       <select id="zoneSelect">
         <option value="">আপনার জোন নির্বাচন করুন</option>
@@ -178,47 +197,46 @@ footer a.mfcib { color: #008000; text-decoration: none; font-weight: bold; }
     </div>
   </div>
 
-  <!-- Boxes with clickable titles -->
+  <!-- লিঙ্ক বক্সসমূহ -->
   <div class="box">
     <h2><a href="https://mail.uddipan.org:8443/" target="_blank" class="title-link">ই-মেইল / ওয়েবমেইল</a></h2>
-    <span>Please Identify Yourself : Username & Password</span>
+    <a href="https://mail.uddipan.org:8443/" target="_blank">Please Identify Yourself : Username & Password</a>
   </div>
 
   <div class="box">
     <h2><a href="http://103.134.88.46/hr" target="_blank" class="title-link">মানবসম্পদ (HR)</a></h2>
-    <span>Work Time, Attendance, Leave, Employee Profile, Payroll</span>
+    <a href="http://103.134.88.46/hr" target="_blank">Work Time, Attendance, Leave, Employee Profile, Payroll</a>
   </div>
 
   <div class="box">
     <h2><a href="http://103.12.205.37/uddipanonline/" target="_blank" class="title-link">অনলাইন সাপোর্ট</a></h2>
-    <span>Transaction, Asset Entry, Rm Monitoring, Report</span>
+    <a href="http://103.12.205.37/uddipanonline/" target="_blank">Transaction, Asset Entry, Rm Monitoring, Report</a>
   </div>
 
   <div class="box">
     <h2><a href="http://103.12.205.37/itmonitoringtools/" target="_blank" class="title-link">আইটি মনিটরিং</a></h2>
-    <span>Support Request-Purchase-Servicing Form, Report</span>
+    <a href="http://103.12.205.37/itmonitoringtools/" target="_blank">Support Request-Purchase-Servicing Form, Report</a>
   </div>
 
   <div class="box">
     <h2><a href="http://103.12.205.37/CaseLog/" target="_blank" class="title-link">কেস লগ</a></h2>
-    <span>Legal Case Report Dashboard</span>
+    <a href="http://103.12.205.37/CaseLog/" target="_blank">Legal Case Report Dashboard</a>
   </div>
 
   <div class="box">
     <h2><a href="https://shorturl.at/8sYxF" target="_blank" class="title-link">উদ্দীপন শাখা ও স্টাফ</a></h2>
-    <span>Branch Address, e-Mail, Staff Number, Whatsapp Number</span>
+    <a href="https://shorturl.at/8sYxF" target="_blank">Branch Address, e-Mail, Staff Number, Whatsapp Number</a>
   </div>
 
   <div class="box">
     <h2><a href="https://nvs.mra.gov.bd/dashboard/" target="_blank" class="title-link">এনআইডি</a></h2>
-    <span>Customer NID Check</span>
+    <a href="https://nvs.mra.gov.bd/dashboard/" target="_blank">Customer NID Check</a>
   </div>
 
   <div class="box">
     <h2><a href="https://everify.bdris.gov.bd/?locale=bn" target="_blank" class="title-link">জন্মনিবন্ধন</a></h2>
-    <span>Customer Birth Certificate Check</span>
+    <a href="https://everify.bdris.gov.bd/?locale=bn" target="_blank">Customer Birth Certificate Check</a>
   </div>
-
 </div>
 
 <footer>
@@ -253,6 +271,3 @@ function openZone() {
 
 </body>
 </html>
-
-
-
