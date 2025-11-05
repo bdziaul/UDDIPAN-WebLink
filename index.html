@@ -76,24 +76,24 @@ header h1 {
   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
-.box h2 {
-  color: #0a4d9b;
-  font-size: 30px;
-  margin-bottom: 10px;
+/* ---------- Box Headline ---------- */
+.box h2 a.title-link {
+  color: #0a4d9b; /* শিরোনামের রঙ */
+  text-decoration: none;
+  font-size: 28px;
   font-weight: 700;
 }
 
-.box a {
-  color: #c11b1b;
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: bold;
-  display: inline-block;
+.box h2 a.title-link:hover {
+  text-decoration: underline;
 }
 
-.box a:hover {
-  color: #ff6600;
-  text-decoration: underline;
+/* ---------- Description Text ---------- */
+.box span {
+  color: #c11b1b;
+  font-size: 16px;
+  display: block;
+  margin-top: 6px;
 }
 
 /* ---------- Dropdown ---------- */
@@ -132,12 +132,8 @@ footer {
   margin-top: 40px;
 }
 
-footer a {
-  color: #c11b1b;
-  text-decoration: none;
-  font-weight: bold;
-}
-footer a:hover { color: #ff6600; }
+footer a.uddipan { color: #008000; text-decoration: none; font-weight: bold; }
+footer a.mfcib { color: #008000; text-decoration: none; font-weight: bold; }
 
 /* ---------- Responsive ---------- */
 @media(max-width:600px){
@@ -159,6 +155,8 @@ footer a:hover { color: #ff6600; }
 </header>
 
 <div class="container">
+
+  <!-- Automation Dropdown -->
   <div class="box">
     <h2>অটোমেশন লিংক</h2>
     <div class="zone">
@@ -180,89 +178,42 @@ footer a:hover { color: #ff6600; }
     </div>
   </div>
 
-<div class="box">
-  <h2><a href="https://mail.uddipan.org:8443/" target="_blank" class="title-link">ই-মেইল / ওয়েবমেইল</a></h2>
-  <span>Please Identify Yourself : Username & Password</span>
-</div>
+  <!-- Boxes with clickable titles -->
+  <div class="box">
+    <h2><a href="https://mail.uddipan.org:8443/" target="_blank" class="title-link">ই-মেইল / ওয়েবমেইল</a></h2>
+    <span>Please Identify Yourself : Username & Password</span>
+  </div>
 
-<div class="box">
-  <h2><a href="http://103.134.88.46/hr" target="_blank" class="title-link">মানবসম্পদ (HR)</a></h2>
-  <span>Work Time, Attendance, Leave, Employee Profile, Payroll</span>
-</div>
+  <div class="box">
+    <h2><a href="http://103.134.88.46/hr" target="_blank" class="title-link">মানবসম্পদ (HR)</a></h2>
+    <span>Work Time, Attendance, Leave, Employee Profile, Payroll</span>
+  </div>
 
-<div class="box">
-  <h2><a href="http://103.12.205.37/uddipanonline/" target="_blank" class="title-link">অনলাইন সাপোর্ট</a></h2>
-  <span>Transaction, Asset Entry, Rm Monitoring, Report</span>
-</div>
+  <div class="box">
+    <h2><a href="http://103.12.205.37/uddipanonline/" target="_blank" class="title-link">অনলাইন সাপোর্ট</a></h2>
+    <span>Transaction, Asset Entry, Rm Monitoring, Report</span>
+  </div>
 
-<div class="box">
-  <h2><a href="http://103.12.205.37/itmonitoringtools/" target="_blank" class="title-link">আইটি মনিটরিং</a></h2>
-  <span>Support Request-Purchase-Servicing Form, Report</span>
-</div>
+  <div class="box">
+    <h2><a href="http://103.12.205.37/itmonitoringtools/" target="_blank" class="title-link">আইটি মনিটরিং</a></h2>
+    <span>Support Request-Purchase-Servicing Form, Report</span>
+  </div>
 
-<div class="box">
-  <h2><a href="http://103.12.205.37/CaseLog/" target="_blank" class="title-link">কেস লগ</a></h2>
-  <span>Legal Case Report Dashboard</span>
-</div>
+  <div class="box">
+    <h2><a href="http://103.12.205.37/CaseLog/" target="_blank" class="title-link">কেস লগ</a></h2>
+    <span>Legal Case Report Dashboard</span>
+  </div>
 
-<div class="box">
-  <h2><a href="https://shorturl.at/8sYxF" target="_blank" class="title-link">উদ্দীপন শাখা ও স্টাফ</a></h2>
-  <span>Branch Address, e-Mail, Staff Number, Whatsapp Number</span>
-</div>
+  <div class="box">
+    <h2><a href="https://shorturl.at/8sYxF" target="_blank" class="title-link">উদ্দীপন শাখা ও স্টাফ</a></h2>
+    <span>Branch Address, e-Mail, Staff Number, Whatsapp Number</span>
+  </div>
 
-<div class="box">
-  <h2><a href="https://nvs.mra.gov.bd/dashboard/" target="_blank" class="title-link">এনআইডি</a></h2>
-  <span>Customer NID Check</span>
-</div>
+  <div class="box">
+    <h2><a href="https://nvs.mra.gov.bd/dashboard/" target="_blank" class="title-link">এনআইডি</a></h2>
+    <span>Customer NID Check</span>
+  </div>
 
-<div class="box">
-  <h2><a href="https://everify.bdris.gov.bd/?locale=bn" target="_blank" class="title-link">জন্মনিবন্ধন</a></h2>
-  <span>Customer Birth Certificate Check</span>
-</div>
-
-© 2025 
-  <a href="https://www.uddipan.org" class="uddipan">UDDIPAN</a> | 
-  Developed by 
-  <a href="https://www.facebook.com/ziaulz" class="mfcib">MFCIB</a> Team
-</footer>
-
-<style>
-footer a.uddipan { color: #008000; }
-footer a.mfcib { color: #008000; }
-</style>
-
-<script>
-function updateTime() {
-  const now = new Date();
-  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-  const date = now.toLocaleDateString('bn-BD', options);
-  const time = now.toLocaleTimeString('bn-BD');
-  document.getElementById('liveTime').innerHTML = `${date} | ${time}`;
-}
-setInterval(updateTime, 1000);
-updateTime();
-
-let count = localStorage.getItem('visitorCount');
-count = count ? parseInt(count)+1 : 1;
-localStorage.setItem('visitorCount', count);
-document.getElementById('visitorCount').textContent = count;
-
-function openZone() {
-  const url = document.getElementById("zoneSelect").value;
-  if(url) window.open(url,"_blank");
-  else alert("দয়া করে প্রথমে আপনার জোন নির্বাচন করুন!");
-}
-</script>
-
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
+  <div class="box">
+    <h2><a href="https://everify.bdris.gov.bd/?locale=bn" target="_blank" class="title-link">জন্মনিবন্ধন</a></h2>
+    <span>
