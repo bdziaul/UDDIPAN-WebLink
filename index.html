@@ -218,14 +218,17 @@ document.getElementById('visitorCount').textContent=count;
 // Open Zone
 function openZone(){
   const url=document.getElementById("zoneSelect").value;
-  if(url)window.open(url,"_blank");
-  else alert("দয়া করে প্রথমে আপনার জোন নির্বাচন করুন!"); }
+  if(url) window.open(url,'_blank');
+  else alert("দয়া করে প্রথমে আপনার জোন নির্বাচন করুন!");
+}
 
-// Force all links to open in new tab every time
+// Force every link to open in a completely new tab every click
 document.querySelectorAll('.link-title').forEach(link=>{
   link.addEventListener('click',function(e){
     e.preventDefault();
-    window.open(this.href,'_blank');
+    // Unique tab name each click to force new tab
+    const uniqueTab = '_blank_' + Date.now();
+    window.open(this.href, uniqueTab);
   });
 });
 </script>
