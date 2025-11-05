@@ -32,6 +32,8 @@ header {
   flex-wrap: wrap;
 }
 header img { height: 70px; }
+
+/* Header Title with hover underline */
 header h1 {
   color: #008000;
   margin: 0 15px;
@@ -39,7 +41,10 @@ header h1 {
   font-family: 'Times New Roman', serif;
   flex: 1;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  cursor: pointer;
+  text-decoration: none;
 }
+header h1:hover { text-decoration: underline; }
 
 .info-box { text-align: right; font-size: 14px; color: #444; }
 .time { font-weight: bold; color: #c11b1b; font-size: 15px; }
@@ -63,18 +68,12 @@ header h1 {
   padding: 25px 15px;
   transition: all 0.3s ease;
 }
+.box:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
 
-.box:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-}
+/* Box Titles */
+.box h2 { margin-bottom: 10px; }
 
-/* Header Titles */
-.box h2 {
-  margin-bottom: 10px;
-}
-
-/* অটোমেশন লিংক স্টাইল */
+/* অটোমেশন লিংক */
 .no-click {
   color: #0a4d9b;
   font-size: 30px;
@@ -82,9 +81,7 @@ header h1 {
   cursor: default;
   text-decoration: none;
 }
-.no-click:hover {
-  text-decoration: underline;
-}
+.no-click:hover { text-decoration: underline; }
 
 /* Link Titles */
 .link-title {
@@ -93,27 +90,12 @@ header h1 {
   font-weight: 700;
   text-decoration: none;
 }
-.link-title:hover {
-  text-decoration: underline;
-  color: #ff6600;
-}
+.link-title:hover { text-decoration: underline; color: #ff6600; }
 
-/* শুধুমাত্র link নয় এমন span টেক্সটের জন্য (Dark Red) */
-.box span:not(.no-click) {
-    color: #8B0000;  /* Dark Red */
-}
+/* Box span details Dark Red (except no-click) */
+.box span:not(.no-click) { color: #8B0000; }
 
-/* Box link details */
-.box a.details {
-  color: #c11b1b;
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: bold;
-  display: inline-block;
-}
-.box a.details:hover { text-decoration: underline; color: #ff6600; }
-
-/* Dropdown */
+/* Dropdown & Button */
 .zone { margin: 12px 0; }
 select {
   padding: 8px 12px;
@@ -145,8 +127,7 @@ footer {
   box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
   margin-top: 40px;
 }
-footer a.uddipan { color: #008000; }
-footer a.mfcib { color: #008000; }
+footer a.uddipan, footer a.mfcib { color: #008000; }
 footer a:hover { color: #ff6600; }
 
 /* Responsive */
