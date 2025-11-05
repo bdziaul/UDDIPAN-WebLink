@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali&display=swap" rel="stylesheet">
 <style>
 * { box-sizing: border-box; }
+
 body {
   font-family: "Noto Sans Bengali", sans-serif;
   background: #f5f7fa;
@@ -16,6 +17,8 @@ body {
   text-align: center;
   padding-top: 120px; /* Header height */
 }
+
+/* ---------- Header ---------- */
 header {
   position: fixed;
   top: 0; left: 0; width: 100%;
@@ -28,21 +31,28 @@ header {
   justify-content: space-between;
   flex-wrap: wrap;
 }
+
 header img { height: 70px; }
+
 header h1 {
   color: #008000;
   margin: 0 15px;
-  font-size: 40px;
+  font-size: 38px;
   font-family: 'Times New Roman', serif;
   flex: 1;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
+
 .info-box {
   text-align: right;
   font-size: 14px;
   color: #444;
 }
+
 .time { font-weight: bold; color: #c11b1b; font-size: 15px; }
 .visitor { margin-top: 4px; font-size: 14px; }
+
+/* ---------- Main Section ---------- */
 .container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -51,6 +61,8 @@ header h1 {
   margin: 0 auto;
   padding: 20px;
 }
+
+/* ---------- Box ---------- */
 .box {
   background: #fff;
   border-radius: 16px;
@@ -58,13 +70,35 @@ header h1 {
   padding: 25px 15px;
   transition: all 0.3s ease;
 }
+
 .box:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
-.box h2 { color: #444; font-size: 20px; margin-bottom: 12px; }
-.box a { color: #c11b1b; text-decoration: none; font-weight: bold; font-size: 16px; word-break: break-word; }
+
+.box h2 {
+  color: #0a4d9b;
+  font-size: 21px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.box a {
+  color: #c11b1b;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.box a:hover {
+  color: #ff6600;
+  text-decoration: underline;
+}
+
+/* ---------- Dropdown ---------- */
 .zone { margin: 12px 0; }
+
 select {
   padding: 8px 12px;
   border-radius: 6px;
@@ -73,6 +107,7 @@ select {
   width: 100%;
   max-width: 250px;
 }
+
 button {
   background: #c11b1b;
   color: #fff;
@@ -84,7 +119,10 @@ button {
   margin-top: 10px;
   transition: background 0.3s ease;
 }
+
 button:hover { background: #a11212; }
+
+/* ---------- Footer ---------- */
 footer {
   background: #fff;
   padding: 15px;
@@ -93,6 +131,15 @@ footer {
   box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
   margin-top: 40px;
 }
+
+footer a {
+  color: #c11b1b;
+  text-decoration: none;
+  font-weight: bold;
+}
+footer a:hover { color: #ff6600; }
+
+/* ---------- Responsive ---------- */
 @media(max-width:600px){
   header { flex-direction: column; text-align: center; }
   header h1 { font-size: 28px; margin:10px 0; }
@@ -133,49 +180,67 @@ footer {
     </div>
   </div>
 
-<div class="box">
-      <h2>ই-মেইল / ওয়েবমেইল</h2>
-      <a href="https://mail.uddipan.org:8443/" target="_blank">Please Identify Yourself : Username & Password</a>
-    </div>
+  <div class="box">
+    <h2>ই-মেইল / ওয়েবমেইল</h2>
+    <a href="https://mail.uddipan.org:8443/" target="_blank">
+      Please Identify Yourself : Username & Password
+    </a>
+  </div>
 
-    <div class="box">
-      <h2>মানবসম্পদ (HR)</h2>
-      <a href="http://103.134.88.46/hr" target="_blank">Work Time, Attendance, Leave, Employee Profile, Payroll</a>
-    </div>
+  <div class="box">
+    <h2>মানবসম্পদ (HR)</h2>
+    <a href="http://103.134.88.46/hr" target="_blank">
+      Work Time, Attendance, Leave, Employee Profile, Payroll
+    </a>
+  </div>
 
-    <div class="box">
-      <h2>অনলাইন সাপোর্ট</h2>
-      <a href="http://103.12.205.37/uddipanonline/" target="_blank">Transaction, Asset Entry, Rm Monitoring, Report</a>
-    </div>
+  <div class="box">
+    <h2>অনলাইন সাপোর্ট</h2>
+    <a href="http://103.12.205.37/uddipanonline/" target="_blank">
+      Transaction, Asset Entry, Rm Monitoring, Report
+    </a>
+  </div>
 
-    <div class="box">
-      <h2>আইটি মনিটরিং</h2>
-      <a href="http://103.12.205.37/itmonitoringtools/" target="_blank">Support Request-Purchase-Servicing Form, Report</a>
-    </div>
+  <div class="box">
+    <h2>আইটি মনিটরিং</h2>
+    <a href="http://103.12.205.37/itmonitoringtools/" target="_blank">
+      Support Request-Purchase-Servicing Form, Report
+    </a>
+  </div>
 
-    <div class="box">
-      <h2>কেস লগ</h2>
-      <a href="http://103.12.205.37/CaseLog/" target="_blank">Legal Case Report Dashboard</a>
-    </div>
+  <div class="box">
+    <h2>কেস লগ</h2>
+    <a href="http://103.12.205.37/CaseLog/" target="_blank">
+      Legal Case Report Dashboard
+    </a>
+  </div>
 
-    <div class="box">
-      <h2>উদ্দীপন শাখা ও স্টাফ</h2>
-      <a href="https://shorturl.at/8sYxF" target="_blank">Branch Address, e-Mail, Staff Number, Whatsapp Number</a>
-    </div>
+  <div class="box">
+    <h2>উদ্দীপন শাখা ও স্টাফ</h2>
+    <a href="https://shorturl.at/8sYxF" target="_blank">
+      Branch Address, e-Mail, Staff Number, Whatsapp Number
+    </a>
+  </div>
 
-    <div class="box">
-      <h2>এনআইডি</h2>
-      <a href="https://nvs.mra.gov.bd/dashboard/" target="_blank">Customer NID Check</a>
-    </div>
+  <div class="box">
+    <h2>এনআইডি</h2>
+    <a href="https://nvs.mra.gov.bd/dashboard/" target="_blank">
+      Customer NID Check
+    </a>
+  </div>
 
-    <div class="box">
-      <h2>জন্মনিবন্ধন</h2>
-      <a href="https://everify.bdris.gov.bd/?locale=bn" target="_blank">Customer Birth Certificate Check</a>
-    </div>
+  <div class="box">
+    <h2>জন্মনিবন্ধন</h2>
+    <a href="https://everify.bdris.gov.bd/?locale=bn" target="_blank">
+      Customer Birth Certificate Check
+    </a>
+  </div>
 </div>
 
-<footer>© 2025 <a href="https://www.uddipan.org">UDDIPAN</a>
- | Developed by <a href="https://www.facebook.com/ziaulz">MFCIB</a> Team</footer>
+<footer>
+  © 2025 <a href="https://www.uddipan.org">UDDIPAN</a> |
+  Developed by <a href="https://www.facebook.com/ziaulz">MFCIB</a> Team
+</footer>
 
 <script>
 function updateTime() {
@@ -185,7 +250,8 @@ function updateTime() {
   const time = now.toLocaleTimeString('bn-BD');
   document.getElementById('liveTime').innerHTML = `${date} | ${time}`;
 }
-setInterval(updateTime, 1000); updateTime();
+setInterval(updateTime, 1000);
+updateTime();
 
 let count = localStorage.getItem('visitorCount');
 count = count ? parseInt(count)+1 : 1;
@@ -201,10 +267,3 @@ function openZone() {
 
 </body>
 </html>
-
-
-
-
-
-
-
