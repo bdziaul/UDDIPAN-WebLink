@@ -185,14 +185,14 @@ footer a:hover{color:#ff6600;}
   </div>
 
   <!-- Clickable Links -->
-  <div class="box"><h2><a href="https://mail.uddipan.org:8443/" target="_blank" class="link-title">ই-মেইল / ওয়েবমেইল</a></h2><span>Please Identify Yourself : Username & Password</span></div>
-  <div class="box"><h2><a href="http://103.134.88.46/hr" target="_blank" class="link-title">মানবসম্পদ (HR)</a></h2><span>Work Time, Attendance, Leave, Employee Profile, Payroll</span></div>
-  <div class="box"><h2><a href="http://103.12.205.37/uddipanonline/" target="_blank" class="link-title">অনলাইন সাপোর্ট</a></h2><span>Transaction, Asset Entry, RM Monitoring, Report</span></div>
-  <div class="box"><h2><a href="http://103.12.205.37/itmonitoringtools/" target="_blank" class="link-title">আইটি মনিটরিং</a></h2><span>Support Request, Purchase, Servicing Form, Report</span></div>
-  <div class="box"><h2><a href="http://103.12.205.37/CaseLog/" target="_blank" class="link-title">কেস লগ</a></h2><span>Legal Case Report Dashboard</span></div>
-  <div class="box"><h2><a href="https://shorturl.at/8sYxF" target="_blank" class="link-title">উদ্দীপন শাখা ও স্টাফ</a></h2><span>Branch Address, Email, Staff & WhatsApp Number</span></div>
-  <div class="box"><h2><a href="https://nvs.mra.gov.bd/dashboard/" target="_blank" class="link-title">এনআইডি</a></h2><span>Customer NID Check</span></div>
-  <div class="box"><h2><a href="https://everify.bdris.gov.bd/?locale=bn" target="_blank" class="link-title">জন্মনিবন্ধন</a></h2><span>Customer Birth Certificate Check</span></div>
+  <div class="box"><h2><a href="https://mail.uddipan.org:8443/" class="link-title">ই-মেইল / ওয়েবমেইল</a></h2><span>Please Identify Yourself : Username & Password</span></div>
+  <div class="box"><h2><a href="http://103.134.88.46/hr" class="link-title">মানবসম্পদ (HR)</a></h2><span>Work Time, Attendance, Leave, Employee Profile, Payroll</span></div>
+  <div class="box"><h2><a href="http://103.12.205.37/uddipanonline/" class="link-title">অনলাইন সাপোর্ট</a></h2><span>Transaction, Asset Entry, RM Monitoring, Report</span></div>
+  <div class="box"><h2><a href="http://103.12.205.37/itmonitoringtools/" class="link-title">আইটি মনিটরিং</a></h2><span>Support Request, Purchase, Servicing Form, Report</span></div>
+  <div class="box"><h2><a href="http://103.12.205.37/CaseLog/" class="link-title">কেস লগ</a></h2><span>Legal Case Report Dashboard</span></div>
+  <div class="box"><h2><a href="https://shorturl.at/8sYxF" class="link-title">উদ্দীপন শাখা ও স্টাফ</a></h2><span>Branch Address, Email, Staff & WhatsApp Number</span></div>
+  <div class="box"><h2><a href="https://nvs.mra.gov.bd/dashboard/" class="link-title">এনআইডি</a></h2><span>Customer NID Check</span></div>
+  <div class="box"><h2><a href="https://everify.bdris.gov.bd/?locale=bn" class="link-title">জন্মনিবন্ধন</a></h2><span>Customer Birth Certificate Check</span></div>
 </div>
 
 <footer>
@@ -220,9 +220,15 @@ function openZone(){
   const url=document.getElementById("zoneSelect").value;
   if(url)window.open(url,"_blank");
   else alert("দয়া করে প্রথমে আপনার জোন নির্বাচন করুন!"); }
+
+// Force all links to open in new tab every time
+document.querySelectorAll('.link-title').forEach(link=>{
+  link.addEventListener('click',function(e){
+    e.preventDefault();
+    window.open(this.href,'_blank');
+  });
+});
 </script>
 
 </body>
 </html>
-
-
