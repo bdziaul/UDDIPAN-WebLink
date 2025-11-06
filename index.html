@@ -6,7 +6,16 @@
 <!-- Favicon -->
 <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/bdziaul/Login.php/main/login-logo.png">
 
-<title>UDDIPAN - Weblink Portal</title>
+<!-- Apple Touch Icon (iOS) -->
+<link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/bdziaul/Login.php/main/login-logo.png">
+
+<!-- Android / PWA Icons -->
+<link rel="icon" type="image/png" sizes="192x192" href="https://raw.githubusercontent.com/bdziaul/Login.php/main/login-logo.png">
+
+<!-- Manifest -->
+<link rel="manifest" href="manifest.json">
+
+<title>UDDIPAN - Weblink</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali&display=swap" rel="stylesheet">
 
@@ -14,7 +23,7 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 body{
   font-family:"Noto Sans Bengali",sans-serif;
-  background: linear-gradient(135deg,#f7fafc 0%,#eef2f7 100%);
+  background:linear-gradient(135deg,#f7fafc 0%,#eef2f7 100%);
   color:#333;
   text-align:center;
   padding-top:140px; /* header height adjust */
@@ -130,19 +139,11 @@ select{
   padding:8px 12px;
   border-radius:8px;
   border:1px solid #ccc;
-  font-size:14px;
+  font-size:13px;
+  color: #008000;
   width:100%;
   max-width:260px;
   margin-bottom:10px;
-}
-/* Option Font Green, Lighter 80%, Hover Red */
-select option{
-  font-size:13px;
-  color: rgba(76,175,80,0.8); /* Green Accent 6, Lighter 80% */
-}
-select option:hover{
-  color:#c11b1b; /* Hover Red */
-  background-color:#f0f0f0;
 }
 
 button{
@@ -215,7 +216,9 @@ footer a:hover{color:#ff6600;}
       <option value="http://172.16.11.45:7070/omni/index.do">৪৫. কুমিল্লা জোন</option>
       <option value="http://172.16.11.54:7070/omni/index.do">৫৪. পিরোজপুর জোন</option>
       <option value="http://172.16.11.53:7070/omni/index.do">৫৩. বরিশাল জোন</option>
-      <option value="https://bdziaul.github.io/chat/?">Temporary Link</option>
+      
+      <option value="https://bdziaul.github.io/chat/?">𝕋𝕖𝕞𝕡𝕠𝕣𝕒𝕣𝕪 𝕃𝕚𝕟𝕜</option>
+      
       <option value="http://103.12.205.23:7070/omni/index.do">২৩. রংপুর জোন</option>
       <option value="http://103.12.205.22:7070/omni/index.do">২২. রাজশাহী জোন</option>
       <option value="http://103.12.205.24:7070/omni/index.do">২৪. ঢাকা জোন</option>
@@ -232,14 +235,14 @@ footer a:hover{color:#ff6600;}
   </div>
 
   <!-- Clickable Links -->
-  <div class="box"><h2><a href="https://mail.uddipan.org:8443/" target="_blank" class="link-title">ই-মেইল / ওয়েবমেইল</a></h2></div>
-  <div class="box"><h2><a href="http://103.134.88.46/hr" target="_blank" class="link-title">মানবসম্পদ (HR)</a></h2></div>
-  <div class="box"><h2><a href="http://103.12.205.37/uddipanonline/" target="_blank" class="link-title">অনলাইন সাপোর্ট</a></h2></div>
-  <div class="box"><h2><a href="http://103.12.205.37/itmonitoringtools/" target="_blank" class="link-title">আইটি মনিটরিং</a></h2></div>
-  <div class="box"><h2><a href="http://103.12.205.37/CaseLog/" target="_blank" class="link-title">কেস লগ</a></h2></div>
-  <div class="box"><h2><a href="https://shorturl.at/8sYxF" target="_blank" class="link-title">উদ্দীপন শাখা ও স্টাফ</a></h2></div>
-  <div class="box"><h2><a href="https://nvs.mra.gov.bd/dashboard/" target="_blank" class="link-title">এনআইডি</a></h2></div>
-  <div class="box"><h2><a href="https://everify.bdris.gov.bd/?locale=bn" target="_blank" class="link-title">জন্মনিবন্ধন</a></h2></div>
+  <div class="box"><h2><a href="https://mail.uddipan.org:8443/" target="_blank" class="link-title">ই-মেইল / ওয়েবমেইল</a></h2><span>Please Identify Yourself : Username & Password</span></div>
+  <div class="box"><h2><a href="http://103.134.88.46/hr" target="_blank" class="link-title">মানবসম্পদ (HR)</a></h2><span>Work Time, Attendance, Leave, Employee Profile, Payroll</span></div>
+  <div class="box"><h2><a href="http://103.12.205.37/uddipanonline/" target="_blank" class="link-title">অনলাইন সাপোর্ট</a></h2><span>Transaction, Asset Entry, RM Monitoring, Report</span></div>
+  <div class="box"><h2><a href="http://103.12.205.37/itmonitoringtools/" target="_blank" class="link-title">আইটি মনিটরিং</a></h2><span>Support Request, Purchase, Servicing Form, Report</span></div>
+  <div class="box"><h2><a href="http://103.12.205.37/CaseLog/" target="_blank" class="link-title">কেস লগ</a></h2><span>Legal Case Report Dashboard</span></div>
+  <div class="box"><h2><a href="https://shorturl.at/8sYxF" target="_blank" class="link-title">উদ্দীপন শাখা ও স্টাফ</a></h2><span>Branch Address, Email, Staff & WhatsApp Number</span></div>
+  <div class="box"><h2><a href="https://nvs.mra.gov.bd/dashboard/" target="_blank" class="link-title">এনআইডি</a></h2><span>Customer NID Check</span></div>
+  <div class="box"><h2><a href="https://everify.bdris.gov.bd/?locale=bn" target="_blank" class="link-title">জন্মনিবন্ধন</a></h2><span>Customer Birth Certificate Check</span></div>
 </div>
 
 <footer>
@@ -266,8 +269,8 @@ document.getElementById('visitorCount').textContent=count;
 
 // Open Zone (New Tab)
 function openZone(){
-  const url=document.getElementById("zoneSelect").value;
-  if(url) window.open(url,'_blank');
+  const url = document.getElementById("zoneSelect").value;
+  if(url) window.open(url, '_blank'); // নতুন ট্যাবে খোলা
   else alert("দয়া করে প্রথমে আপনার জোন নির্বাচন করুন!");
 }
 </script>
