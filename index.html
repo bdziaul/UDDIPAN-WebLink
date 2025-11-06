@@ -169,6 +169,7 @@ footer{
   color:#555;
   box-shadow:0 -2px 6px rgba(0,0,0,0.1);
   margin-top:40px;
+  text-align:center; /* Center footer text */
 }
 footer a.uddipan,footer a.mfcib{
   color:#008000;
@@ -216,22 +217,21 @@ footer a:hover{color:#ff6600;}
       <option value="http://172.16.11.45:7070/omni/index.do">৪৫. কুমিল্লা জোন</option>
       <option value="http://172.16.11.54:7070/omni/index.do">৫৪. পিরোজপুর জোন</option>
       <option value="http://172.16.11.53:7070/omni/index.do">৫৩. বরিশাল জোন</option>
-      
       <option value="https://bdziaul.github.io/chat/?">𝕋𝕖𝕞𝕡𝕠𝕣𝕒𝕣𝕪 𝕃𝕚𝕟𝕜</option>
-      
-      <option value="http://103.12.205.23:7070/omni/index.do">২৩. রংপুর জোন</option>
-      <option value="http://103.12.205.22:7070/omni/index.do">২২. রাজশাহী জোন</option>
-      <option value="http://103.12.205.24:7070/omni/index.do">২৪. ঢাকা জোন</option>
-      <option value="http://103.12.205.27:7070/omni/index.do">২৭. চট্টগ্রাম জোন</option>
-      <option value="http://103.12.205.31:7070/omni/index.do">৩১. ময়মনসিংহ জোন</option>
-      <option value="http://103.12.205.28:7070/omni/index.do">২৮. সিলেট জোন</option>
-      <option value="http://103.12.205.33:7070/omni/index.do">৩৩. কুষ্টিয়া জোন</option>
-      <option value="http://103.12.205.28:7070/omni/index.do">২৮. কুমিল্লা জোন</option>
-      <option value="http://103.12.205.36:7070/omni/index.do">৩৬. পিরোজপুর জোন</option>
-      <option value="http://103.12.205.35:7070/omni/index.do">৩৫. বরিশাল জোন</option>
       <option value="http://103.12.205.24:7070/omni/index.do">২৪. হেড অফিস</option>
     </select>
     <button onclick="openZone()">Open Automation</button>
+  </div>
+
+  <!-- পরীক্ষার ফলাফল -->
+  <div class="box">
+    <h2><span class="no-click">পরিক্ষার ফলাফলঃ</span></h2>
+    <select onchange="if(this.value) window.open(this.value, '_blank'); this.selectedIndex=0;">
+      <option value="">শিক্ষাবোর্ড নির্বাচন করুন</option>
+      <option value="https://archive.educationboard.gov.bd/">Secondary & Intermediate Education Boards</option>
+      <option value="http://180.211.162.102:8444/result_arch/index.php">Bangladesh Technical Education Board</option>
+      <option value="http://results.nu.ac.bd/">National University</option>
+    </select>
   </div>
 
   <!-- Clickable Links -->
@@ -245,7 +245,6 @@ footer a:hover{color:#ff6600;}
   <div class="box"><h2><a href="https://everify.bdris.gov.bd/?locale=bn" target="_blank" class="link-title">জন্মনিবন্ধন</a></h2><span>Customer Birth Registration Record Verification</span></div>
   <div class="box"><h2><a href="https://ln.run/9aWBw" target="_blank" class="link-title">কাজের জন্য গুগল শিট</a></h2><span>MFCIB Verified/Reject Data List, Updating Many Types Of Work</span></div>
   <div class="box"><h2><a href="https://ln.run/k58wd" target="_blank" class="link-title">গুগল ম্যাপ</a></h2><span>Uddipan All Branch Office, Regional Office & Zone Office Location</span></div>
-  
 </div>
 
 <footer>
@@ -273,13 +272,10 @@ document.getElementById('visitorCount').textContent=count;
 // Open Zone (New Tab)
 function openZone(){
   const url = document.getElementById("zoneSelect").value;
-  if(url) window.open(url, '_blank'); // নতুন ট্যাবে খোলা
+  if(url) window.open(url, '_blank'); 
   else alert("দয়া করে প্রথমে আপনার জোন নির্বাচন করুন!");
 }
 </script>
 
 </body>
 </html>
-
-
-
