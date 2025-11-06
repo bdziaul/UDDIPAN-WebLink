@@ -2,146 +2,288 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
+
+<!-- Favicon -->
 <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/bdziaul/Login.php/main/login-logo.png">
-<title>UDDIPAN - Weblink Portal</title>
+
+<!-- Apple Touch Icon (iOS) -->
+<link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/bdziaul/Login.php/main/login-logo.png">
+
+<!-- Android / PWA Icons -->
+<link rel="icon" type="image/png" sizes="192x192" href="https://raw.githubusercontent.com/bdziaul/Login.php/main/login-logo.png">
+
+<!-- Manifest -->
+<link rel="manifest" href="manifest.json">
+
+<title>UDDIPAN - Weblink</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali&display=swap" rel="stylesheet">
+
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Noto Sans Bengali', sans-serif;
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:"Noto Sans Bengali",sans-serif;
+  background:linear-gradient(135deg,#f7fafc 0%,#eef2f7 100%);
+  color:#333;
+  text-align:center;
+  padding-top:140px; /* header height adjust */
 }
-body {
-  background: url('bg.jpg') no-repeat center center fixed;
-  background-size: cover;
+
+/* Header */
+header{
+  position:fixed;
+  top:0;left:0;width:100%;
+  background:#fff;
+  box-shadow:0 3px 8px rgba(0,0,0,0.12);
+  z-index:1000;
+  padding:10px 25px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+}
+header img{height:80px;}
+header h1{
+  font-family:'Times New Roman',serif;
+  font-size:50px;
+  background:linear-gradient(90deg,#008000,#00bfa5);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-shadow:1px 1px 2px rgba(0,0,0,0.15);
+  position:relative;
+  display:inline-block;
+  transition:transform .3s ease;
+  cursor:default;
+}
+header h1::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:-6px;
+  width:100%;
+  height:4px;
+  background:linear-gradient(90deg,#008000,#00bfa5);
+  transform:translateX(-50%) scaleX(0);
+  transform-origin:center;
+  transition:transform .5s ease;
+}
+header h1:hover::after{
+  transform:translateX(-50%) scaleX(1);
+}
+header h1:hover{transform:translateY(-3px);}
+.info-box{text-align:right;font-size:14px;color:#444;}
+.time{font-weight:bold;color:#c11b1b;font-size:15px;}
+.visitor{margin-top:4px;font-size:14px;}
+
+/* Container */
+.container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
+  max-width:1200px;
+  margin:0 auto;
+  padding:20px;
+}
+
+/* Box */
+.box{
+  background:#fff;
+  border-radius:18px;
+  box-shadow:0 3px 10px rgba(0,0,0,0.1);
+  padding:25px 18px;
+  transition:all .3s ease;
+}
+.box:hover{
+  transform:translateY(-6px);
+  box-shadow:0 10px 22px rgba(0,0,0,0.15);
+}
+.box h2{margin-bottom:10px;font-size:28px;}
+.box span:not(.no-click){color:#8B0000;font-size:18px;}
+
+/* Underline Animation */
+.link-title{
+  position:relative;
+  text-decoration:none;
+  color:#0a4d9b;
+  font-weight:600;
+  transition:color .3s ease;
+}
+.link-title::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:-3px;
+  width:100%;
+  height:3px;
+  background-color:currentColor;
+  transform:translateX(-50%) scaleX(0);
+  transform-origin:center;
+  transition:transform .4s ease;
+}
+.link-title:hover::after{
+  transform:translateX(-50%) scaleX(1);
+}
+.link-title:hover{color:#ff6600;}
+
+/* অটোমেশন লিংক */
+.no-click{
+  font-size:28px;
+  font-weight:700;
+  color:#0a4d9b;
+  cursor:default;
+}
+.no-click:hover{text-decoration:underline;}
+
+/* Dropdown & Button */
+select{
+  padding:8px 12px;
+  border-radius:8px;
+  border:1px solid #ccc;
+  font-size:13px;
   color: #008000;
-  text-align: center;
-  padding: 0 10px;
+  width:100%;
+  max-width:260px;
+  margin-bottom:10px;
 }
-header {
-  padding: 20px 0;
+
+button{
+  background:#c11b1b;
+  color:#fff;
+  border:none;
+  border-radius:8px;
+  padding:10px 20px;
+  cursor:pointer;
+  font-size:15px;
+  transition:background .3s ease,transform .2s ease;
 }
-header h1 {
-  font-size: 42px;
-  color: #008000;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  animation: fadeIn 2s ease-in-out;
+button:hover{
+  background:#a11212;
+  transform:translateY(-2px);
 }
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
+
+/* Footer */
+footer{
+  background:#fff;
+  padding:15px;
+  font-size:14px;
+  color:#555;
+  box-shadow:0 -2px 6px rgba(0,0,0,0.1);
+  margin-top:40px;
+  text-align:center; /* ✅ Footer center করা হয়েছে */
 }
-.container {
-  max-width: 700px;
-  margin: 0 auto;
-  background: rgba(255, 255, 255, 0.85);
-  border-radius: 15px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
-  padding: 20px;
+footer a.uddipan,footer a.mfcib{
+  color:#008000;
+  text-decoration:none;
+  font-weight:600;
 }
-.box {
-  margin-bottom: 20px;
-}
-h2 {
-  font-size: 20px;
-  margin-bottom: 10px;
-  color: #006400;
-}
-a, select, button {
-  display: block;
-  margin: 5px auto;
-  text-decoration: none;
-  color: #006400;
-  font-weight: 600;
-  padding: 8px 12px;
-  border: 1px solid #008000;
-  border-radius: 8px;
-  background-color: #f5fff5;
-  transition: all 0.3s ease;
-  font-size: 14px;
-}
-a:hover, select:hover, button:hover {
-  background-color: #008000;
-  color: white;
-}
-select {
-  width: 100%;
-  max-width: 260px;
-}
-footer {
-  text-align: center;
-  font-size: 13px;
-  color: #008000;
-  margin-top: 20px;
-  padding: 10px 0;
-}
-.time, .counter {
-  font-size: 14px;
-  color: #006400;
-  margin-top: 5px;
+footer a:hover{color:#ff6600;}
+
+/* Responsive */
+@media(max-width:800px){
+  header{flex-direction:column;text-align:center;}
+  header h1{font-size:28px;margin:9px 0;}
+  .info-box{text-align:center;margin-top:8px;}
+  .container {grid-template-columns:1fr;padding:9px;}
+  .box {padding:14px 9px;font-size:13px;}
+  select, button {width:100%;font-size:14px;}
+  body {padding-top:230px;} /* মোবাইলের জন্য header height adjust */
 }
 </style>
 </head>
-
 <body>
+
 <header>
+  <img src="https://raw.githubusercontent.com/bdziaul/logo.png/main/Update-uddipan-logo.png" alt="UDDIPAN Logo">
   <h1>UDDIPAN - Weblink Portal</h1>
+  <div class="info-box">
+    <div class="time" id="liveTime">সময় লোড হচ্ছে...</div>
+    <div class="visitor">ভিজিটর সংখ্যা: <span id="visitorCount">0</span></div>
+  </div>
 </header>
 
 <div class="container">
-  <div class="time" id="liveTime"></div>
-  <div class="counter" id="visitorCounter"></div>
-
-  <!-- জোন নির্বাচন -->
+  <!-- অটোমেশন লিংক -->
   <div class="box">
-    <h2><span class="no-click">আপনার জোন নির্বাচন করুন:</span></h2>
-    <select onchange="if(this.value) window.open(this.value, '_blank'); this.selectedIndex=0;">
-      <option value="">Select Zone</option>
-      <option value="https://www.google.com/maps/place/Rangpur">রংপুর জোন</option>
-      <option value="https://www.google.com/maps/place/Rajshahi">রাজশাহী জোন</option>
-      <option value="https://www.google.com/maps/place/Dhaka">ঢাকা জোন</option>
-      <option value="https://www.google.com/maps/place/Chattogram">চট্টগ্রাম জোন</option>
+    <h2><span class="no-click">অটোমেশন লিংক</span></h2>
+    <select id="zoneSelect">
+      <option value="">আপনার জোন নির্বাচন করুন</option>
+      <option value="http://172.16.11.57:7070/omni/index.do">৫৭. রংপুর জোন</option>
+      <option value="http://172.16.11.56:7070/omni/index.do">৫৬. রাজশাহী জোন</option>
+      <option value="http://172.16.11.42:7070/omni/index.do">৪২. ঢাকা জোন</option>
+      <option value="http://172.16.11.48:7070/omni/index.do">৪৮. চট্টগ্রাম জোন</option>
+      <option value="http://172.16.11.50:7070/omni/index.do">৫০. ময়মনসিংহ জোন</option>
+      <option value="http://172.16.11.49:7070/omni/index.do">৪৯. সিলেট জোন</option>
+      <option value="http://172.16.11.52:7070/omni/index.do">৫২. কুষ্টিয়া জোন</option>
+      <option value="http://172.16.11.45:7070/omni/index.do">৪৫. কুমিল্লা জোন</option>
+      <option value="http://172.16.11.54:7070/omni/index.do">৫৪. পিরোজপুর জোন</option>
+      <option value="http://172.16.11.53:7070/omni/index.do">৫৩. বরিশাল জোন</option>
+      
+      <option value="https://bdziaul.github.io/chat/?">𝕋𝕖𝕞𝕡𝕠𝕣𝕒𝕣𝕪 𝕃𝕚𝕟𝕜</option>
+      
+      <option value="http://103.12.205.23:7070/omni/index.do">২৩. রংপুর জোন</option>
+      <option value="http://103.12.205.22:7070/omni/index.do">২২. রাজশাহী জোন</option>
+      <option value="http://103.12.205.24:7070/omni/index.do">২৪. ঢাকা জোন</option>
+      <option value="http://103.12.205.27:7070/omni/index.do">২৭. চট্টগ্রাম জোন</option>
+      <option value="http://103.12.205.31:7070/omni/index.do">৩১. ময়মনসিংহ জোন</option>
+      <option value="http://103.12.205.28:7070/omni/index.do">২৮. সিলেট জোন</option>
+      <option value="http://103.12.205.33:7070/omni/index.do">৩৩. কুষ্টিয়া জোন</option>
+      <option value="http://103.12.205.28:7070/omni/index.do">২৮. কুমিল্লা জোন</option>
+      <option value="http://103.12.205.36:7070/omni/index.do">৩৬. পিরোজপুর জোন</option>
+      <option value="http://103.12.205.35:7070/omni/index.do">৩৫. বরিশাল জোন</option>
+      <option value="http://103.12.205.24:7070/omni/index.do">২৪. হেড অফিস</option>
     </select>
+    <button onclick="openZone()">Open Automation</button>
   </div>
 
-  <!-- গুগল ম্যাপ -->
-  <div class="box">
-    <h2><span class="no-click">গুগল ম্যাপ:</span></h2>
-    <a href="https://maps.google.com" target="_blank">Open Google Map</a>
-  </div>
-
-  <!-- Results Check -->
-  <div class="box">
-    <h2><span class="no-click">RESULTS CHECK:</span></h2>
-    <select onchange="if(this.value) window.open(this.value, '_blank'); this.selectedIndex=0;">
-      <option value="">Select Option</option>
-      <option value="https://www.educationboardresults.gov.bd/">Intermediate and Secondary Education Boards</option>
-      <option value="https://www.bteb.gov.bd/">Bangladesh Technical Education Board</option>
-      <option value="http://archive.educationboard.gov.bd/">Education Board Archive Results</option>
-    </select>
-  </div>
+  <!-- Clickable Links -->
+  <div class="box"><h2><a href="https://mail.uddipan.org:8443/" target="_blank" class="link-title">ই-মেইল / ওয়েবমেইল</a></h2><span>Please Identify Yourself : Username & Password</span></div>
+  <div class="box"><h2><a href="http://103.134.88.46/hr" target="_blank" class="link-title">মানবসম্পদ (HR)</a></h2><span>Work Time, Attendance, Leave, Employee Profile, Payroll</span></div>
+  <div class="box"><h2><a href="http://103.12.205.37/uddipanonline/" target="_blank" class="link-title">অনলাইন সাপোর্ট</a></h2><span>Transaction, Asset Entry, RM Monitoring, Report</span></div>
+  <div class="box"><h2><a href="http://103.12.205.37/dashboard/" target="_blank" class="link-title">ড্যাসবোর্ড</a></h2><span>MFP, Client Feedback, Performer, Trend & Report</span></div>
+  <div class="box"><h2><a href="http://103.12.205.37/itmonitoringtools/" target="_blank" class="link-title">আইটি মনিটরিং</a></h2><span>Support Request, Purchase, Servicing Form, Report</span></div>
+  <div class="box"><h2><a href="https://shorturl.at/8sYxF" target="_blank" class="link-title">উদ্দীপন শাখা ও স্টাফ</a></h2><span>Branch Address, Email, Staff & WhatsApp Number</span></div>
+  <div class="box"><h2><a href="https://nvs.mra.gov.bd/dashboard/" target="_blank" class="link-title">এনআইডি</a></h2><span>Customer NID Check Is For MFCIB Team Only.</span></div>
+  <div class="box"><h2><a href="https://everify.bdris.gov.bd/?locale=bn" target="_blank" class="link-title">জন্মনিবন্ধন</a></h2><span>Customer Birth Registration Record Verification</span></div>
+  <div class="box"><h2><a href="https://ln.run/9aWBw" target="_blank" class="link-title">কাজের জন্য গুগল শিট</a></h2><span>MFCIB Verified/Reject Data List, Updating Many Types Of Work</span></div>
+  <div class="box"><h2><a href="https://ln.run/k58wd" target="_blank" class="link-title">গুগল ম্যাপ</a></h2><span>Uddipan All Branch Office, Regional Office & Zone Office Location</span></div>
+  <div class="box"><h2><span class="no-click">পরিক্ষার ফলাফলঃ</span></h2>
+  <select onchange="if(this.value) window.open(this.value, '_blank'); this.selectedIndex=0;">
+    <option value="">শিক্ষাবোর্ড নির্বাচন করুন</option>
+    <option value="https://archive.educationboard.gov.bd/">Secondary & Intermediate Education Boards</option>
+    <option value="http://180.211.162.102:8444/result_arch/index.php">Bangladesh Technical Education Board</option>
+    <option value="http://results.nu.ac.bd/">National University</option>
+  </select>
 </div>
 
 <footer>
-  © 2025 UDDIPAN | Developed by MFCIB Team
+  © 2025 <a href="https://www.uddipan.org" class="uddipan">UDDIPAN</a> | Developed by <a href="https://www.facebook.com/ziaulz" class="mfcib">MFCIB</a> Team
 </footer>
 
 <script>
-// লাইভ সময় দেখানোর জন্য
-function updateTime() {
-  const now = new Date();
-  document.getElementById('liveTime').innerText = 'বর্তমান সময়: ' + now.toLocaleTimeString('bn-BD');
+// Live Time
+function updateTime(){
+  const now=new Date();
+  const options={weekday:'long',year:'numeric',month:'long',day:'numeric'};
+  const date=now.toLocaleDateString('bn-BD',options);
+  const time=now.toLocaleTimeString('bn-BD');
+  document.getElementById('liveTime').innerHTML=`${date} | ${time}`;
 }
-setInterval(updateTime, 1000);
+setInterval(updateTime,1000);
 updateTime();
 
-// ভিজিটর কাউন্টার
-let count = localStorage.getItem('visitorCount') || 0;
-count++;
-localStorage.setItem('visitorCount', count);
-document.getElementById('visitorCounter').innerText = 'ভিজিটর সংখ্যা: ' + count;
+// Visitor Count
+let count=localStorage.getItem('visitorCount');
+count=count?parseInt(count)+1:1;
+localStorage.setItem('visitorCount',count);
+document.getElementById('visitorCount').textContent=count;
+
+// Open Zone (New Tab)
+function openZone(){
+  const url = document.getElementById("zoneSelect").value;
+  if(url) window.open(url, '_blank');
+  else alert("দয়া করে প্রথমে আপনার জোন নির্বাচন করুন!");
+}
 </script>
+
 </body>
 </html>
