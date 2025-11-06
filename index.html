@@ -223,17 +223,6 @@ footer a:hover{color:#ff6600;}
     <button onclick="openZone()">Open Automation</button>
   </div>
 
-  <!-- পরীক্ষার ফলাফল -->
-  <div class="box">
-    <h2><span class="no-click">পরিক্ষার ফলাফলঃ</span></h2>
-    <select onchange="if(this.value) window.open(this.value, '_blank'); this.selectedIndex=0;">
-      <option value="">শিক্ষাবোর্ড নির্বাচন করুন</option>
-      <option value="https://archive.educationboard.gov.bd/">Secondary & Intermediate Education Boards</option>
-      <option value="http://180.211.162.102:8444/result_arch/index.php">Bangladesh Technical Education Board</option>
-      <option value="http://results.nu.ac.bd/">National University</option>
-    </select>
-  </div>
-
   <!-- Clickable Links -->
   <div class="box"><h2><a href="https://mail.uddipan.org:8443/" target="_blank" class="link-title">ই-মেইল / ওয়েবমেইল</a></h2><span>Please Identify Yourself : Username & Password</span></div>
   <div class="box"><h2><a href="http://103.134.88.46/hr" target="_blank" class="link-title">মানবসম্পদ (HR)</a></h2><span>Work Time, Attendance, Leave, Employee Profile, Payroll</span></div>
@@ -245,7 +234,19 @@ footer a:hover{color:#ff6600;}
   <div class="box"><h2><a href="https://everify.bdris.gov.bd/?locale=bn" target="_blank" class="link-title">জন্মনিবন্ধন</a></h2><span>Customer Birth Registration Record Verification</span></div>
   <div class="box"><h2><a href="https://ln.run/9aWBw" target="_blank" class="link-title">কাজের জন্য গুগল শিট</a></h2><span>MFCIB Verified/Reject Data List, Updating Many Types Of Work</span></div>
   <div class="box"><h2><a href="https://ln.run/k58wd" target="_blank" class="link-title">গুগল ম্যাপ</a></h2><span>Uddipan All Branch Office, Regional Office & Zone Office Location</span></div>
+
+  <!-- পরীক্ষার ফলাফল (শেষে) -->
+  <div class="box">
+    <h2><span class="no-click">পরিক্ষার ফলাফলঃ</span></h2>
+    <select onchange="if(this.value) window.open(this.value, '_blank'); this.selectedIndex=0;">
+      <option value="">শিক্ষাবোর্ড নির্বাচন করুন</option>
+      <option value="https://archive.educationboard.gov.bd/">Secondary & Intermediate Education Boards</option>
+      <option value="http://180.211.162.102:8444/result_arch/index.php">Bangladesh Technical Education Board</option>
+      <option value="http://results.nu.ac.bd/">National University</option>
+    </select>
+  </div>
 </div>
+
 
 <footer>
   © 2025 <a href="https://www.uddipan.org" class="uddipan">UDDIPAN</a> | Developed by <a href="https://www.facebook.com/ziaulz" class="mfcib">MFCIB</a> Team
@@ -279,3 +280,4 @@ function openZone(){
 
 </body>
 </html>
+
