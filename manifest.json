@@ -1,6 +1,6 @@
 {
   "name": "UDDIPAN Weblink",
-  "short_name": "UDPN-WebLink",
+  "short_name": "UDPN WebLink",
   "icons": [
     {
       "src": "https://raw.githubusercontent.com/bdziaul/Login.php/main/login-logo.png",
@@ -18,4 +18,5 @@
   "background_color": "#ffffff",
   "theme_color": "#008000"
 }
+
 
