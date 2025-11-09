@@ -197,19 +197,20 @@ footer a:hover{color:#ff6600;}
   <h1>UDDIPAN - Weblink Portal</h1>
   <div class="info-box">
     <div class="time" id="liveTime">সময় লোড হচ্ছে...</div>
-    // Real-time Online Visitors using PHP
+    <script>
+// Real-time Online Visitors using PHP
 async function updateVisitors() {
   try {
     const response = await fetch('visitors.php'); // PHP থেকে count নেবে
     const count = await response.text();
-    // span এর id "visitorCount" আপডেট করা
-    document.getElementById('visitorCount').textContent = count;
+    document.getElementById('visitorCount').textContent = count; // span update
   } catch(err){
     console.error(err);
   }
 }
 setInterval(updateVisitors,5000); // প্রতি 5 সেকেন্ডে আপডেট
 updateVisitors(); // প্রথম load এ আপডেট
+</script>
     <div class="visitor">ভিজিটর সংখ্যা: <span id="visitorCount">0</span></div>
   </div>
 </header>
@@ -305,6 +306,7 @@ function openZone(){
 
 </body>
 </html>
+
 
 
 
