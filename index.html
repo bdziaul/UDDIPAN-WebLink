@@ -27,6 +27,7 @@ body{
   color:#333;
   text-align:center;
   padding-top:110px;
+  user-select: none; /* text select বন্ধ */
 }
 
 /* Header */
@@ -62,7 +63,7 @@ header h1:hover{
   color:#fff;
   background: linear-gradient(to right, #43A047, #66BB6A);
   box-shadow:0 0 20px rgba(76,175,80,0.8);
-  transform: scaleX(1.15) scaleY(1.05); /* left-right & top-bottom grow */
+  transform: scaleX(1.15) scaleY(1.05);
 }
 
 /* Info box */
@@ -104,7 +105,7 @@ header h1:hover{
 
 /* Normal link */
 .link-title{
-  font-size:28px; /* Default */
+  font-size:28px;
   position:relative;
   text-decoration:none;
   color:#0a4d9b;
@@ -128,12 +129,12 @@ header h1:hover{
 }
 .link-title:hover{
   color:#ff6600;
-  font-size:29px; /* Hover এ বড় হবে */
+  font-size:29px;
 }
 
 /* অটোমেশন লিংক ও পরীক্ষার ফলাফল */
 .no-click {
-  font-size:28px; /* Default */
+  font-size:28px;
   font-weight:700;
   color:#0a4d9b;
   cursor:default;
@@ -154,7 +155,7 @@ header h1:hover{
 }
 .no-click:hover {
   color:#ff6600;
-  font-size:29px; /* Hover এ বড় হবে */
+  font-size:29px;
 }
 .no-click:hover::after {
   transform:translateX(-50%) scaleX(1); 
@@ -221,7 +222,7 @@ footer a:hover{color:#ff6600;}
 }
 </style>
 </head>
-<body>
+<body oncontextmenu="return false">
 
 <header>
   <img src="https://raw.githubusercontent.com/bdziaul/logo.png/main/Update-uddipan-logo.png" alt="UDDIPAN Logo">
@@ -264,17 +265,17 @@ footer a:hover{color:#ff6600;}
     <button class="open-btn" onclick="openZone()">Open Automation</button>
   </div>
 
-  <!-- Clickable Links -->
+  <!-- বাকিগুলো আগের মতোই (unchanged) -->
   <div class="box"><h2><a href="https://mail.uddipan.org:8443/" target="_blank" class="link-title">ই-মেইল / ওয়েবমেইল</a></h2><span>Zimbra Provides Open Source Server & For Messaging, File Collaboration</span></div>
   <div class="box"><h2><a href="http://103.134.88.46/hr" target="_blank" class="link-title">মানবসম্পদ ব্যবস্থাপনা</a></h2><span>Work Time, Attendance, Leave, Employee Profile, Payroll</span></div>
   <div class="box"><h2><a href="http://103.12.205.37/uddipanonline/" target="_blank" class="link-title">উদ্দীপন অনলাইন</a></h2><span>Asset, Budget, Transaction, OTP, Omni Support, RM Monitoring & Report</span></div>
   <div class="box"><h2><a href="http://103.12.205.37/dashboard/" target="_blank" class="link-title">উদ্দীপন ড্যাশবোর্ড</a></h2><span>MFP, Customer Feedback, Performer, Trend & Report</span></div>
   <div class="box"><h2><a href="http://103.12.205.37/itmonitoringtools/" target="_blank" class="link-title">আইটি মনিটরিং</a></h2><span>Support Request, Purchase, Servicing Form, Report</span></div>
   <div class="box"><h2><a href="https://shorturl.at/8sYxF" target="_blank" class="link-title">উদ্দীপন শাখা ও কর্মকর্তাগণ</a></h2><span>Branch Address, Email, Employee WhatsApp & Mobile Number</span></div>
-  <div class="box"><h2><a href="https://nvs.mra.gov.bd/dashboard/" target="_blank" class="link-title">জাতীয় পরিচয়পত্র</a></h2><span>Customer NID Check Is For MFCIB Team Only.</span></div>
+  <div class="box"><h2><a href="https://nvs.mra.gov.bd/dashboard/" target="_blank" class="link-title">জাতীয় পরিচয়পত্র</a></h2><span>Customer NID Check Is For MFCIB Team Only.</span></div>
   <div class="box"><h2><a href="https://everify.bdris.gov.bd/?locale=bn" target="_blank" class="link-title">জন্ম ও মৃত্যু নিবন্ধন</a></h2><span>Customer Birth Registration Record Verification</span></div>
   <div class="box"><h2><a href="https://ln.run/9aWBw" target="_blank" class="link-title">কাজের জন্য গুগল শিট</a></h2><span>MFCIB Verified/Reject Data List, Updating Many Types Of Work</span></div>
-  <div class="box"><h2><a href="https://ln.run/k58wd" target="_blank" class="link-title">উদ্দীপন অফিসের মানচিত্র</a></h2><span>UDDIPAN All Branch Office, Regional Office & Zone Office Location</span></div>
+  <div class="box"><h2><a href="https://ln.run/k58wd" target="_blank" class="link-title">উদ্দীপন অফিসের মানচিত্র</a></h2><span>UDDIPAN All Branch Office, Regional Office & Zone Office Location</span></div>
   <div class="box"><h2><a href="https://www.uddipanprobe.com/" target="_blank" class="link-title">প্রোব স্বাস্থ্যসেবা</a></h2><span>Employee Profile, Service, Doctor, Helth Card, Report</span></div>
   <div class="box"><h2><a href="https://udpnchat.netlify.app/" target="_blank" class="link-title">অনলাইন চ্যাট</a></h2><span>Please Identify Yourself : Username & Password</span></div>
 
@@ -319,9 +320,19 @@ function openZone(){
   if(url) window.open(url, '_blank'); 
   else alert("দয়া করে প্রথমে আপনার জোন নির্বাচন করুন!");
 }
+
+/* === Copy Protection Script === */
+document.addEventListener('keydown', function(e){
+  if(e.ctrlKey && (e.key==='c' || e.key==='u' || e.key==='s' || e.key==='x' || e.key==='a' || e.key==='p' || e.key==='i' || e.key==='j')){
+    e.preventDefault();
+    return false;
+  }
+});
+document.addEventListener('contextmenu', e => e.preventDefault());
+document.addEventListener('selectstart', e => e.preventDefault());
+document.addEventListener('copy', e => e.preventDefault());
+document.addEventListener('cut', e => e.preventDefault());
 </script>
 
 </body>
 </html>
-
-
