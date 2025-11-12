@@ -48,21 +48,24 @@ header h1{
   font-size:50px;
   color:#008000;
   cursor:default;
-  transition:all 0.3s ease;
+  transition:all 0.4s ease;
   text-shadow:1px 1px 2px rgba(0,0,0,0.15);
   display:inline-block;
   padding:6px 12px;
   border-radius:8px;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Hover style like button */
+/* Hover effect for title */
 header h1:hover{
-  background:#4CAF50;
   color:#fff;
-  box-shadow: 0 0 15px rgba(76,175,80,0.8);
-  transform: scale(1.05);
+  background: linear-gradient(to right, #43A047, #66BB6A);
+  box-shadow:0 0 20px rgba(76,175,80,0.8);
+  transform: scaleX(1.15) scaleY(1.05); /* left-right & top-bottom grow */
 }
 
+/* Info box */
 .info-box{text-align:right;font-size:14px;color:#444;}
 .time{font-weight:bold;color:#c11b1b;font-size:15px;}
 .visitor{margin-top:4px;font-size:14px;}
@@ -125,7 +128,7 @@ header h1:hover{
 }
 .link-title:hover{
   color:#ff6600;
-  font-size:30px; /* Hover এ বড় হবে */
+  font-size:29px; /* Hover এ বড় হবে */
 }
 
 /* অটোমেশন লিংক ও পরীক্ষার ফলাফল */
@@ -151,7 +154,7 @@ header h1:hover{
 }
 .no-click:hover {
   color:#ff6600;
-  font-size:30px; /* Hover এ বড় হবে */
+  font-size:29px; /* Hover এ বড় হবে */
 }
 .no-click:hover::after {
   transform:translateX(-50%) scaleX(1); 
@@ -320,3 +323,5 @@ function openZone(){
 
 </body>
 </html>
+
+
