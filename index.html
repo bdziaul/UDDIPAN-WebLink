@@ -48,21 +48,24 @@ header h1{
   font-size:50px;
   color:#008000;
   cursor:default;
-  transition:all 0.3s ease;
+  transition:all 0.4s ease;
   text-shadow:1px 1px 2px rgba(0,0,0,0.15);
   display:inline-block;
-  padding:10px 12px;
+  padding:6px 12px;
   border-radius:8px;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Hover style like button */
+/* Hover effect for title */
 header h1:hover{
-  background:#4CAF50;
   color:#fff;
-  box-shadow: 0 0 15px rgba(76,175,80,0.8);
-  transform: scale(1.05);
+  background: linear-gradient(to right, #43A047, #66BB6A);
+  box-shadow:0 0 20px rgba(76,175,80,0.8);
+  transform: scaleX(1.15) scaleY(1.05); /* left-right & top-bottom grow */
 }
 
+/* Info box */
 .info-box{text-align:right;font-size:14px;color:#444;}
 .time{font-weight:bold;color:#c11b1b;font-size:15px;}
 .visitor{margin-top:4px;font-size:14px;}
@@ -89,24 +92,16 @@ header h1:hover{
   transform:translateY(-6px);
   box-shadow:0 10px 22px rgba(0,0,0,0.15);
 }
-
-/* Headline default font-size */
-.box h2{
-  margin-bottom:10px;
-  font-size:28px;
-}
-
-/* Box span for description */
+.box h2{margin-bottom:10px;font-size:28px;}
 .box span:not(.no-click){color:#8B0000;font-size:18px;}
 
-/* Normal link */
+/* Underline Animation */
 .link-title{
-  font-size:28px; /* Default */
   position:relative;
   text-decoration:none;
   color:#0a4d9b;
   font-weight:600;
-  transition:color .3s ease, font-size .3s ease;
+  transition:color .3s ease;
 }
 .link-title::after{
   content:"";
@@ -125,36 +120,36 @@ header h1:hover{
 }
 .link-title:hover{
   color:#ff6600;
-  font-size:29px; /* Hover এ বড় হবে */
+  font-size:30px;
 }
 
-/* অটোমেশন লিংক ও পরীক্ষার ফলাফল */
-.no-click {
-  font-size:28px; /* Default */
+/* অটোমেশন লিংক */
+.no-click{
+  font-size:28px;
   font-weight:700;
   color:#0a4d9b;
   cursor:default;
   position:relative;
-  transition: color 0.3s ease, font-size 0.3s ease;
+  transition:color 0.3s ease,font-size 0.3s ease;
 }
-.no-click::after {
+.no-click::after{
   content:"";
   position:absolute;
   left:50%;
-  bottom:-5px;
+  bottom:-3px;
   width:100%;
   height:3px;
   background-color:currentColor;
   transform:translateX(-50%) scaleX(0);
   transform-origin:center;
-  transition: transform 0.4s ease;
+  transition:transform 0.4s ease;
 }
-.no-click:hover {
+.no-click:hover{
   color:#ff6600;
-  font-size:29px; /* Hover এ বড় হবে */
+  font-size:30px;
 }
-.no-click:hover::after {
-  transform:translateX(-50%) scaleX(1); 
+.no-click:hover::after{
+  transform:translateX(-50%) scaleX(1);
 }
 
 /* Dropdown & Buttons */
@@ -163,30 +158,29 @@ select{
   border-radius:8px;
   border:1px solid #ccc;
   font-size:13px;
-  color: #008000;
+  color:#008000;
   width:100%;
   max-width:260px;
   margin-bottom:10px;
 }
 
-/* Open Automation Button like Sign In */
+/* Open Automation Button */
 .open-btn {
-  display: inline-block;
-  background: #4CAF50;
-  color: #fff;
-  padding: 10px 12px;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: 0 0 0 rgba(76,175,80,0);
-  transition: all 0.3s ease;
+  display:inline-block;
+  background:#4CAF50;
+  color:#fff;
+  padding:10px 12px;
+  border:none;
+  border-radius:8px;
+  font-size:16px;
+  font-weight:600;
+  cursor:pointer;
+  transition:all 0.3s ease;
 }
 .open-btn:hover {
-  background: #43A047;
-  box-shadow: 0 0 15px rgba(76,175,80,0.8);
-  transform: scale(1.05);
+  background:#43A047;
+  box-shadow:0 0 15px rgba(76,175,80,0.8);
+  transform:scale(1.05);
 }
 
 /* Footer */
@@ -197,7 +191,7 @@ footer{
   color:#555;
   box-shadow:0 -2px 6px rgba(0,0,0,0.1);
   margin-top:40px;
-  text-align:center; 
+  text-align:center;
 }
 footer a.uddipan,footer a.mfcib{
   color:#008000;
@@ -211,10 +205,10 @@ footer a:hover{color:#ff6600;}
   header{flex-direction:column;text-align:center;}
   header h1{font-size:28px;margin:9px 0;}
   .info-box{text-align:center;margin-top:8px;}
-  .container {grid-template-columns:1fr;padding:9px;}
-  .box {padding:14px 9px;font-size:13px;}
-  select, .open-btn {width:100%;font-size:14px;}
-  body {padding-top:230px;} 
+  .container{grid-template-columns:1fr;padding:9px;}
+  .box{padding:14px 9px;font-size:13px;}
+  select,.open-btn{width:100%;font-size:14px;}
+  body{padding-top:230px;}
 }
 </style>
 </head>
@@ -230,7 +224,6 @@ footer a:hover{color:#ff6600;}
 </header>
 
 <div class="container">
-  <!-- অটোমেশন লিংক -->
   <div class="box">
     <h2><span class="no-click">অটোমেশন লিংক</span></h2>
     <select id="zoneSelect">
@@ -261,21 +254,19 @@ footer a:hover{color:#ff6600;}
     <button class="open-btn" onclick="openZone()">Open Automation</button>
   </div>
 
-  <!-- Clickable Links -->
   <div class="box"><h2><a href="https://mail.uddipan.org:8443/" target="_blank" class="link-title">ই-মেইল / ওয়েবমেইল</a></h2><span>Zimbra Provides Open Source Server & For Messaging, File Collaboration</span></div>
   <div class="box"><h2><a href="http://103.134.88.46/hr" target="_blank" class="link-title">মানবসম্পদ ব্যবস্থাপনা</a></h2><span>Work Time, Attendance, Leave, Employee Profile, Payroll</span></div>
   <div class="box"><h2><a href="http://103.12.205.37/uddipanonline/" target="_blank" class="link-title">উদ্দীপন অনলাইন</a></h2><span>Asset, Budget, Transaction, OTP, Omni Support, RM Monitoring & Report</span></div>
   <div class="box"><h2><a href="http://103.12.205.37/dashboard/" target="_blank" class="link-title">উদ্দীপন ড্যাশবোর্ড</a></h2><span>MFP, Customer Feedback, Performer, Trend & Report</span></div>
   <div class="box"><h2><a href="http://103.12.205.37/itmonitoringtools/" target="_blank" class="link-title">আইটি মনিটরিং</a></h2><span>Support Request, Purchase, Servicing Form, Report</span></div>
   <div class="box"><h2><a href="https://shorturl.at/8sYxF" target="_blank" class="link-title">উদ্দীপন শাখা ও কর্মকর্তাগণ</a></h2><span>Branch Address, Email, Employee WhatsApp & Mobile Number</span></div>
-  <div class="box"><h2><a href="https://nvs.mra.gov.bd/dashboard/" target="_blank" class="link-title">জাতীয় পরিচয়পত্র</a></h2><span>Customer NID Check Is For MFCIB Team Only.</span></div>
+  <div class="box"><h2><a href="https://nvs.mra.gov.bd/dashboard/" target="_blank" class="link-title">জাতীয় পরিচয়পত্র</a></h2><span>Customer NID Check Is For MFCIB Team Only.</span></div>
   <div class="box"><h2><a href="https://everify.bdris.gov.bd/?locale=bn" target="_blank" class="link-title">জন্ম ও মৃত্যু নিবন্ধন</a></h2><span>Customer Birth Registration Record Verification</span></div>
   <div class="box"><h2><a href="https://ln.run/9aWBw" target="_blank" class="link-title">কাজের জন্য গুগল শিট</a></h2><span>MFCIB Verified/Reject Data List, Updating Many Types Of Work</span></div>
-  <div class="box"><h2><a href="https://ln.run/k58wd" target="_blank" class="link-title">উদ্দীপন অফিসের মানচিত্র</a></h2><span>UDDIPAN All Branch Office, Regional Office & Zone Office Location</span></div>
+  <div class="box"><h2><a href="https://ln.run/k58wd" target="_blank" class="link-title">উদ্দীপন অফিসের মানচিত্র</a></h2><span>UDDIPAN All Branch Office, Regional Office & Zone Office Location</span></div>
   <div class="box"><h2><a href="https://www.uddipanprobe.com/" target="_blank" class="link-title">প্রোব স্বাস্থ্যসেবা</a></h2><span>Employee Profile, Service, Doctor, Helth Card, Report</span></div>
   <div class="box"><h2><a href="https://udpnchat.netlify.app/" target="_blank" class="link-title">অনলাইন চ্যাট</a></h2><span>Please Identify Yourself : Username & Password</span></div>
 
-  <!-- পরীক্ষার ফলাফল -->
   <div class="box">
     <h2><span class="no-click">পরিক্ষার ফলাফল</span></h2>
     <select onchange="if(this.value) window.open(this.value, '_blank'); this.selectedIndex=0;">
@@ -310,16 +301,13 @@ count=count?parseInt(count)+1:1;
 localStorage.setItem('visitorCount',count);
 document.getElementById('visitorCount').textContent=count;
 
-// Open Zone (New Tab)
+// Open Zone
 function openZone(){
-  const url = document.getElementById("zoneSelect").value;
-  if(url) window.open(url, '_blank'); 
+  const url=document.getElementById("zoneSelect").value;
+  if(url) window.open(url,'_blank');
   else alert("দয়া করে প্রথমে আপনার জোন নির্বাচন করুন!");
 }
 </script>
 
 </body>
 </html>
-
-
-
