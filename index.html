@@ -2,17 +2,9 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
-
-<!-- Favicon -->
 <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/bdziaul/Login.php/main/login-logo.png">
-
-<!-- Apple Touch Icon (iOS) -->
 <link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/bdziaul/Login.php/main/login-logo.png">
-
-<!-- Android / PWA Icons -->
 <link rel="icon" type="image/png" sizes="192x192" href="https://raw.githubusercontent.com/bdziaul/Login.php/main/login-logo.png">
-
-<!-- Manifest -->
 <link rel="manifest" href="manifest.json">
 
 <title>UDDIPAN - Weblink</title>
@@ -26,7 +18,7 @@ body{
   background:linear-gradient(135deg,#f7fafc 0%,#eef2f7 100%);
   color:#333;
   text-align:center;
-  padding-top:110px; /* header height adjust */
+  padding-top:110px;
 }
 
 /* Header */
@@ -50,25 +42,8 @@ header h1{
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   text-shadow:1px 1px 2px rgba(0,0,0,0.15);
-  position:relative;
-  display:inline-block;
-  transition:transform .3s ease;
   cursor:default;
-}
-header h1::after{
-  content:"";
-  position:absolute;
-  left:50%;
-  bottom:-6px;
-  width:100%;
-  height:4px;
-  background:linear-gradient(90deg,#008000,#00bfa5);
-  transform:translateX(-50%) scaleX(0);
-  transform-origin:center;
-  transition:transform .5s ease;
-}
-header h1:hover::after{
-  transform:translateX(-50%) scaleX(1);
+  transition:transform .3s ease;
 }
 header h1:hover{transform:translateY(-3px);}
 .info-box{text-align:right;font-size:14px;color:#444;}
@@ -117,12 +92,9 @@ header h1:hover{transform:translateY(-3px);}
   height:3px;
   background-color:currentColor;
   transform:translateX(-50%) scaleX(0);
-  transform-origin:center;
   transition:transform .4s ease;
 }
-.link-title:hover::after{
-  transform:translateX(-50%) scaleX(1);
-}
+.link-title:hover::after{transform:translateX(-50%) scaleX(1);}
 .link-title:hover{color:#ff6600;}
 
 /* অটোমেশন লিংক */
@@ -134,31 +106,36 @@ header h1:hover{transform:translateY(-3px);}
 }
 .no-click:hover{text-decoration:underline;}
 
-/* Dropdown & Button */
+/* Dropdown */
 select{
   padding:8px 12px;
   border-radius:8px;
   border:1px solid #ccc;
   font-size:13px;
-  color: #008000;
+  color:#008000;
   width:100%;
   max-width:260px;
   margin-bottom:10px;
 }
 
+/* ✅ Login Portal-style Button */
 button{
-  background:#c11b1b;
+  width:100%;
+  background:#4CAF50;
   color:#fff;
+  padding:12px;
   border:none;
   border-radius:8px;
-  padding:10px 20px;
+  font-size:16px;
+  font-weight:600;
   cursor:pointer;
-  font-size:15px;
-  transition:background .3s ease,transform .2s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 0 rgba(76,175,80,0);
 }
 button:hover{
-  background:#a11212;
-  transform:translateY(-2px);
+  background:#43A047;
+  box-shadow: 0 0 15px rgba(76,175,80,0.8);
+  transform: scale(1.05);
 }
 
 /* Footer */
@@ -169,7 +146,7 @@ footer{
   color:#555;
   box-shadow:0 -2px 6px rgba(0,0,0,0.1);
   margin-top:40px;
-  text-align:center; /* Center footer text */
+  text-align:center;
 }
 footer a.uddipan,footer a.mfcib{
   color:#008000;
@@ -186,7 +163,7 @@ footer a:hover{color:#ff6600;}
   .container {grid-template-columns:1fr;padding:9px;}
   .box {padding:14px 9px;font-size:13px;}
   select, button {width:100%;font-size:14px;}
-  body {padding-top:230px;} /* মোবাইলের জন্য header height adjust */
+  body {padding-top:230px;}
 }
 </style>
 </head>
@@ -197,7 +174,7 @@ footer a:hover{color:#ff6600;}
   <h1>UDDIPAN - Weblink Portal</h1>
   <div class="info-box">
     <div class="time" id="liveTime">সময় লোড হচ্ছে...</div>
-        <div class="visitor">ভিজিটের সংখ্যা: <span id="visitorCount">0</span></div>
+    <div class="visitor">ভিজিটের সংখ্যা: <span id="visitorCount">0</span></div>
   </div>
 </header>
 
@@ -218,48 +195,15 @@ footer a:hover{color:#ff6600;}
       <option value="http://172.16.11.54:7070/omni/index.do">৫৪. পিরোজপুর জোন</option>
       <option value="http://172.16.11.53:7070/omni/index.do">৫৩. বরিশাল জোন</option>
       <option value="https://bdziaul.github.io/chat/?">𝕋𝕖𝕞𝕡𝕠𝕣𝕒𝕣𝕪 𝕃𝕚𝕟𝕜</option>
-      <option value="http://103.12.205.23:7070/omni/index.do">২৩. রংপুর জোন</option>
-      <option value="http://103.12.205.22:7070/omni/index.do">২২. রাজশাহী জোন</option>
-      <option value="http://103.12.205.24:7070/omni/index.do">২৪. ঢাকা জোন</option>
-      <option value="http://103.12.205.27:7070/omni/index.do">২৭. চট্টগ্রাম জোন</option>
-      <option value="http://103.12.205.31:7070/omni/index.do">৩১. ময়মনসিংহ জোন</option>
-      <option value="http://103.12.205.28:7070/omni/index.do">২৮. সিলেট জোন</option>
-      <option value="http://103.12.205.33:7070/omni/index.do">৩৩. কুষ্টিয়া জোন</option>
-      <option value="http://103.12.205.28:7070/omni/index.do">২৮. কুমিল্লা জোন</option>
-      <option value="http://103.12.205.36:7070/omni/index.do">৩৬. পিরোজপুর জোন</option>
-      <option value="http://103.12.205.35:7070/omni/index.do">৩৫. বরিশাল জোন</option>
-      <option value="http://103.12.205.24:7070/omni/index.do">২৪. হেড অফিস</option>
     </select>
     <button onclick="openZone()">Open Automation</button>
-    
   </div>
 
-  <!-- Clickable Links -->
+  <!-- Other Links -->
   <div class="box"><h2><a href="https://mail.uddipan.org:8443/" target="_blank" class="link-title">ই-মেইল / ওয়েবমেইল</a></h2><span>Zimbra Provides Open Source Server & For Messaging, File Collaboration</span></div>
   <div class="box"><h2><a href="http://103.134.88.46/hr" target="_blank" class="link-title">মানবসম্পদ ব্যবস্থাপনা</a></h2><span>Work Time, Attendance, Leave, Employee Profile, Payroll</span></div>
   <div class="box"><h2><a href="http://103.12.205.37/uddipanonline/" target="_blank" class="link-title">উদ্দীপন অনলাইন</a></h2><span>Asset, Budget, Transaction, OTP, Omni Support, RM Monitoring & Report</span></div>
   <div class="box"><h2><a href="http://103.12.205.37/dashboard/" target="_blank" class="link-title">উদ্দীপন ড্যাশবোর্ড</a></h2><span>MFP, Customer Feedback, Performer, Trend & Report</span></div>
-  <div class="box"><h2><a href="http://103.12.205.37/itmonitoringtools/" target="_blank" class="link-title">আইটি মনিটরিং</a></h2><span>Support Request, Purchase, Servicing Form, Report</span></div>
-  <div class="box"><h2><a href="https://shorturl.at/8sYxF" target="_blank" class="link-title">উদ্দীপন শাখা ও কর্মকর্তাগণ</a></h2><span>Branch Address, Email, Employee WhatsApp & Mobile Number</span></div>
-  <div class="box"><h2><a href="https://nvs.mra.gov.bd/dashboard/" target="_blank" class="link-title">জাতীয় পরিচয়পত্র</a></h2><span>Customer NID Check Is For MFCIB Team Only.</span></div>
-  <div class="box"><h2><a href="https://everify.bdris.gov.bd/?locale=bn" target="_blank" class="link-title">জন্ম ও মৃত্যু নিবন্ধন</a></h2><span>Customer Birth Registration Record Verification</span></div>
-  <div class="box"><h2><a href="https://ln.run/9aWBw" target="_blank" class="link-title">কাজের জন্য গুগল শিট</a></h2><span>MFCIB Verified/Reject Data List, Updating Many Types Of Work</span></div>
-  <div class="box"><h2><a href="https://ln.run/k58wd" target="_blank" class="link-title">উদ্দীপন অফিসের মানচিত্র</a></h2><span>UDDIPAN All Branch Office, Regional Office & Zone Office Location</span></div>
-  <div class="box"><h2><a href="https://www.uddipanprobe.com/" target="_blank" class="link-title">প্রোব স্বাস্থ্যসেবা</a></h2><span>Employee Profile, Service, Doctor, Helth Card, Report</span></div>
-  <div class="box"><h2><a href="https://udpnchat.netlify.app/" target="_blank" class="link-title">অনলাইন চ্যাট</a></h2><span>Please Identify Yourself : Username & Password</span></div>
-
-
-  <!-- পরীক্ষার ফলাফল (শেষে) -->
-  <div class="box">
-    <h2><span class="no-click">পরিক্ষার ফলাফল</span></h2>
-    <select onchange="if(this.value) window.open(this.value, '_blank'); this.selectedIndex=0;">
-      <option value="">Select Education Board</option>
-      <option value="http://www.educationboardresults.gov.bd/">Secondary & Intermediate Education Boards</option>
-      <option value="http://180.211.162.102:8444/result_arch/index.php">Bangladesh Technical Education Board</option>
-      <option value="http://results.nu.ac.bd/">National University</option>
-      <option value="https://www.eboardresults.com/v2/home">Web Based Result Publication</option>
-    </select>
-  </div>
 </div>
 
 <footer>
@@ -267,7 +211,6 @@ footer a:hover{color:#ff6600;}
 </footer>
 
 <script>
-// Live Time
 function updateTime(){
   const now=new Date();
   const options={weekday:'long',year:'numeric',month:'long',day:'numeric'};
@@ -278,51 +221,17 @@ function updateTime(){
 setInterval(updateTime,1000);
 updateTime();
 
-// Visitor Count
 let count=localStorage.getItem('visitorCount');
 count=count?parseInt(count)+1:1;
 localStorage.setItem('visitorCount',count);
 document.getElementById('visitorCount').textContent=count;
 
-// Open Zone (New Tab)
 function openZone(){
   const url = document.getElementById("zoneSelect").value;
-  if(url) window.open(url, '_blank'); 
+  if(url) window.open(url, '_blank');
   else alert("দয়া করে প্রথমে আপনার জোন নির্বাচন করুন!");
 }
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
