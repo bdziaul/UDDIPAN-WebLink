@@ -3,16 +3,9 @@
 <head>
 <meta charset="UTF-8">
 
-<!-- Favicon -->
 <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/bdziaul/Login.php/main/login-logo.png">
-
-<!-- Apple Touch Icon (iOS) -->
 <link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/bdziaul/Login.php/main/login-logo.png">
-
-<!-- Android / PWA Icons -->
 <link rel="icon" type="image/png" sizes="192x192" href="https://raw.githubusercontent.com/bdziaul/Login.php/main/login-logo.png">
-
-<!-- Manifest -->
 <link rel="manifest" href="manifest.json">
 
 <title>UDDIPAN - Weblink</title>
@@ -48,14 +41,14 @@ header h1{
   font-size:50px;
   color:#008000;
   cursor:default;
-  transition:all 0.3s ease;
   text-shadow:1px 1px 2px rgba(0,0,0,0.15);
   display:inline-block;
   padding:6px 12px;
   border-radius:8px;
+  transition:all 0.3s ease;
 }
 
-/* Hover style like button */
+/* Header hover like button (UDDIPAN - Weblink Portal) */
 header h1:hover{
   background:#4CAF50;
   color:#fff;
@@ -92,15 +85,15 @@ header h1:hover{
 .box h2{margin-bottom:10px;font-size:28px;}
 .box span:not(.no-click){color:#8B0000;font-size:18px;}
 
-/* Underline Animation */
-.link-title{
+/* Hover underline & scale for links */
+.hover-scale{
   position:relative;
   text-decoration:none;
   color:#0a4d9b;
   font-weight:600;
-  transition:color .3s ease;
+  transition: font-size 0.3s ease, color 0.3s ease;
 }
-.link-title::after{
+.hover-scale::after{
   content:"";
   position:absolute;
   left:50%;
@@ -112,21 +105,22 @@ header h1:hover{
   transform-origin:center;
   transition:transform .4s ease;
 }
-.link-title:hover::after{
+.hover-scale:hover::after{
   transform:translateX(-50%) scaleX(1);
 }
-.link-title:hover{color:#ff6600;}
+.hover-scale:hover{color:#ff6600; font-size:32px;}
 
-/* অটোমেশন লিংক */
-.no-click{
+/* অটোমেশন লিংক & পরীক্ষার ফলাফল hover */
+.no-click.hover-scale{
   font-size:28px;
   font-weight:700;
-  color:#0a4d9b;
-  cursor:default;
 }
-.no-click:hover{text-decoration:underline;}
+.no-click.hover-scale:hover{
+  font-size:32px;
+  text-decoration:underline;
+}
 
-/* Dropdown & Buttons */
+/* Dropdown & Open Automation Button */
 select{
   padding:8px 12px;
   border-radius:8px;
@@ -137,8 +131,6 @@ select{
   max-width:260px;
   margin-bottom:10px;
 }
-
-/* Open Automation Button like Sign In */
 .open-btn {
   display: inline-block;
   background: #4CAF50;
@@ -152,7 +144,6 @@ select{
   box-shadow: 0 0 0 rgba(76,175,80,0);
   transition: all 0.3s ease;
 }
-
 .open-btn:hover {
   background: #43A047;
   box-shadow: 0 0 15px rgba(76,175,80,0.8);
@@ -202,7 +193,7 @@ footer a:hover{color:#ff6600;}
 <div class="container">
   <!-- অটোমেশন লিংক -->
   <div class="box">
-    <h2><span class="no-click">অটোমেশন লিংক</span></h2>
+    <h2><span class="no-click hover-scale">অটোমেশন লিংক</span></h2>
     <select id="zoneSelect">
       <option value="">আপনার জোন নির্বাচন করুন</option>
       <option value="http://172.16.11.57:7070/omni/index.do">৫৭. রংপুর জোন</option>
@@ -216,17 +207,6 @@ footer a:hover{color:#ff6600;}
       <option value="http://172.16.11.54:7070/omni/index.do">৫৪. পিরোজপুর জোন</option>
       <option value="http://172.16.11.53:7070/omni/index.do">৫৩. বরিশাল জোন</option>
       <option value="https://bdziaul.github.io/chat/?">Temporary Link</option>
-      <option value="http://103.12.205.23:7070/omni/index.do">২৩. রংপুর জোন</option>
-      <option value="http://103.12.205.22:7070/omni/index.do">২২. রাজশাহী জোন</option>
-      <option value="http://103.12.205.24:7070/omni/index.do">২৪. ঢাকা জোন</option>
-      <option value="http://103.12.205.27:7070/omni/index.do">২৭. চট্টগ্রাম জোন</option>
-      <option value="http://103.12.205.31:7070/omni/index.do">৩১. ময়মনসিংহ জোন</option>
-      <option value="http://103.12.205.28:7070/omni/index.do">২৮. সিলেট জোন</option>
-      <option value="http://103.12.205.33:7070/omni/index.do">৩৩. কুষ্টিয়া জোন</option>
-      <option value="http://103.12.205.28:7070/omni/index.do">২৮. কুমিল্লা জোন</option>
-      <option value="http://103.12.205.36:7070/omni/index.do">৩৬. পিরোজপুর জোন</option>
-      <option value="http://103.12.205.35:7070/omni/index.do">৩৫. বরিশাল জোন</option>
-      <option value="http://103.12.205.24:7070/omni/index.do">২৪. হেড অফিস</option>
     </select>
     <button class="open-btn" onclick="openZone()">Open Automation</button>
   </div>
@@ -247,7 +227,7 @@ footer a:hover{color:#ff6600;}
 
   <!-- পরীক্ষার ফলাফল -->
   <div class="box">
-    <h2><span class="no-click">পরিক্ষার ফলাফল</span></h2>
+    <h2><span class="no-click hover-scale">পরিক্ষার ফলাফল</span></h2>
     <select onchange="if(this.value) window.open(this.value, '_blank'); this.selectedIndex=0;">
       <option value="">Select Education Board</option>
       <option value="http://www.educationboardresults.gov.bd/">Secondary & Intermediate Education Boards</option>
