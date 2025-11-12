@@ -6,14 +6,8 @@
 <!-- Favicon -->
 <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/bdziaul/Login.php/main/login-logo.png">
 
-<!-- Apple Touch Icon (iOS) -->
+<!-- Apple Touch Icon -->
 <link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/bdziaul/Login.php/main/login-logo.png">
-
-<!-- Android / PWA Icons -->
-<link rel="icon" type="image/png" sizes="192x192" href="https://raw.githubusercontent.com/bdziaul/Login.php/main/login-logo.png">
-
-<!-- Manifest -->
-<link rel="manifest" href="manifest.json">
 
 <title>UDDIPAN - Weblink</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -62,7 +56,7 @@ header h1:hover{
   color:#fff;
   background: linear-gradient(to right, #43A047, #66BB6A);
   box-shadow:0 0 20px rgba(76,175,80,0.8);
-  transform: scaleX(1.15) scaleY(1.05); /* left-right & top-bottom grow */
+  transform: scaleX(1.15) scaleY(1.05);
 }
 
 /* Info box */
@@ -95,7 +89,7 @@ header h1:hover{
 .box h2{margin-bottom:10px;font-size:28px;}
 .box span:not(.no-click){color:#8B0000;font-size:18px;}
 
-/* Underline Animation */
+/* Link Titles (Normal Hover = Only Underline) */
 .link-title{
   position:relative;
   text-decoration:none;
@@ -117,10 +111,6 @@ header h1:hover{
 }
 .link-title:hover::after{
   transform:translateX(-50%) scaleX(1);
-}
-.link-title:hover{
-  color:#ff6600;
-  font-size:30px;
 }
 
 /* অটোমেশন লিংক */
@@ -238,22 +228,11 @@ footer a:hover{color:#ff6600;}
       <option value="http://172.16.11.45:7070/omni/index.do">৪৫. কুমিল্লা জোন</option>
       <option value="http://172.16.11.54:7070/omni/index.do">৫৪. পিরোজপুর জোন</option>
       <option value="http://172.16.11.53:7070/omni/index.do">৫৩. বরিশাল জোন</option>
-      <option value="https://bdziaul.github.io/chat/?">Temporary Link</option>
-      <option value="http://103.12.205.23:7070/omni/index.do">২৩. রংপুর জোন</option>
-      <option value="http://103.12.205.22:7070/omni/index.do">২২. রাজশাহী জোন</option>
-      <option value="http://103.12.205.24:7070/omni/index.do">২৪. ঢাকা জোন</option>
-      <option value="http://103.12.205.27:7070/omni/index.do">২৭. চট্টগ্রাম জোন</option>
-      <option value="http://103.12.205.31:7070/omni/index.do">৩১. ময়মনসিংহ জোন</option>
-      <option value="http://103.12.205.28:7070/omni/index.do">২৮. সিলেট জোন</option>
-      <option value="http://103.12.205.33:7070/omni/index.do">৩৩. কুষ্টিয়া জোন</option>
-      <option value="http://103.12.205.28:7070/omni/index.do">২৮. কুমিল্লা জোন</option>
-      <option value="http://103.12.205.36:7070/omni/index.do">৩৬. পিরোজপুর জোন</option>
-      <option value="http://103.12.205.35:7070/omni/index.do">৩৫. বরিশাল জোন</option>
-      <option value="http://103.12.205.24:7070/omni/index.do">২৪. হেড অফিস</option>
     </select>
     <button class="open-btn" onclick="openZone()">Open Automation</button>
   </div>
 
+  <!-- These links will keep their original look -->
   <div class="box"><h2><a href="https://mail.uddipan.org:8443/" target="_blank" class="link-title">ই-মেইল / ওয়েবমেইল</a></h2><span>Zimbra Provides Open Source Server & For Messaging, File Collaboration</span></div>
   <div class="box"><h2><a href="http://103.134.88.46/hr" target="_blank" class="link-title">মানবসম্পদ ব্যবস্থাপনা</a></h2><span>Work Time, Attendance, Leave, Employee Profile, Payroll</span></div>
   <div class="box"><h2><a href="http://103.12.205.37/uddipanonline/" target="_blank" class="link-title">উদ্দীপন অনলাইন</a></h2><span>Asset, Budget, Transaction, OTP, Omni Support, RM Monitoring & Report</span></div>
@@ -266,17 +245,6 @@ footer a:hover{color:#ff6600;}
   <div class="box"><h2><a href="https://ln.run/k58wd" target="_blank" class="link-title">উদ্দীপন অফিসের মানচিত্র</a></h2><span>UDDIPAN All Branch Office, Regional Office & Zone Office Location</span></div>
   <div class="box"><h2><a href="https://www.uddipanprobe.com/" target="_blank" class="link-title">প্রোব স্বাস্থ্যসেবা</a></h2><span>Employee Profile, Service, Doctor, Helth Card, Report</span></div>
   <div class="box"><h2><a href="https://udpnchat.netlify.app/" target="_blank" class="link-title">অনলাইন চ্যাট</a></h2><span>Please Identify Yourself : Username & Password</span></div>
-
-  <div class="box">
-    <h2><span class="no-click">পরিক্ষার ফলাফল</span></h2>
-    <select onchange="if(this.value) window.open(this.value, '_blank'); this.selectedIndex=0;">
-      <option value="">Select Education Board</option>
-      <option value="http://www.educationboardresults.gov.bd/">Secondary & Intermediate Education Boards</option>
-      <option value="http://180.211.162.102:8444/result_arch/index.php">Bangladesh Technical Education Board</option>
-      <option value="http://results.nu.ac.bd/">National University</option>
-      <option value="https://www.eboardresults.com/v2/home">Web Based Result Publication</option>
-    </select>
-  </div>
 </div>
 
 <footer>
