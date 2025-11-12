@@ -146,25 +146,24 @@ select{
   margin-bottom:10px;
 }
 
-.open-btn {
-  width:100%;                       /* Full width */
-  background: rgba(76,175,80,0.7);  /* Green translucent background */
-  color:#fff;                       
+button {
+  width:100%;
+  background:#4CAF50;
+  color:#fff;
   padding:12px;
   border:none;
   border-radius:8px;
   font-size:16px;
   font-weight:600;
   cursor:pointer;
-  backdrop-filter: blur(8px);        /* Glass effect */
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
   transition: all 0.3s ease;
+  box-shadow: 0 0 0 rgba(76,175,80,0);
 }
 
-.open-btn:hover {
-  background: rgba(76,175,80,0.9);
+button:hover {
+  background:#43A047;
+  box-shadow: 0 0 15px rgba(76,175,80,0.8);
   transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(76,175,80,0.6);
 }
 
 /* Footer */
@@ -300,5 +299,6 @@ function openZone(){
 
 </body>
 </html>
+
 
 
