@@ -89,16 +89,24 @@ header h1:hover{
   transform:translateY(-6px);
   box-shadow:0 10px 22px rgba(0,0,0,0.15);
 }
-.box h2{margin-bottom:10px;font-size:28px;}
+
+/* Headline default font-size */
+.box h2{
+  margin-bottom:10px;
+  font-size:28px;
+}
+
+/* Box span for description */
 .box span:not(.no-click){color:#8B0000;font-size:18px;}
 
-/* Underline Animation for normal links */
+/* Normal link */
 .link-title{
+  font-size:28px; /* Default */
   position:relative;
   text-decoration:none;
   color:#0a4d9b;
   font-weight:600;
-  transition:color .3s ease;
+  transition:color .3s ease, font-size .3s ease;
 }
 .link-title::after{
   content:"";
@@ -115,19 +123,20 @@ header h1:hover{
 .link-title:hover::after{
   transform:translateX(-50%) scaleX(1);
 }
-.link-title:hover{color:#ff6600;}
+.link-title:hover{
+  color:#ff6600;
+  font-size:32px; /* Hover এ বড় হবে */
+}
 
-/* অটোমেশন লিংক ও পরিক্ষার ফলাফল - hover effect like other links */
+/* অটোমেশন লিংক ও পরীক্ষার ফলাফল */
 .no-click {
-  font-size:28px;
+  font-size:28px; /* Default */
   font-weight:700;
   color:#0a4d9b;
   cursor:default;
   position:relative;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, font-size 0.3s ease;
 }
-
-/* Underline animation */
 .no-click::after {
   content:"";
   position:absolute;
@@ -140,13 +149,12 @@ header h1:hover{
   transform-origin:center;
   transition: transform 0.4s ease;
 }
-
 .no-click:hover {
-  color:#ff6600; /* Hover color change */
+  color:#ff6600;
+  font-size:32px; /* Hover এ বড় হবে */
 }
-
 .no-click:hover::after {
-  transform:translateX(-50%) scaleX(1); /* Underline grows from center */
+  transform:translateX(-50%) scaleX(1); 
 }
 
 /* Dropdown & Buttons */
@@ -175,7 +183,6 @@ select{
   box-shadow: 0 0 0 rgba(76,175,80,0);
   transition: all 0.3s ease;
 }
-
 .open-btn:hover {
   background: #43A047;
   box-shadow: 0 0 15px rgba(76,175,80,0.8);
