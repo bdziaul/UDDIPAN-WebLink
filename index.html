@@ -326,8 +326,32 @@ document.addEventListener('contextmenu', e => e.preventDefault());
 document.addEventListener('selectstart', e => e.preventDefault());
 document.addEventListener('copy', e => e.preventDefault());
 document.addEventListener('cut', e => e.preventDefault());
+  
+/* === Mouse Idle "Zia" Text === */
+let idleTimer;
+const ziaDiv = document.createElement("div");
+ziaDiv.textContent = "Zia";
+ziaDiv.style.position = "fixed";
+ziaDiv.style.color = "rgba(0,0,0,0.6)";
+ziaDiv.style.fontSize = "16px";
+ziaDiv.style.fontWeight = "600";
+ziaDiv.style.pointerEvents = "none";
+ziaDiv.style.transition = "opacity 0.3s ease";
+ziaDiv.style.opacity = "0";
+document.body.appendChild(ziaDiv);
+
+document.addEventListener("mousemove", (e) => {
+  clearTimeout(idleTimer);
+  ziaDiv.style.opacity = "0";
+  idleTimer = setTimeout(() => {
+    ziaDiv.style.left = e.pageX + 10 + "px";
+    ziaDiv.style.top = e.pageY + 10 + "px";
+    ziaDiv.style.opacity = "1";
+  }, 10000); // 10 seconds
+});  
 </script>
 
 </body>
 </html>
+
 
