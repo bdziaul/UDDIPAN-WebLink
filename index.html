@@ -124,12 +124,16 @@ header h1:hover{
   transform-origin:center;
   transition:transform .4s ease;
 }
-.link-title:hover::after{
-  transform:translateX(-50%) scaleX(1);
+.link-title:hover {
+  background: linear-gradient(45deg, #8B0000, #B22222);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 29px;
 }
-.link-title:hover{
-  color:#ff6600;
-  font-size:29px;
+
+.link-title:hover::after {
+  transform: translateX(-50%) scaleX(1);
+  background: linear-gradient(45deg, #8B0000, #B22222);
 }
 
 /* অটোমেশন লিংক ও পরীক্ষার ফলাফল */
@@ -336,6 +340,7 @@ document.addEventListener('cut', e => e.preventDefault());
 
 </body>
 </html>
+
 
 
 
