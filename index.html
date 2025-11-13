@@ -27,10 +27,8 @@ body{
   color:#333;
   text-align:center;
   padding-top:110px;
-  user-select: none; /* text select বন্ধ */
+  user-select: none;
 }
-
-/* Header */
 header{
   position:fixed;
   top:0;left:0;width:100%;
@@ -57,21 +55,15 @@ header h1{
   position: relative;
   overflow: hidden;
 }
-
-/* Hover effect for title */
 header h1:hover{
   color:#fff;
   background: linear-gradient(to right, #43A047, #66BB6A);
   box-shadow:0 0 20px rgba(76,175,80,0.8);
   transform: scaleX(1.15) scaleY(1.05);
 }
-
-/* Info box */
 .info-box{text-align:right;font-size:14px;color:#444;}
 .time{font-weight:bold;color:#c11b1b;font-size:15px;}
 .visitor{margin-top:4px;font-size:14px;}
-
-/* Container */
 .container{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -80,8 +72,6 @@ header h1:hover{
   margin:0 auto;
   padding:20px;
 }
-
-/* Box */
 .box{
   background:#fff;
   border-radius:18px;
@@ -93,17 +83,8 @@ header h1:hover{
   transform:translateY(-6px);
   box-shadow:0 10px 22px rgba(0,0,0,0.15);
 }
-
-/* Headline default font-size */
-.box h2{
-  margin-bottom:10px;
-  font-size:28px;
-}
-
-/* Box span for description */
+.box h2{margin-bottom:10px;font-size:28px;}
 .box span:not(.no-click){color:#8B0000;font-size:18px;}
-
-/* Normal link */
 .link-title{
   font-size:28px;
   position:relative;
@@ -131,8 +112,6 @@ header h1:hover{
   color:#ff6600;
   font-size:29px;
 }
-
-/* অটোমেশন লিংক ও পরীক্ষার ফলাফল */
 .no-click {
   font-size:28px;
   font-weight:700;
@@ -160,8 +139,6 @@ header h1:hover{
 .no-click:hover::after {
   transform:translateX(-50%) scaleX(1); 
 }
-
-/* Dropdown & Buttons */
 select{
   padding:8px 12px;
   border-radius:8px;
@@ -172,8 +149,6 @@ select{
   max-width:260px;
   margin-bottom:10px;
 }
-
-/* Open Automation Button like Sign In */
 .open-btn {
   display: inline-block;
   background: linear-gradient(45deg, #43A047, #66BB6A);
@@ -192,8 +167,6 @@ select{
   box-shadow: 0 0 15px rgba(76,175,80,0.8);
   transform: scale(1.05);
 }
-
-/* Footer */
 footer{
   background:#fff;
   padding:15px;
@@ -209,8 +182,6 @@ footer a.uddipan,footer a.mfcib{
   font-weight:600;
 }
 footer a:hover{color:#ff6600;}
-
-/* Responsive */
 @media(max-width:800px){
   header{flex-direction:column;text-align:center;}
   header h1{font-size:28px;margin:9px 0;}
@@ -250,39 +221,28 @@ footer a:hover{color:#ff6600;}
       <option value="http://172.16.11.54:7070/omni/index.do">৫৪. পিরোজপুর জোন</option>
       <option value="http://172.16.11.53:7070/omni/index.do">৫৩. বরিশাল জোন</option>
       <option value="https://udpnchat.netlify.app/">Temporary Link</option>
-      <option value="http://103.12.205.23:7070/omni/index.do">২৩. রংপুর জোন</option>
-      <option value="http://103.12.205.22:7070/omni/index.do">২২. রাজশাহী জোন</option>
-      <option value="http://103.12.205.24:7070/omni/index.do">২৪. ঢাকা জোন</option>
-      <option value="http://103.12.205.27:7070/omni/index.do">২৭. চট্টগ্রাম জোন</option>
-      <option value="http://103.12.205.31:7070/omni/index.do">৩১. ময়মনসিংহ জোন</option>
-      <option value="http://103.12.205.28:7070/omni/index.do">২৮. সিলেট জোন</option>
-      <option value="http://103.12.205.33:7070/omni/index.do">৩৩. কুষ্টিয়া জোন</option>
-      <option value="http://103.12.205.28:7070/omni/index.do">২৮. কুমিল্লা জোন</option>
-      <option value="http://103.12.205.36:7070/omni/index.do">৩৬. পিরোজপুর জোন</option>
-      <option value="http://103.12.205.35:7070/omni/index.do">৩৫. বরিশাল জোন</option>
-      <option value="http://103.12.205.24:7070/omni/index.do">২৪. হেড অফিস</option>
     </select>
     <button class="open-btn" onclick="openZone()">Open Automation</button>
   </div>
 
-  <!-- Other Website Link -->
-  <div class="box"><h2><a href="https://mail.uddipan.org:8443/" target="_blank" class="link-title">ই-মেইল / ওয়েবমেইল</a></h2><span>Zimbra Provides Open Source Server & For Messaging, File Collaboration</span></div>
-  <div class="box"><h2><a href="http://103.134.88.46/hr" target="_blank" class="link-title">মানবসম্পদ ব্যবস্থাপনা</a></h2><span>Work Time, Attendance, Leave, Employee Profile, Payroll</span></div>
-  <div class="box"><h2><a href="http://103.12.205.37/uddipanonline/" target="_blank" class="link-title">উদ্দীপন অনলাইন</a></h2><span>Asset, Budget, Transaction, OTP, Omni Support, RM Monitoring & Report</span></div>
-  <div class="box"><h2><a href="http://103.12.205.37/dashboard/" target="_blank" class="link-title">উদ্দীপন ড্যাশবোর্ড</a></h2><span>MFP, Customer Feedback, Performer, Trend & Report</span></div>
-  <div class="box"><h2><a href="http://103.12.205.37/itmonitoringtools/" target="_blank" class="link-title">আইটি মনিটরিং</a></h2><span>Support Request, Purchase, Servicing Form, Report</span></div>
-  <div class="box"><h2><a href="https://shorturl.at/8sYxF" target="_blank" class="link-title">উদ্দীপন শাখা ও কর্মকর্তাগণ</a></h2><span>Branch Address, Email, Employee WhatsApp & Mobile Number</span></div>
-  <div class="box"><h2><a href="https://nvs.mra.gov.bd/dashboard/" target="_blank" class="link-title">জাতীয় পরিচয়পত্র</a></h2><span>Customer NID Check Is For MFCIB Team Only.</span></div>
-  <div class="box"><h2><a href="https://everify.bdris.gov.bd/?locale=bn" target="_blank" class="link-title">জন্ম ও মৃত্যু নিবন্ধন</a></h2><span>Customer Birth Registration Record Verification</span></div>
-  <div class="box"><h2><a href="https://ln.run/9aWBw" target="_blank" class="link-title">কাজের জন্য গুগল শিট</a></h2><span>MFCIB Verified/Reject Data List, Updating Many Types Of Work</span></div>
-  <div class="box"><h2><a href="https://ln.run/k58wd" target="_blank" class="link-title">উদ্দীপন অফিসের মানচিত্র</a></h2><span>UDDIPAN All Branch Office, Regional Office & Zone Office Location</span></div>
-  <div class="box"><h2><a href="https://www.uddipanprobe.com/" target="_blank" class="link-title">প্রোব স্বাস্থ্যসেবা</a></h2><span>Employee Profile, Service, Doctor, Helth Card, Report</span></div>
-  <div class="box"><h2><a href="https://udpnchat.netlify.app/" target="_blank" class="link-title">অনলাইন চ্যাট</a></h2><span>Please Identify Yourself : Username & Password</span></div>
+  <!-- Other Website Links -->
+  <div class="box"><h2><a href="https://mail.uddipan.org:8443/" target="_blank" rel="noopener noreferrer" class="link-title">ই-মেইল / ওয়েবমেইল</a></h2><span>Zimbra Provides Open Source Server & For Messaging, File Collaboration</span></div>
+  <div class="box"><h2><a href="http://103.134.88.46/hr" target="_blank" rel="noopener noreferrer" class="link-title">মানবসম্পদ ব্যবস্থাপনা</a></h2><span>Work Time, Attendance, Leave, Employee Profile, Payroll</span></div>
+  <div class="box"><h2><a href="http://103.12.205.37/uddipanonline/" target="_blank" rel="noopener noreferrer" class="link-title">উদ্দীপন অনলাইন</a></h2><span>Asset, Budget, Transaction, OTP, Omni Support, RM Monitoring & Report</span></div>
+  <div class="box"><h2><a href="http://103.12.205.37/dashboard/" target="_blank" rel="noopener noreferrer" class="link-title">উদ্দীপন ড্যাশবোর্ড</a></h2><span>MFP, Customer Feedback, Performer, Trend & Report</span></div>
+  <div class="box"><h2><a href="http://103.12.205.37/itmonitoringtools/" target="_blank" rel="noopener noreferrer" class="link-title">আইটি মনিটরিং</a></h2><span>Support Request, Purchase, Servicing Form, Report</span></div>
+  <div class="box"><h2><a href="https://shorturl.at/8sYxF" target="_blank" rel="noopener noreferrer" class="link-title">উদ্দীপন শাখা ও কর্মকর্তাগণ</a></h2><span>Branch Address, Email, Employee WhatsApp & Mobile Number</span></div>
+  <div class="box"><h2><a href="https://nvs.mra.gov.bd/dashboard/" target="_blank" rel="noopener noreferrer" class="link-title">জাতীয় পরিচয়পত্র</a></h2><span>Customer NID Check Is For MFCIB Team Only.</span></div>
+  <div class="box"><h2><a href="https://everify.bdris.gov.bd/?locale=bn" target="_blank" rel="noopener noreferrer" class="link-title">জন্ম ও মৃত্যু নিবন্ধন</a></h2><span>Customer Birth Registration Record Verification</span></div>
+  <div class="box"><h2><a href="https://ln.run/9aWBw" target="_blank" rel="noopener noreferrer" class="link-title">কাজের জন্য গুগল শিট</a></h2><span>MFCIB Verified/Reject Data List, Updating Many Types Of Work</span></div>
+  <div class="box"><h2><a href="https://ln.run/k58wd" target="_blank" rel="noopener noreferrer" class="link-title">উদ্দীপন অফিসের মানচিত্র</a></h2><span>UDDIPAN All Branch Office, Regional Office & Zone Office Location</span></div>
+  <div class="box"><h2><a href="https://www.uddipanprobe.com/" target="_blank" rel="noopener noreferrer" class="link-title">প্রোব স্বাস্থ্যসেবা</a></h2><span>Employee Profile, Service, Doctor, Helth Card, Report</span></div>
+  <div class="box"><h2><a href="https://udpnchat.netlify.app/" target="_blank" rel="noopener noreferrer" class="link-title">অনলাইন চ্যাট</a></h2><span>Please Identify Yourself : Username & Password</span></div>
 
   <!-- Examination -->
   <div class="box">
     <h2><span class="no-click">পরিক্ষার ফলাফল</span></h2>
-    <select onchange="if(this.value) window.open(this.value, '_blank'); this.selectedIndex=0;">
+    <select onchange="if(this.value) window.open(this.value, '_blank', 'noopener,noreferrer'); this.selectedIndex=0;">
       <option value="" style="font-weight:bold;">Select Education Board</option>
       <option value="http://www.educationboardresults.gov.bd/">Secondary & Intermediate Education Boards</option>
       <option value="http://180.211.162.102:8444/result_arch/index.php">Bangladesh Technical Education Board</option>
@@ -293,11 +253,10 @@ footer a:hover{color:#ff6600;}
 </div>
 
 <footer>
-  © 2025 <a href="https://www.uddipan.org" target="_blank" class="uddipan">UDDIPAN</a> | Developed by <a href="https://www.facebook.com/ziaulz" target="_blank" class="mfcib">MFCIB</a> Team
+  © 2025 <a href="https://www.uddipan.org" target="_blank" rel="noopener noreferrer" class="uddipan">UDDIPAN</a> | Developed by <a href="https://www.facebook.com/ziaulz" target="_blank" rel="noopener noreferrer" class="mfcib">MFCIB</a> Team
 </footer>
 
 <script>
-// Live Time
 function updateTime(){
   const now=new Date();
   const options={weekday:'long',year:'numeric',month:'long',day:'numeric'};
@@ -308,30 +267,27 @@ function updateTime(){
 setInterval(updateTime,1000);
 updateTime();
 
-// Visitor Count
 let count=localStorage.getItem('visitorCount');
 count=count?parseInt(count)+1:1;
 localStorage.setItem('visitorCount',count);
 document.getElementById('visitorCount').textContent=count;
 
-// Open Zone (New Tab)
 function openZone(){
-  const url = document.getElementById("zoneSelect").value;
-  if(url) window.open(url, '_blank'); 
+  const url=document.getElementById("zoneSelect").value;
+  if(url) window.open(url, '_blank', 'noopener,noreferrer');
   else alert("🚫 দয়া করে প্রথমে আপনার জোন নির্বাচন করুন.....❗");
 }
 
-/* === Copy Protection Script === */
-document.addEventListener('keydown', function(e){
-  if(e.ctrlKey && (e.key==='c' || e.key==='u' || e.key==='s' || e.key==='x' || e.key==='a' || e.key==='p' || e.key==='i' || e.key==='j')){
+document.addEventListener('keydown',function(e){
+  if(e.ctrlKey && ['c','u','s','x','a','p','i','j'].includes(e.key)){
     e.preventDefault();
     return false;
   }
 });
-document.addEventListener('contextmenu', e => e.preventDefault());
-document.addEventListener('selectstart', e => e.preventDefault());
-document.addEventListener('copy', e => e.preventDefault());
-document.addEventListener('cut', e => e.preventDefault());
+document.addEventListener('contextmenu',e=>e.preventDefault());
+document.addEventListener('selectstart',e=>e.preventDefault());
+document.addEventListener('copy',e=>e.preventDefault());
+document.addEventListener('cut',e=>e.preventDefault());
 </script>
 
 </body>
