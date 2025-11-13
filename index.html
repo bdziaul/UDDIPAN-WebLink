@@ -208,6 +208,34 @@ footer a:hover{color:#ff6600;}
   select, .open-btn {width:100%;font-size:14px;}
   body {padding-top:230px;} 
 }
+
+/* --- MOUSE TAG ADDED --- */
+#mouseTag{
+  position:fixed;
+  left:0;
+  top:0;
+  transform: translate(-50%,-120%);
+  pointer-events:none; /* important so it doesn't block clicks */
+  font-weight:700;
+  font-size:14px;
+  color:rgba(0,0,0,0.28); /* light black */
+  padding:6px 8px;
+  border-radius:6px;
+  backdrop-filter: none;
+  transition: opacity 220ms ease, transform 160ms ease;
+  opacity:0;
+  z-index:2000;
+  white-space:nowrap;
+}
+#mouseTag.show{
+  opacity:1;
+}
+#mouseTag.stopped{
+  transform: translate(-50%,-150%) scale(1.05);
+}
+@media (max-width:800px){
+  #mouseTag{ font-size:13px; }
+}
 </style>
 </head>
 <body oncontextmenu="return false">
@@ -220,6 +248,9 @@ footer a:hover{color:#ff6600;}
     <div class="visitor">ভিজিটের সংখ্যা: <span id="visitorCount">0</span></div>
   </div>
 </header>
+
+<!-- Mouse Tag element (added) -->
+<div id="mouseTag">Zia</div>
 
 <div class="container">
   <!-- Automation -->
@@ -326,19 +357,66 @@ document.addEventListener('contextmenu', e => e.preventDefault());
 document.addEventListener('selectstart', e => e.preventDefault());
 document.addEventListener('copy', e => e.preventDefault());
 document.addEventListener('cut', e => e.preventDefault());
+
+/* --- MOUSE TAG LOGIC (added) --- */
+/*
+ Behavior:
+ - follows the cursor while moving (faint "Zia")
+ - when mouse stops (no mousemove for `stopDelay` ms) it adds class 'stopped' (slightly moves/zooms)
+ - fades out after `hideAfter` ms of stop
+ - pointer-events:none so it doesn't interfere with your copy-protection or clicks
+*/
+(function(){
+  const tag = document.getElementById('mouseTag');
+  if(!tag) return;
+
+  let moveTimer = null;
+  let hideTimer = null;
+  const stopDelay = 350; // ms to consider "stopped"
+  const hideAfter = 2200; // ms after stopped to hide
+
+  function showAt(x,y){
+    // position slightly above cursor
+    tag.style.left = x + 'px';
+    tag.style.top = y + 'px';
+    tag.classList.add('show');
+    tag.classList.remove('stopped');
+    // clear any hide timer while moving
+    if(hideTimer){ clearTimeout(hideTimer); hideTimer = null; }
+  }
+
+  function markStoppedAndAutoHide(){
+    tag.classList.add('stopped');
+    // schedule hide
+    if(hideTimer) clearTimeout(hideTimer);
+    hideTimer = setTimeout(()=> {
+      tag.classList.remove('show','stopped');
+      hideTimer = null;
+    }, hideAfter);
+  }
+
+  window.addEventListener('mousemove', function(e){
+    // show and move tag
+    showAt(e.clientX, e.clientY);
+    // debounce to detect stop
+    if(moveTimer) clearTimeout(moveTimer);
+    moveTimer = setTimeout(()=> {
+      markStoppedAndAutoHide();
+      moveTimer = null;
+    }, stopDelay);
+  }, {passive:true});
+
+  // Also show on touch (mobile) when touching
+  window.addEventListener('touchstart', function(e){
+    const t = e.touches[0];
+    if(t) showAt(t.clientX, t.clientY);
+  }, {passive:true});
+  window.addEventListener('touchmove', function(e){
+    const t = e.touches[0];
+    if(t) showAt(t.clientX, t.clientY);
+  }, {passive:true});
+})();
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
