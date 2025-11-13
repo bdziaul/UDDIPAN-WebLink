@@ -327,31 +327,50 @@ document.addEventListener('selectstart', e => e.preventDefault());
 document.addEventListener('copy', e => e.preventDefault());
 document.addEventListener('cut', e => e.preventDefault());
   
-/* === Mouse Idle "Zia" Text === */
+/* === Mouse Idle "Zia" Circular Follow (Green) === */
 let idleTimer;
 const ziaDiv = document.createElement("div");
 ziaDiv.textContent = "Zia";
 ziaDiv.style.position = "fixed";
-ziaDiv.style.color = "rgba((0,128,0,0.3)";
-ziaDiv.style.fontSize = "12px";
-ziaDiv.style.fontWeight = "400";
+ziaDiv.style.color = "rgba(0,128,0,0.3)"; // হালকা সবুজ
+ziaDiv.style.background = "rgba(200,255,200,0.2)"; // হালকা সবুজ গোলাকার ব্যাকগ্রাউন্ড
+ziaDiv.style.borderRadius = "50%"; // গোলাকার
+ziaDiv.style.padding = "8px 12px";
+ziaDiv.style.fontSize = "14px";
+ziaDiv.style.fontWeight = "600";
 ziaDiv.style.pointerEvents = "none";
-ziaDiv.style.transition = "opacity 0.3s ease";
+ziaDiv.style.transition = "opacity 0.3s ease, transform 0.1s linear";
 ziaDiv.style.opacity = "0";
 document.body.appendChild(ziaDiv);
+
+let mouseX = 0, mouseY = 0;
+let angle = 0;
 
 document.addEventListener("mousemove", (e) => {
   clearTimeout(idleTimer);
   ziaDiv.style.opacity = "0";
+  mouseX = e.pageX;
+  mouseY = e.pageY;
+  
   idleTimer = setTimeout(() => {
-    ziaDiv.style.left = e.pageX + 10 + "px";
-    ziaDiv.style.top = e.pageY + 10 + "px";
     ziaDiv.style.opacity = "1";
-  }, 5000); // 5 seconds
-});  
+    // Circular animation
+    function animateZia() {
+      angle += 0.05; // ঘূর্ণনের গতি
+      const radius = 20; // কার্সরের চারপাশ দূরত্ব
+      ziaDiv.style.left = mouseX + radius * Math.cos(angle) + "px";
+      ziaDiv.style.top  = mouseY + radius * Math.sin(angle) + "px";
+      if(ziaDiv.style.opacity == "1"){
+        requestAnimationFrame(animateZia);
+      }
+    }
+    animateZia();
+  }, 5000); // 5 সেকেন্ড idle
+});
 </script>
 
 </body>
 </html>
+
 
 
