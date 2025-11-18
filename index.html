@@ -80,18 +80,23 @@ header h1:hover{
 .box{
   background:#fff;
   border-radius:18px;
-  box-shadow:0 3px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1); /* normal shadow */
   padding:25px 18px;
-  transition:all .3s ease;
+  transition: all 0.3s ease;
+  transform: scale(1);
 }
+
+/* Hover effect: green glow */
 .box:hover{
-  transform:translateY(-6px);
-  box-shadow:0 10px 22px rgba(0,0,0,0.15);
+  box-shadow: 0 0 20px rgba(0,255,0,0.7), 0 0 30px rgba(0,255,0,0.5);
+  transform: scale(1.04); /* চাইলে সামান্য বড়ও হবে */
 }
 
 /* Headline */
-.box h2{ margin-bottom:10px; font-size:28px; }
+.box h2 {margin-bottom:10px; font-size:28px; display:flex; justify-content:center; 
+ align-items:center; padding:10px 0; text-align:center; flex-wrap:wrap;}
 .box span:not(.no-click){color:#8B0000;font-size:18px;}
+.box span{text-align:left;display:block;vertical-align:top;line-height:1.6;}
 
 /* Link style */
 .link-title{
@@ -356,8 +361,8 @@ document.addEventListener("mousemove", (e) => {
     ziaDiv.style.opacity = "1";
     // Circular animation
     function animateZia() {
-      angle += 0.05; // ঘূর্ণনের গতি
-      const radius = 10; // কার্সরের চারপাশ দূরত্ব
+      angle += 0.07; // ঘূর্ণনের গতি
+      const radius = 8; // কার্সরের চারপাশ দূরত্ব
       ziaDiv.style.left = mouseX + radius * Math.cos(angle) + "px";
       ziaDiv.style.top  = mouseY + radius * Math.sin(angle) + "px";
       if(ziaDiv.style.opacity == "1"){
