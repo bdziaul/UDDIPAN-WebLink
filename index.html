@@ -328,59 +328,56 @@ document.addEventListener('copy', e => e.preventDefault());
 document.addEventListener('cut', e => e.preventDefault());
   
 /* === Mouse Idle "Zia" Circular Follow (Green) === */
-let idleTimer;
-const ziaDiv = document.createElement("div");
-ziaDiv.textContent = "Zia";
-ziaDiv.style.position = "fixed";
-ziaDiv.style.color = "rgba(0,128,0,0.3)"; // হালকা সবুজ
-ziaDiv.style.background = "rgba(200,255,200,0.35)"; // হালকা সবুজ গোলাকার ব্যাকগ্রাউন্ড
-ziaDiv.style.borderRadius = "50%"; // গোলাকার
-ziaDiv.style.padding = "8px 12px";
-ziaDiv.style.fontSize = "10px";
-ziaDiv.style.fontWeight = "300";
-ziaDiv.style.pointerEvents = "none";
-ziaDiv.style.transition = "opacity 0.3s ease, transform 0.1s linear";
-ziaDiv.style.opacity = "0";
-document.body.appendChild(ziaDiv);
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Zia Idle Follow</title>
+  <style>
+    body { margin: 0; height: 100vh; }
+  </style>
+</head>
+<body>
 
-let mouseX = 0, mouseY = 0;
-let angle = 0;
+<script>
+let idleTimer, angle = 0, mouseX = 0, mouseY = 0;
+
+const zia = document.createElement("div");
+zia.textContent = "Zia";
+Object.assign(zia.style, {
+  position: "fixed",
+  color: "rgba(0,128,0,0.4)",
+  background: "rgba(200,255,200,0.4)",
+  borderRadius: "50%",
+  padding: "6px 10px",
+  fontSize: "10px",
+  fontWeight: "400",
+  pointerEvents: "none",
+  transition: "opacity 0.3s ease",
+  opacity: "0",
+  transform: "translate(-50%, -50%)"
+});
+document.body.appendChild(zia);
 
 document.addEventListener("mousemove", (e) => {
   clearTimeout(idleTimer);
-  ziaDiv.style.opacity = "0";
+  zia.style.opacity = "0";
   mouseX = e.pageX;
   mouseY = e.pageY;
-  
+
   idleTimer = setTimeout(() => {
-    ziaDiv.style.opacity = "1";
-    // Circular animation
-    function animateZia() {
-      angle += 0.05; // ঘূর্ণনের গতি
-      const radius = 20; // কার্সরের চারপাশ দূরত্ব
-      ziaDiv.style.left = mouseX + radius * Math.cos(angle) + "px";
-      ziaDiv.style.top  = mouseY + radius * Math.sin(angle) + "px";
-      if(ziaDiv.style.opacity == "1"){
-        requestAnimationFrame(animateZia);
-      }
+    zia.style.opacity = "1";
+    function animate() {
+      angle += 0.05;
+      const r = 18;
+      zia.style.left = mouseX + r * Math.cos(angle) + "px";
+      zia.style.top  = mouseY + r * Math.sin(angle) + "px";
+      if (zia.style.opacity === "1") requestAnimationFrame(animate);
     }
-    animateZia();
-  }, 5000); // 5 সেকেন্ড idle
+    animate();
+  }, 5000);
 });
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
