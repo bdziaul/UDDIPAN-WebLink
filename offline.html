@@ -6,102 +6,24 @@
     <title>অফলাইন - UDDIPAN</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali&display=swap" rel="stylesheet">
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Noto Sans Bengali', sans-serif;
-            background: linear-gradient(135deg, #0a1928 0%, #1a2a3a 100%);
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-        }
-        .offline-container {
-            max-width: 90%;
-            padding: 20px;
-            animation: fadeIn 0.5s ease;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .offline-logo {
-            width: 180px;
-            height: auto;
-            margin-bottom: 30px;
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        h1 {
-            color: #43A047;
-            font-size: 36px;
-            margin-bottom: 20px;
-            text-shadow: 0 0 20px rgba(67, 160, 71, 0.5);
-        }
-        p {
-            color: #ccc;
-            font-size: 18px;
-            line-height: 1.6;
-            margin-bottom: 30px;
-        }
-        .offline-btn {
-            background: linear-gradient(45deg, #43A047, #66BB6A);
-            color: #fff;
-            border: none;
-            padding: 15px 35px;
-            font-size: 18px;
-            font-weight: 600;
-            border-radius: 50px;
-            cursor: pointer;
-            box-shadow: 0 5px 20px rgba(67, 160, 71, 0.5);
-            transition: all 0.3s;
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-        .offline-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 25px rgba(67, 160, 71, 0.7);
-        }
-        .offline-btn:active {
-            transform: scale(0.98);
-        }
-        .retry-icon {
-            margin-right: 10px;
-        }
+        body { margin: 0; padding: 0; font-family: 'Noto Sans Bengali', sans-serif; background: linear-gradient(135deg, #0a1928 0%, #1a2a3a 100%); color: #fff; display: flex; justify-content: center; align-items: center; height: 100vh; text-align: center; }
+        .offline-container { max-width: 90%; padding: 20px; animation: fadeIn 0.5s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .offline-logo { width: 180px; height: auto; margin-bottom: 30px; animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+        h1 { color: #43A047; font-size: 36px; margin-bottom: 20px; text-shadow: 0 0 20px rgba(67,160,71,0.5); }
+        p { color: #ccc; font-size: 18px; line-height: 1.6; margin-bottom: 30px; }
+        .offline-btn { background: linear-gradient(45deg, #43A047, #66BB6A); color: #fff; border: none; padding: 15px 35px; font-size: 18px; font-weight: 600; border-radius: 50px; cursor: pointer; box-shadow: 0 5px 20px rgba(67,160,71,0.5); transition: all 0.3s; }
+        .offline-btn:hover { transform: scale(1.05); }
     </style>
 </head>
 <body>
     <div class="offline-container">
-        <img src="/picture/logo.png" alt="UDDIPAN Logo" class="offline-logo" onerror="this.src='https://uddipan.wuaze.com/picture/logo.png'">
+        <img src="picture/logo.png" alt="UDDIPAN Logo" class="offline-logo">
         <h1>📡 আপনি অফলাইনে আছেন</h1>
         <p>ইন্টারনেট সংযোগ নেই। অনুগ্রহ করে আপনার ইন্টারনেট সংযোগ চালু করুন এবং আবার চেষ্টা করুন।</p>
-        <button class="offline-btn" onclick="reconnect()">
-            <span class="retry-icon">🔄</span> পুনরায় সংযোগ পরীক্ষা করুন
-        </button>
+        <button class="offline-btn" onclick="window.location.reload()">🔄 পুনরায় সংযোগ পরীক্ষা করুন</button>
     </div>
-
-    <script>
-        function reconnect() {
-            const btn = document.querySelector('.offline-btn');
-            btn.innerHTML = '⏳ সংযোগ পরীক্ষা করা হচ্ছে...';
-            btn.disabled = true;
-            
-            setTimeout(() => {
-                window.location.reload();
-            }, 1500);
-        }
-        
-        // স্বয়ংক্রিয়ভাবে সংযোগ পরীক্ষা
-        setInterval(() => {
-            if (navigator.onLine) {
-                window.location.reload();
-            }
-        }, 3000);
-    </script>
+    <script>setInterval(() => { if(navigator.onLine) window.location.reload(); }, 3000);</script>
 </body>
 </html>
