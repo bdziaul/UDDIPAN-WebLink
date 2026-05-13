@@ -2,6 +2,9 @@
 <html lang="bn">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google" content="notranslate">
     <title>UDDIPAN - Weblink</title>
@@ -65,7 +68,7 @@
             </div>
         </div>
         
-        <!-- Calendar Widget -->
+        <!-- Monthly Calendar -->
         <div class="tool-item monthly-calendar-tool">
             <div class="tool-header" onclick="toggleTool(this)">
                 <span class="tool-icon">📆</span>
@@ -74,9 +77,9 @@
             </div>
             <div class="tool-body">
                 <div class="calendar-nav">
-                    <button class="month-nav-btn" id="prevMonthBtn" onclick="changeMonth(-1)">◀</button>
+                    <button class="month-nav-btn" onclick="changeMonth(-1)">◀</button>
                     <span class="current-month" id="displayMonthYear">ফেব্রুয়ারি ২০২৬</span>
-                    <button class="month-nav-btn" id="nextMonthBtn" onclick="changeMonth(1)">▶</button>
+                    <button class="month-nav-btn" onclick="changeMonth(1)">▶</button>
                 </div>
                 <div class="calendar-grid" id="monthlyCalendarGrid"></div>
             </div>
@@ -105,7 +108,7 @@
             </div>
         </div>
         
-        <!-- Quick Note Widget -->
+        <!-- Quick Note -->
         <div class="tool-item note-tool">
             <div class="tool-header" onclick="toggleTool(this)">
                 <span class="tool-icon">📝</span>
@@ -123,7 +126,7 @@
             </div>
         </div>
         
-        <!-- Calculator Widget -->
+        <!-- Calculator -->
         <div class="tool-item calculator-tool">
             <div class="tool-header" onclick="toggleTool(this)">
                 <span class="tool-icon">🧮</span>
@@ -177,6 +180,7 @@
             <span id="liveDate">তারিখ লোড হচ্ছে...</span> | 
             <span id="liveClock">সময় লোড হচ্ছে...</span>
         </div>
+        <!-- Histats Counter -->
         <div id="histats_counter" class="no-pointer-events"></div>
     </div>
 </header>
@@ -185,99 +189,83 @@
 <div class="scroll-bani">
     <div class="bani-wrapper">
         <div class="bani-track" id="baniTrack">
-            <div class="bani-text" id="baniText">⭐ ❝ উত্তম চরিত্রের চাইতে বড় মর্যাদা আর নেই ➺ ইবনে হিব্বান ❞ 🌟 ❝ শক্তিশালী সে, যে রাগের সময় নিজেকে নিয়ন্ত্রণে রাখতে পারে ➺ হযরত মোহাম্মদ সাঃ ❞ 💥️ ❝ সব দুঃখের মূল এই দুনিয়ার প্রতি অত্যাধিক আকর্ষণ ➺ হযরত আলী (রাঃ) ❞</div>
+            <div class="bani-text" id="baniText">⭐ ❝ উত্তম চরিত্রের চাইতে বড় মর্যাদা আর নেই ➺ ইবনে হিব্বান ❞ 🌟 ❝ শক্তিশালী সে, যে রাগের সময় নিজেকে নিয়ন্ত্রণে রাখতে পারে ➺ হযরত মোহাম্মদ সাঃ ❞ 💥️ ❝ সব দুঃখের মূল এই দুনিয়ার প্রতি অত্যাধিক আকর্ষণ ➺ হযরত আলী (রাঃ) ❞ ✨ ❝ তুমি মুমিন হবে তখন, যখন তোমার ভালো কাজ তোমাকে আনন্দ দেবে, আর মন্দ কাজ দেবে মনোকষ্ট ➺ আহমদ ❞ 💥 ❝ কাজ নির্ভর করে নিয়্যতের উপর ➺ সহীহ বুখারী ❞ 👉 ❝ যে ভালো কাজের আদেশ করেনা এবং মন্দ কাজ থেকে নিষেধ করেনা, সে আমার লোক নয় ➺ তিরমিযী ❞</div>
         </div>
     </div>
 </div>
 
 <!-- Main Container -->
 <div class="container">
+    <!-- Automation -->
     <div class="box">
         <h2><span class="no-click">অটোমেশন লিংক</span></h2>
-    <select id="zoneSelect">
-      <option value="" style="font-weight:bold; font-size:15px;">আপনার জোন নির্বাচন করুন</option>
-      <option value="http://172.16.11.20:7070/omni/index.do">লিংক নং - ২০</option>
-      <option value="http://103.12.205.23:7070/omni/index.do">লিংক নং - ২৩</option>
-      <option value="http://103.12.205.24:7070/omni/index.do">লিংক নং - ২৪</option>
-      <option value="http://103.12.205.31:7070/omni/index.do">লিংক নং - ৩১</option>
-      <option value="http://172.16.11.57:7070/omni/index.do">৫৭. রংপুর জোন</option>
-      <option value="http://172.16.11.56:7070/omni/index.do">৫৬. রাজশাহী জোন</option>
-      <option value="http://172.16.11.42:7070/omni/index.do">৪২. ঢাকা জোন</option>
-      <option value="http://172.16.11.48:7070/omni/index.do">৪৮. চট্টগ্রাম জোন</option>
-      <option value="http://172.16.11.50:7070/omni/index.do">৫০. ময়মনসিংহ জোন</option>
-      <option value="http://172.16.11.49:7070/omni/index.do">৪৯. সিলেট জোন</option>
-      <option value="http://172.16.11.52:7070/omni/index.do">৫২. কুষ্টিয়া জোন</option>
-      <option value="http://172.16.11.45:7070/omni/index.do">৪৫. কুমিল্লা জোন</option>
-      <option value="http://172.16.11.54:7070/omni/index.do">৫৪. পিরোজপুর জোন</option>
-      <option value="http://172.16.11.53:7070/omni/index.do">৫৩. বরিশাল জোন</option>
-      <option value=""style="font-weight:bold; color:red;">「 ✦ Temporary-Link ✦ 」</option>
-      <option value="http://103.12.205.23:7070/omni/index.do">২৩. রংপুর জোন</option>
-      <option value="http://103.12.205.22:7070/omni/index.do">২২. রাজশাহী জোন</option>
-      <option value="http://103.12.205.24:7070/omni/index.do">২৪. ঢাকা জোন</option>
-      <option value="http://103.12.205.27:7070/omni/index.do">২৭. চট্টগ্রাম জোন</option>
-      <option value="http://103.12.205.31:7070/omni/index.do">৩১. ময়মনসিংহ জোন</option>
-      <option value="http://103.12.205.28:7070/omni/index.do">২৮. সিলেট জোন</option>
-      <option value="http://103.12.205.33:7070/omni/index.do">৩৩. কুষ্টিয়া জোন</option>
-      <option value="http://103.12.205.28:7070/omni/index.do">২৮. কুমিল্লা জোন</option>
-      <option value="http://103.12.205.36:7070/omni/index.do">৩৬. পিরোজপুর জোন</option>
-      <option value="http://103.12.205.35:7070/omni/index.do">৩৫. বরিশাল জোন</option>
-      <option value="http://103.12.205.24:7070/omni/index.do">২৪. হেড অফিস</option>
-    </select>
+        <select id="zoneSelect">
+            <option value="" style="font-weight:bold; font-size:15px;">আপনার জোন নির্বাচন করুন</option>
+            <option value="http://172.16.11.20:7070/omni/index.do">লিংক নং - ২০</option>
+            <option value="http://103.12.205.23:7070/omni/index.do">লিংক নং - ২৩</option>
+            <option value="http://103.12.205.24:7070/omni/index.do">লিংক নং - ২৪</option>
+            <option value="http://103.12.205.31:7070/omni/index.do">লিংক নং - ৩১</option>
+            <option value="http://172.16.11.57:7070/omni/index.do">৫৭. রংপুর জোন</option>
+            <option value="http://172.16.11.56:7070/omni/index.do">৫৬. রাজশাহী জোন</option>
+            <option value="http://172.16.11.42:7070/omni/index.do">৪২. ঢাকা জোন</option>
+            <option value="http://172.16.11.48:7070/omni/index.do">৪৮. চট্টগ্রাম জোন</option>
+            <option value="http://172.16.11.50:7070/omni/index.do">৫০. ময়মনসিংহ জোন</option>
+            <option value="http://172.16.11.49:7070/omni/index.do">৪৯. সিলেট জোন</option>
+            <option value="http://172.16.11.52:7070/omni/index.do">৫২. কুষ্টিয়া জোন</option>
+            <option value="http://172.16.11.45:7070/omni/index.do">৪৫. কুমিল্লা জোন</option>
+            <option value="http://172.16.11.54:7070/omni/index.do">৫৪. পিরোজপুর জোন</option>
+            <option value="http://172.16.11.53:7070/omni/index.do">৫৩. বরিশাল জোন</option>
+            <option value="" style="font-weight:bold; color:red;">「 ✦ Temporary-Link ✦ 」</option>
+            <option value="http://103.12.205.23:7070/omni/index.do">২৩. রংপুর জোন</option>
+            <option value="http://103.12.205.22:7070/omni/index.do">২২. রাজশাহী জোন</option>
+            <option value="http://103.12.205.24:7070/omni/index.do">২৪. ঢাকা জোন</option>
+            <option value="http://103.12.205.27:7070/omni/index.do">২৭. চট্টগ্রাম জোন</option>
+            <option value="http://103.12.205.31:7070/omni/index.do">৩১. ময়মনসিংহ জোন</option>
+            <option value="http://103.12.205.28:7070/omni/index.do">২৮. সিলেট জোন</option>
+            <option value="http://103.12.205.33:7070/omni/index.do">৩৩. কুষ্টিয়া জোন</option>
+            <option value="http://103.12.205.28:7070/omni/index.do">২৮. কুমিল্লা জোন</option>
+            <option value="http://103.12.205.36:7070/omni/index.do">৩৬. পিরোজপুর জোন</option>
+            <option value="http://103.12.205.35:7070/omni/index.do">৩৫. বরিশাল জোন</option>
+            <option value="http://103.12.205.24:7070/omni/index.do">২৪. হেড অফিস</option>
+        </select>
+        <button class="open-btn" onclick="openZone()">Open Automation</button>
+    </div>
 
-    <button class="open-btn" onclick="openZone()">Open Automation</button>
-  </div>
+    <!-- Main Links -->
+    <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://mail.uddipan.org:8443/','_blank')">ই-মেইল / ওয়েবমেইল</div></h2><span>Zimbra: Open-Source, Enterprise E-mail & Collaboration Platform With E-mail, Calendar, Contacts, File Sharing & Chat</span></div>
+    <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('http://172.16.11.23/HR/','_blank')">মানবসম্পদ - ব্যবস্থাপনা</div></h2><span>UDDIPAN HR: Administration, Work Time, Payroll, Attendance, Leave, Self Service, Separation Mgt. & Reports</span></div>
+    <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('http://103.12.205.37/uddipanonline/','_blank')">উদ্দীপন - অনলাইন</div></h2><span>Asset, Budget, Transaction, OTP, Omni Support, RM Monitoring & Report</span></div>
+    <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('http://103.12.205.37/dashboard/','_blank')">উদ্দীপন - ড্যাশবোর্ড</div></h2><span>M.F.P, Customer Feedback, Performer, Trend & Report</span></div>
+    <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('http://103.12.205.37/itmonitoringtools/','_blank')">আইটি - মনিটরিং</div></h2><span>Support Request, Purchase, Servicing Form, Report</span></div>
+    <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('http://103.12.205.37/caselog/','_blank')">উদ্দীপন কেস লগ</div></h2><span>Legal Case Details -/- Disposed Report , Case Management System Dashboard.</span></div>
+    <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://shorturl.at/8sYxF','_blank')">উদ্দীপন শাখা ও কর্মকর্তাগণ</div></h2><span>Branch Address,Email,Employee Mobile & WhatsApp Number</span></div>
+    <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://shorturl.at/wNxsU','_blank')">উদ্দীপন অফিসের মানচিত্র</div></h2><span>UDDIPAN All Branch Office, Regional Office & Zone Office Location</span></div>    
+    <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://nvs.mra.gov.bd/dashboard/','_blank')">জাতীয় - পরিচয়পত্র</div></h2><span>Customar's National ID Card Verification System Check Is For MFCIB Team Only</span></div>
+    <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://everify.bdris.gov.bd/?locale=bn','_blank')">জন্ম ও মৃত্যু নিবন্ধন</div></h2><span>Customer Birth And Death Registration Cretificate Online Verification process</span></div>
+    <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://zia.gt.tc/index.php','_blank')">সিআইবি - ড্যাশবোর্ড</div></h2><span>Customer's National ID Card Or Birth Registration Certificate Storage Room</span></div>
+    <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://sheet.gt.tc/','_blank')">কাজের জন্য শীট পোর্টাল</div></h2><span>NID - Verified And Rejected Data List, Verification & Updating A Lot Of Work</span></div>    
+    <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://uddipan.org/nidcapture/','_blank')">উদ্দীপন ডিজিটাল সার্ভিস</div></h2><span>Explore UDDIPAN, Employee - Portal : ( Loan Application, NID Recheck )</span></div>
+    <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://www.uddipanprobe.com/','_blank')">প্রোব / স্বাস্থ্যসেবা</div></h2><span>Employee Profile, Service, Doctor, Health Card, Report</span></div>
+    <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://sib.mra.gov.bd/','_blank')">এমআরএ - এসআইবি</div></h2><span>User Id, Password, Dashboard, Staff Information, Profile, Resign, Support</span></div>
+    <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://ndb.mra.gov.bd/mfi-dbms/','_blank')">এমআরএ - এমআইএস</div></h2><span>Branch Users, Loan, Savings, Client & Social Welfare, Insurance, Remittance</span></div>
+    <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://pksfmne.streamstech.com','_blank')">পিকেএসএফ - ওয়াশ</div></h2><span>Group Management, Survey, Reporting, Map Viewer & Others</span></div>
+    <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://ziaul.wuaze.com/index.php','_blank')">অনলাইন - চ্যাট</div></h2><span>Wap Online Community. Register To Enjoy Tens Of Unique Features</span></div>    
 
-    <!-- Main Links Section -->
-<div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://mail.uddipan.org:8443/','_blank')">ই-মেইল / ওয়েবমেইল</div></h2><span>Zimbra: Open-Source, Enterprise E-mail & Collaboration &nbsp; Platform With &nbsp; E-mail, Calendar, Contacts, File Sharing & Chat</span></div>
-
-<div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('http://172.16.11.23/HR/','_blank')">মানবসম্পদ - ব্যবস্থাপনা</div></h2><span>UDDIPAN HR:&nbsp;&nbsp; Administration, Work Time, Payroll, Attendance, Leave, Self Service, Separation Mgt. & Reports</span></div>
-
-<div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('http://103.12.205.37/uddipanonline/','_blank')">উদ্দীপন - অনলাইন</div></h2><span>Asset, Budget, Transaction, OTP, Omni Support, RM Monitoring & Report</span></div>
-
-<div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('http://103.12.205.37/dashboard/','_blank')">উদ্দীপন - ড্যাশবোর্ড</div></h2><span>M.F.P, Customer Feedback, Performer, Trend & Report</span></div>
-
-<div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('http://103.12.205.37/itmonitoringtools/','_blank')">আইটি - মনিটরিং</div></h2><span>Support Request, Purchase, Servicing Form, Report</span></div>
-
-<div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('http://103.12.205.37/caselog/','_blank')">উদ্দীপন কেস লগ</div></h2><span>Legal Case Details -/- Disposed Report , Case Management System Dashboard.</span></div>
-    
-<div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://shorturl.at/8sYxF','_blank')">উদ্দীপন শাখা ও কর্মকর্তাগণ</div></h2><span>Branch Address,Email,Employee Mobile & WhatsApp Number</span></div>
-    
-<div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://shorturl.at/wNxsU','_blank')">উদ্দীপন অফিসের মানচিত্র</div></h2><span>UDDIPAN &nbsp; All &nbsp; Branch &nbsp; Office, Regional Office & Zone Office Location</span></div>    
-
-<div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://nvs.mra.gov.bd/dashboard/','_blank')">জাতীয় - পরিচয়পত্র</div></h2><span>Customar's National ID Card Verification System Check Is For MFCIB Team Only</span></div>
-
-<div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://everify.bdris.gov.bd/?locale=bn','_blank')">জন্ম ও মৃত্যু নিবন্ধন</div></h2><span>Customer Birth And Death Registration Cretificate Online Verification process</span></div>
-    
-<div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://zia.gt.tc/index.php','_blank')">সিআইবি - ড্যাশবোর্ড</div></h2><span>Customer's &nbsp; National ID Card Or Birth Registration Certificate Storage Room</span></div>
-    
-<div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://sheet.gt.tc/','_blank')">কাজের জন্য শীট পোর্টাল</div></h2><span>NID -&nbsp; Verified And Rejected Data List, Verification & Updating A Lot Of Work</span></div>    
-
-<div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://uddipan.org/nidcapture/','_blank')">উদ্দীপন ডিজিটাল সার্ভিস</div></h2><span>Explore &nbsp; UDDIPAN, Employee - Portal : &nbsp; ( Loan Application, NID Recheck )</span></div>
-
-<div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://www.uddipanprobe.com/','_blank')">প্রোব / স্বাস্থ্যসেবা</div></h2><span>Employee Profile, Service, Doctor, Health Card, Report</span></div>
-
-<div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://sib.mra.gov.bd/','_blank')">এমআরএ - এসআইবি</div></h2><span>User Id, Password,&nbsp; Dashboard, Staff Information, Profile, Resign, Support</span></div>
-
-<div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://ndb.mra.gov.bd/mfi-dbms/','_blank')">এমআরএ - এমআইএস</div></h2><span>Branch &nbsp; Users, Loan, Savings, Client & Social Welfare, Insurance, Remittance</span></div>
-
-<div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://pksfmne.streamstech.com','_blank')">পিকেএসএফ - ওয়াশ</div></h2><span>Group Management, Survey, Reporting, Map Viewer & Others</span></div>
-    
-<div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://ziaul.wuaze.com/index.php','_blank')">অনলাইন - চ্যাট</div></h2><span>Wap Online Community. Register To Enjoy Tens Of Unique Features</span></div>    
-
-  <!-- Examination -->
-  <div class="box">
-    <h2><span class="no-click">পরিক্ষার ফলাফল</span></h2>
-    <select onchange="if(this.value) window.open(this.value, '_blank', 'noopener,noreferrer'); this.selectedIndex=0;">      
-      <option value="" style="font-weight:bold; font-size:15px;">Select Education Board</option>
-      <option value="http://www.educationboardresults.gov.bd/">Secondary & Intermediate Education Boards</option>
-      <option value="http://180.211.162.102:8444/result_arch/index.php">Bangladesh Technical Education Board</option>
-      <option value="https://result.bou.ac.bd/">Bangladesh Open University</option>
-      <option value="https://bup.edu.bd/result">Bangladesh Academic Result</option>
-      <option value="http://results.nu.ac.bd/">National University</option>
-      <option value="http://result.dghs.gov.bd/mbbs/">MBBS Result</option>
-      <option value="https://www.eboardresults.com/v2/home">Web Based Result Publication</option>
-    </select>
-  </div>
+    <!-- Examination -->
+    <div class="box">
+        <h2><span class="no-click">পরিক্ষার ফলাফল</span></h2>
+        <select onchange="if(this.value) window.open(this.value, '_blank'); this.selectedIndex=0;">
+            <option value="" style="font-weight:bold; font-size:15px;">Select Education Board</option>
+            <option value="http://www.educationboardresults.gov.bd/">Secondary & Intermediate Education Boards</option>
+            <option value="http://180.211.162.102:8444/result_arch/index.php">Bangladesh Technical Education Board</option>
+            <option value="https://result.bou.ac.bd/">Bangladesh Open University</option>
+            <option value="https://bup.edu.bd/result">Bangladesh Academic Result</option>
+            <option value="http://results.nu.ac.bd/">National University</option>
+            <option value="http://result.dghs.gov.bd/mbbs/">MBBS Result</option>
+            <option value="https://www.eboardresults.com/v2/home">Web Based Result Publication</option>
+        </select>
+    </div>
+</div>
 
 <!-- Footer Section -->
 <div class="exact-section">
@@ -292,10 +280,12 @@
                 <p>started functioning from 1984.</p>
             </div>
             <div class="social-media-small">
-                <a href="https://facebook.com/uddipan.org" target="_blank" class="social-icon-small social-fb" title="Facebook">f</a>
+                <a href="https://facebook.com/uddipan.org" target="_blank" class="social-icon-small social-fb" title="Join Uddipan On Facebook">f</a>
+                <a href="https://facebook.com/ziaulz" target="_blank" class="social-icon-small social-fbz" title="Join Ziaul On Facebook">f</a>
                 <a href="https://twitter.com/UDDIPAN_org" target="_blank" class="social-icon-small social-twitter" title="Twitter">𝕏</a>
                 <a href="https://www.linkedin.com/company/uddipan" target="_blank" class="social-icon-small social-linkedin" title="LinkedIn">in</a>
-                <a href="https://www.youtube.com/channel/UCv5buuSHSyE5FXMJN78Lqpg" target="_blank" class="social-icon-small social-youtube" title="YouTube">▶</a>
+                <a href="https://www.youtube.com/channel/UCv5buuSHSyE5FXMJN78Lqpg?sub_confirmation=1" target="_blank" class="social-icon-small social-youtube" title="Join UDDIPAN Channel">▶</a>
+                <a href="https://www.youtube.com/channel/UC49rlxc91MZUqHTgKszR_uA?sub_confirmation=1" target="_blank" class="social-icon-small social-youtubez" title="Join ZiauL Channel">▶</a>
             </div>
         </div>
         <div class="exact-right">
@@ -303,19 +293,26 @@
                 <h4 class="exact-title">About</h4>
                 <a href="https://uddipan.org/index.php/leadership-and-governance/" target="_blank" class="footer-link-item">Board of Directors</a>
                 <a href="https://uddipan.org/index.php/general-body//" target="_blank" class="footer-link-item">General Body</a>
-                <a href="https://uddipan.org/index.php/head-of-departments/" target="_blank" class="footer-link-item">Head of Departments</a>
+                <a href="https://uddipan.org/index.php/message-from-acting-chair/" target="_blank" class="footer-link-item">Message from the Acting Chairman</a>
+                <a href="https://uddipan.org/index.php/head-of-departments/" target="_blank" class="footer-link-item">Head of Departments</a>  
+                <a href="https://uddipan.org/index.php/organogram//" target="_blank" class="footer-link-item">Organogram</a>  
+                <a href="https://uddipan.org/nidcapture" target="_blank" class="footer-link-item">UDDIPAN Digital Service</a>             
             </div>
             <div class="exact-col">
                 <h4 class="exact-title">Information</h4>
                 <a href="https://urel.energy/" target="_blank" class="footer-link-item">UDDIPAN Renewable Energy Limited</a>
                 <a href="https://uddipanagroltd.com/" target="_blank" class="footer-link-item">UDDIPAN Agricultural Limited</a>
                 <a href="https://www.uddipanacademy.com/" target="_blank" class="footer-link-item">UDDIPAN Academy</a>
+                <a href="https://gbsl.com.bd/" target="_blank" class="footer-link-item">Gram Bangla Service LTD.</a>
+                <a href="https://uddipan.org/index.php/health-2//" target="_blank" class="footer-link-item">Health Program</a>
             </div>
             <div class="exact-col">
                 <h4 class="exact-title">Contact</h4>
-                <a href="https://maps.app.goo.gl/5DRVoKLQ7rKCcar79" target="_blank" class="footer-link-item">House - 09, Road - 01, Block -F, Adabar, Dhaka-1200</a>
-                <a href="tel:09612778778" class="footer-link-item">Telephone: 09612 778 778</a>
-                <a href="mailto:info@uddipan.org" class="footer-link-item">E-mail: info@uddipan.org</a>
+                <a href="https://maps.app.goo.gl/5DRVoKLQ7rKCcar79" target="_blank" class="footer-link-item">House - 09, Road - 01, Block -F.Ring Road, Adabar, Dhaka-1200</a>        
+                <a href="tel:09612778778" class="footer-link-item">Telephone : 09612 778 778</a>
+                <a href="tel:16779" class="footer-link-item">Hotline : 16779</a>  
+                <a href="mailto:info@uddipan.org" class="footer-link-item">E-mail : info@uddipan.org</a>  
+                <a href="mailto:udpn@agni.com" class="footer-link-item">E-mail : udpn@agni.com</a> 
             </div>
         </div>
     </div>
@@ -346,24 +343,35 @@ updateTime();
 function openZone() {
     const url = document.getElementById("zoneSelect").value;
     if(url) window.open(url, '_blank');
-    else alert("দয়া করে আপনার জোন নির্বাচন করুন");
+    else alert("🚫 দয়া করে প্রথমে আপনার জোন নির্বাচন করুন.....❗");
 }
 
-// Loading Screen
+// Loading Screen Animation
 let currentProgress = 0;
 let startTime = Date.now();
+let messages = ['Starting...', 'Establishing connection...', 'Loading resources...', 'Almost ready...', 'Finalizing...', 'Complete!'];
+let msgIndex = 0;
 let interval = setInterval(() => {
     let elapsed = Date.now() - startTime;
     currentProgress = Math.min((elapsed / 3000) * 100, 100);
     document.getElementById('progressBar').style.width = currentProgress + '%';
     document.getElementById('loadingPercentage').textContent = Math.floor(currentProgress) + '%';
+    if(currentProgress < 20) msgIndex=0;
+    else if(currentProgress < 40) msgIndex=1;
+    else if(currentProgress < 60) msgIndex=2;
+    else if(currentProgress < 80) msgIndex=3;
+    else if(currentProgress < 100) msgIndex=4;
+    else msgIndex=5;
+    document.getElementById('loadingMessage').textContent = messages[msgIndex];
     if(currentProgress >= 100) {
         clearInterval(interval);
-        document.getElementById('loadingOverlay').classList.add('hidden');
+        setTimeout(() => {
+            document.getElementById('loadingOverlay').classList.add('hidden');
+        }, 500);
     }
 }, 50);
 
-// Dark Mode Toggle
+// Dark Mode
 const darkToggle = document.getElementById('darkModeToggle');
 darkToggle.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
@@ -372,17 +380,18 @@ darkToggle.addEventListener('click', () => {
 });
 if(localStorage.getItem('darkMode') === 'enabled') document.body.classList.add('dark-mode');
 
-// Tools Panel
+// Tools Panel Toggle
 const toolsPanel = document.querySelector('.left-tools-panel');
 document.getElementById('toggleTools').addEventListener('click', () => {
     toolsPanel.classList.toggle('collapsed');
+    document.getElementById('toggleTools').textContent = toolsPanel.classList.contains('collapsed') ? '▶' : '▼';
 });
 
 window.toggleTool = function(header) {
     header.closest('.tool-item').classList.toggle('collapsed');
 };
 
-// Weather
+// Weather API
 const API_KEY = '6122297363e48d7f5b4ddf1b1aeeeecb';
 window.refreshWeather = function() {
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=Dhaka&units=metric&appid=${API_KEY}`)
@@ -392,10 +401,18 @@ window.refreshWeather = function() {
             document.getElementById('weatherCondition').textContent = data.weather[0].description;
             document.getElementById('weatherHumidity').textContent = `আর্দ্রতা: ${data.main.humidity}%`;
             document.getElementById('weatherWind').textContent = `বাতাস: ${data.wind.speed} km/h`;
-            document.getElementById('weatherIcon').textContent = data.weather[0].icon.includes('01') ? '☀️' : '☁️';
-        }).catch(() => console.log('Weather error'));
+            let icon = data.weather[0].icon;
+            if(icon.includes('01')) document.getElementById('weatherIcon').textContent = '☀️';
+            else if(icon.includes('02')) document.getElementById('weatherIcon').textContent = '⛅';
+            else if(icon.includes('09') || icon.includes('10')) document.getElementById('weatherIcon').textContent = '🌧️';
+            else document.getElementById('weatherIcon').textContent = '☁️';
+        }).catch(() => {
+            document.getElementById('weatherTemp').textContent = '--°C';
+            document.getElementById('weatherCondition').textContent = 'সংযোগ ব্যর্থ';
+        });
 };
 refreshWeather();
+setInterval(refreshWeather, 900000);
 
 // Calendar
 let currentDate = new Date();
@@ -411,61 +428,228 @@ function renderCalendar() {
     for(let i = 0; i < firstDay; i++) html += `<div class="grid-cell empty"></div>`;
     for(let d = 1; d <= daysInMonth; d++) {
         let cls = 'grid-cell';
-        if(d === new Date().getDate() && month === new Date().getMonth() && year === new Date().getFullYear()) cls += ' today';
+        let today = new Date();
+        if(d === today.getDate() && month === today.getMonth() && year === today.getFullYear()) cls += ' today';
+        let dayOfWeek = new Date(year, month, d).getDay();
+        if(dayOfWeek === 5 || dayOfWeek === 6) cls += ' weekend';
         html += `<div class="${cls}">${d}</div>`;
     }
     document.getElementById('monthlyCalendarGrid').innerHTML = html;
 }
-window.changeMonth = function(dir) { currentDate.setMonth(currentDate.getMonth() + dir); renderCalendar(); };
+window.changeMonth = function(dir) {
+    currentDate.setMonth(currentDate.getMonth() + dir);
+    renderCalendar();
+    document.getElementById('monthlyCalendarGrid').style.opacity = '0.5';
+    setTimeout(() => document.getElementById('monthlyCalendarGrid').style.opacity = '1', 200);
+};
 renderCalendar();
 
-// Battery
+// Battery Status
 if('getBattery' in navigator) {
-    navigator.getBattery().then(b => {
-        function update() {
-            let level = Math.round(b.level * 100);
+    navigator.getBattery().then(battery => {
+        function updateBattery() {
+            let level = Math.round(battery.level * 100);
             document.getElementById('batteryPercentage').textContent = level + '%';
             document.getElementById('batteryProgress').style.width = level + '%';
-            document.getElementById('batteryStatus').textContent = b.charging ? 'চার্জ হচ্ছে' : 'ব্যাটারি';
-            if(level <= 15 && !b.charging) document.getElementById('batteryWarning').textContent = '⚠️ ব্যাটারি কম!';
+            if(battery.charging) {
+                document.getElementById('batteryIcon').textContent = '⚡';
+                document.getElementById('batteryStatus').textContent = 'চার্জ হচ্ছে';
+            } else {
+                document.getElementById('batteryIcon').textContent = level > 20 ? '🔋' : '🪫';
+                document.getElementById('batteryStatus').textContent = 'ব্যাটারি';
+            }
+            if(level <= 15 && !battery.charging) document.getElementById('batteryWarning').textContent = '⚠️ ব্যাটারি খুব কম!';
+            else if(level <= 5 && !battery.charging) document.getElementById('batteryWarning').textContent = '🔴 চার্জ দিন!';
+            else document.getElementById('batteryWarning').textContent = '';
         }
-        update();
-        b.addEventListener('levelchange', update);
-        b.addEventListener('chargingchange', update);
+        updateBattery();
+        battery.addEventListener('levelchange', updateBattery);
+        battery.addEventListener('chargingchange', updateBattery);
     });
+} else {
+    document.getElementById('batteryPercentage').textContent = '--%';
+    document.getElementById('batteryStatus').textContent = 'সাপোর্ট করে না';
 }
 
-// Note
+// Quick Note
 let noteArea = document.getElementById('noteArea');
-if(localStorage.getItem('quickNote')) noteArea.value = localStorage.getItem('quickNote');
-window.saveNote = function() { localStorage.setItem('quickNote', noteArea.value); document.getElementById('noteStatus').textContent = '✅ সেভ হয়েছে'; setTimeout(() => document.getElementById('noteStatus').textContent = '', 2000); };
-window.clearNote = function() { noteArea.value = ''; localStorage.removeItem('quickNote'); document.getElementById('noteStatus').textContent = '🗑️ ক্লিয়ার'; };
-window.copyNote = function() { navigator.clipboard.writeText(noteArea.value); document.getElementById('noteStatus').textContent = '📋 কপি হয়েছে'; };
+let savedNote = localStorage.getItem('quickNote');
+if(savedNote) noteArea.value = savedNote;
+window.saveNote = function() {
+    localStorage.setItem('quickNote', noteArea.value);
+    document.getElementById('noteStatus').textContent = '✅ নোট সেভ হয়েছে';
+    setTimeout(() => document.getElementById('noteStatus').textContent = '', 2000);
+};
+window.clearNote = function() {
+    noteArea.value = '';
+    localStorage.removeItem('quickNote');
+    document.getElementById('noteStatus').textContent = '🗑️ নোট ক্লিয়ার';
+    setTimeout(() => document.getElementById('noteStatus').textContent = '', 2000);
+};
+window.copyNote = function() {
+    navigator.clipboard.writeText(noteArea.value);
+    document.getElementById('noteStatus').textContent = '📋 কপি হয়েছে';
+    setTimeout(() => document.getElementById('noteStatus').textContent = '', 2000);
+};
 
 // Calculator
-window.appendCalc = function(v) { let d = document.getElementById('calcDisplay'); d.value = d.value === '0' ? v : d.value + v; };
+window.appendCalc = function(val) {
+    let d = document.getElementById('calcDisplay');
+    if(d.value === '0' && val !== '.') d.value = val;
+    else d.value += val;
+};
 window.clearCalc = function() { document.getElementById('calcDisplay').value = '0'; };
-window.backspaceCalc = function() { let d = document.getElementById('calcDisplay'); d.value = d.value.slice(0, -1) || '0'; };
-window.calculateCalc = function() { try { let d = document.getElementById('calcDisplay'); d.value = eval(d.value.replace(/×/g,'*').replace(/÷/g,'/')); } catch { document.getElementById('calcDisplay').value = 'Error'; } };
+window.backspaceCalc = function() {
+    let d = document.getElementById('calcDisplay');
+    d.value = d.value.slice(0, -1) || '0';
+};
+window.calculateCalc = function() {
+    try {
+        let d = document.getElementById('calcDisplay');
+        let expr = d.value.replace(/×/g, '*').replace(/÷/g, '/');
+        d.value = eval(expr);
+    } catch { document.getElementById('calcDisplay').value = 'Error'; }
+};
+
+// Analog Watch
+function initAnalogWatch() {
+    const canvas = document.getElementById('watchCanvas');
+    if(!canvas) return;
+    const ctx = canvas.getContext('2d');
+    canvas.width = 80; canvas.height = 80;
+    function drawWatch() {
+        const now = new Date();
+        let hours = now.getHours();
+        const minutes = now.getMinutes();
+        const seconds = now.getSeconds();
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+        let displayHours = hours % 12 || 12;
+        document.getElementById('digitalTime').textContent = `${displayHours}:${minutes.toString().padStart(2,'0')} ${ampm}`;
+        const w = 80, h = 80;
+        const cx = 40, cy = 40;
+        const rad = 37;
+        ctx.clearRect(0, 0, w, h);
+        const isDark = document.body.classList.contains('dark-mode');
+        ctx.beginPath();
+        ctx.arc(cx, cy, rad, 0, 2 * Math.PI);
+        ctx.fillStyle = isDark ? '#2a2a2a' : '#f0f0f0';
+        ctx.fill();
+        ctx.strokeStyle = isDark ? '#ffaa00' : '#333';
+        ctx.lineWidth = 3;
+        ctx.stroke();
+        ctx.font = 'bold 10px Arial';
+        ctx.fillStyle = isDark ? '#ffaa00' : '#333';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        for(let i = 1; i <= 12; i++) {
+            let angle = (i * 30 - 90) * Math.PI/180;
+            let x = cx + Math.cos(angle) * (rad - 12);
+            let y = cy + Math.sin(angle) * (rad - 12);
+            ctx.fillText(i.toString(), x, y);
+        }
+        let hourAngle = ((hours % 12) * 30 + minutes * 0.5 - 90) * Math.PI/180;
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.lineTo(cx + Math.cos(hourAngle) * 22, cy + Math.sin(hourAngle) * 22);
+        ctx.strokeStyle = isDark ? '#ffaa00' : '#333';
+        ctx.lineWidth = 4;
+        ctx.stroke();
+        let minuteAngle = (minutes * 6 + seconds * 0.1 - 90) * Math.PI/180;
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.lineTo(cx + Math.cos(minuteAngle) * 28, cy + Math.sin(minuteAngle) * 28);
+        ctx.strokeStyle = isDark ? '#ffaa00' : '#666';
+        ctx.lineWidth = 3;
+        ctx.stroke();
+        let secondAngle = (seconds * 6 - 90) * Math.PI/180;
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.lineTo(cx + Math.cos(secondAngle) * 32, cy + Math.sin(secondAngle) * 32);
+        ctx.strokeStyle = '#ff0000';
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(cx, cy, 3, 0, 2 * Math.PI);
+        ctx.fillStyle = isDark ? '#ffaa00' : '#333';
+        ctx.fill();
+    }
+    drawWatch();
+    setInterval(drawWatch, 1000);
+    const observer = new MutationObserver(drawWatch);
+    observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+}
+document.addEventListener('DOMContentLoaded', initAnalogWatch);
+
+// Greeting Message
+function updateGreeting() {
+    const hour = new Date().getHours();
+    const greeting = document.getElementById('greetingMessage');
+    if(hour >= 5 && hour < 12) greeting.textContent = '🌅 শুভ সকাল';
+    else if(hour >= 12 && hour < 16) greeting.textContent = '☀️ শুভ দুপুর';
+    else if(hour >= 16 && hour < 19) greeting.textContent = '🌆 শুভ সন্ধ্যা';
+    else greeting.textContent = '🌙 শুভ রাত্রি';
+}
+updateGreeting();
+setInterval(updateGreeting, 60000);
 
 // Scroll to Top
 const scrollBtn = document.getElementById('scrollToTopBtn');
-window.addEventListener('scroll', () => scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none');
+window.addEventListener('scroll', () => {
+    scrollBtn.style.display = (window.scrollY > 300) ? 'block' : 'none';
+});
 scrollBtn.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
 
 // Network Status
-window.addEventListener('online', () => document.getElementById('networkStatus').style.display = 'none');
-window.addEventListener('offline', () => { document.getElementById('networkStatus').style.display = 'flex'; document.getElementById('statusMessage').textContent = 'আপনি অফলাইনে আছেন'; });
+function updateNetwork() {
+    if(navigator.onLine) {
+        document.getElementById('networkStatus').style.display = 'none';
+    } else {
+        document.getElementById('networkStatus').style.display = 'flex';
+        document.getElementById('statusMessage').textContent = 'আপনি অফলাইনে আছেন !';
+    }
+}
+window.addEventListener('online', updateNetwork);
+window.addEventListener('offline', updateNetwork);
+updateNetwork();
 
 // Histats Counter
-var _Hasync= _Hasync||[];
+var _Hasync = _Hasync || [];
 _Hasync.push(['Histats.start', '1,4993494,4,19,200,40,00000111']);
 _Hasync.push(['Histats.fasi', '1']);
-(function() { var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true; hs.src = '//s10.histats.com/js15_as.js'; document.getElementsByTagName('head')[0].appendChild(hs); })();
+(function() {
+    var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+    hs.src = '//s10.histats.com/js15_as.js';
+    document.getElementsByTagName('head')[0].appendChild(hs);
+})();
+setInterval(function(){ document.getElementById('histats_counter').style.pointerEvents = 'none'; }, 500);
 
-// Disable right click
+// Scrolling Banner Animation
+const track = document.getElementById('baniTrack');
+const textEl = document.getElementById('baniText');
+if(track && textEl) {
+    track.innerHTML = '';
+    for(let i = 0; i < 3; i++) {
+        let clone = textEl.cloneNode(true);
+        track.appendChild(clone);
+    }
+    let scrollPos = window.innerWidth;
+    function animateBanner() {
+        scrollPos -= 0.8;
+        if(scrollPos <= -track.children[0].offsetWidth) scrollPos = window.innerWidth;
+        track.style.transform = `translateX(${scrollPos}px)`;
+        requestAnimationFrame(animateBanner);
+    }
+    animateBanner();
+}
+
+// Security
 document.addEventListener('contextmenu', e => e.preventDefault());
 document.addEventListener('selectstart', e => e.preventDefault());
+document.addEventListener('copy', e => e.preventDefault());
+document.addEventListener('dragstart', e => e.preventDefault());
+document.addEventListener('keydown', e => {
+    if(e.key === 'F12' || (e.ctrlKey && (e.key === 'u' || e.key === 'c' || e.key === 's'))) e.preventDefault();
+});
 </script>
 </body>
 </html>
