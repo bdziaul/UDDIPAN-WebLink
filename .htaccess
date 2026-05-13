@@ -1,0 +1,57 @@
+Options -Indexes
+DirectoryIndex index.php
+
+# ================= PHP SETTINGS =================
+php_flag session.auto_start on
+php_flag display_errors on
+php_value error_reporting E_ALL
+
+php_value upload_max_filesize 10M
+php_value post_max_size 10M
+
+# ================= REMOVE QUERY (?i=1 etc) =================
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+RewriteCond %{QUERY_STRING} (^|&)i=1(&|$) [NC,OR]
+RewriteCond %{QUERY_STRING} (^|&)i=(&|$) [NC]
+RewriteRule ^ %{REQUEST_URI}? [R=301,L,QSD]
+
+</IfModule>
+
+# ================= HEADERS =================
+<IfModule mod_headers.c>
+
+    # HTML/PHP NO CACHE
+    <FilesMatch "\.(html|php)$">
+        Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+        Header set Pragma "no-cache"
+        Header set Expires "0"
+    </FilesMatch>
+
+    # STATIC CACHE (SAFE)
+    <FilesMatch "\.(css|js|png|jpg|jpeg|gif|svg|ico|woff2?)$">
+        Header set Cache-Control "public, max-age=3600"
+    </FilesMatch>
+
+    # SERVICE WORKER NEVER CACHE
+    <Files "service-worker.js">
+        Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+        Header set Pragma "no-cache"
+        Header set Expires "0"
+        Header Set Service-Worker-Allowed "/"
+    </Files>
+
+    # SECURITY
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+</IfModule>
+
+# ================= COMPRESSION =================
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json
+</IfModule>
+
+Options -Indexes
