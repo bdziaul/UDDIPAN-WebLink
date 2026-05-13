@@ -17,10 +17,10 @@
 </head>
 <body>
 
+<!-- Include Loading -->
+<div id="loadingContainer"></div>
 
-    </div>
-</div>
-
+<!-- Dark Mode Button -->
 <button id="darkModeToggle" title="ডার্ক/লাইট মোড">🌙</button>
 
 <!-- Left Tools Panel -->
@@ -158,16 +158,13 @@
             <span id="liveDate">তারিখ লোড হচ্ছে...</span> | 
             <span id="liveClock">সময় লোড হচ্ছে...</span>
         </div>
-        <div id="histats_counter" class="no-pointer-events"></div>
+        <!-- Include Histats -->
+        <div id="histatsContainer"></div>
     </div>
 </header>
 
-<!-- ==================== SCROLLING BANNER / MESSAGE (FIXED) ==================== -->
-<div class="scroll-bani">
-    <div class="bani-wrapper">
-        <div class="bani-track" id="baniTrack"></div>
-    </div>
-</div>
+<!-- Include Scrolling Message -->
+<div id="messageContainer"></div>
 
 <!-- Main Container -->
 <div class="container">
@@ -205,22 +202,22 @@
         <button class="open-btn" onclick="openZone()">Open Automation</button>
     </div>
 
-    <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://mail.uddipan.org:8443/','_blank')">ই-মেইল / ওয়েবমেইল</div></h2><span>Zimbra: Open-Source, Enterprise E-mail & Collaboration Platform With E-mail, Calendar, Contacts, File Sharing & Chat</span></div>
-    <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('http://172.16.11.23/HR/','_blank')">মানবসম্পদ - ব্যবস্থাপনা</div></h2><span>UDDIPAN HR: Administration, Work Time, Payroll, Attendance, Leave, Self Service, Separation Mgt. & Reports</span></div>
-    <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('http://103.12.205.37/uddipanonline/','_blank')">উদ্দীপন - অনলাইন</div></h2><span>Asset, Budget, Transaction, OTP, Omni Support, RM Monitoring & Report</span></div>
+    <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://mail.uddipan.org:8443/','_blank')">ই-মেইল / ওয়েবমেইল</div></h2><span>Zimbra: Open-Source, Enterprise E-mail & Collaboration Platform</span></div>
+    <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('http://172.16.11.23/HR/','_blank')">মানবসম্পদ - ব্যবস্থাপনা</div></h2><span>UDDIPAN HR: Administration, Work Time, Payroll, Attendance</span></div>
+    <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('http://103.12.205.37/uddipanonline/','_blank')">উদ্দীপন - অনলাইন</div></h2><span>Asset, Budget, Transaction, OTP, Omni Support</span></div>
     <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('http://103.12.205.37/dashboard/','_blank')">উদ্দীপন - ড্যাশবোর্ড</div></h2><span>M.F.P, Customer Feedback, Performer, Trend & Report</span></div>
     <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('http://103.12.205.37/itmonitoringtools/','_blank')">আইটি - মনিটরিং</div></h2><span>Support Request, Purchase, Servicing Form, Report</span></div>
-    <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('http://103.12.205.37/caselog/','_blank')">উদ্দীপন কেস লগ</div></h2><span>Legal Case Details -/- Disposed Report , Case Management System Dashboard.</span></div>
-    <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://shorturl.at/8sYxF','_blank')">উদ্দীপন শাখা ও কর্মকর্তাগণ</div></h2><span>Branch Address,Email,Employee Mobile & WhatsApp Number</span></div>
+    <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('http://103.12.205.37/caselog/','_blank')">উদ্দীপন কেস লগ</div></h2><span>Legal Case Details, Disposed Report, Case Management System</span></div>
+    <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://shorturl.at/8sYxF','_blank')">উদ্দীপন শাখা ও কর্মকর্তাগণ</div></h2><span>Branch Address, Email, Employee Mobile & WhatsApp Number</span></div>
     <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://shorturl.at/wNxsU','_blank')">উদ্দীপন অফিসের মানচিত্র</div></h2><span>UDDIPAN All Branch Office, Regional Office & Zone Office Location</span></div>    
-    <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://nvs.mra.gov.bd/dashboard/','_blank')">জাতীয় - পরিচয়পত্র</div></h2><span>Customar's National ID Card Verification System Check Is For MFCIB Team Only</span></div>
-    <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://everify.bdris.gov.bd/?locale=bn','_blank')">জন্ম ও মৃত্যু নিবন্ধন</div></h2><span>Customer Birth And Death Registration Cretificate Online Verification process</span></div>
+    <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://nvs.mra.gov.bd/dashboard/','_blank')">জাতীয় - পরিচয়পত্র</div></h2><span>Customer's National ID Card Verification System</span></div>
+    <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://everify.bdris.gov.bd/?locale=bn','_blank')">জন্ম ও মৃত্যু নিবন্ধন</div></h2><span>Customer Birth And Death Registration Certificate Online Verification</span></div>
     <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://zia.gt.tc/index.php','_blank')">সিআইবি - ড্যাশবোর্ড</div></h2><span>Customer's National ID Card Or Birth Registration Certificate Storage Room</span></div>
-    <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://sheet.gt.tc/','_blank')">কাজের জন্য শীট পোর্টাল</div></h2><span>NID - Verified And Rejected Data List, Verification & Updating A Lot Of Work</span></div>    
-    <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://uddipan.org/nidcapture/','_blank')">উদ্দীপন ডিজিটাল সার্ভিস</div></h2><span>Explore UDDIPAN, Employee - Portal : ( Loan Application, NID Recheck )</span></div>
+    <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://sheet.gt.tc/','_blank')">কাজের জন্য শীট পোর্টাল</div></h2><span>NID - Verified And Rejected Data List, Verification & Updating</span></div>    
+    <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://uddipan.org/nidcapture/','_blank')">উদ্দীপন ডিজিটাল সার্ভিস</div></h2><span>Explore UDDIPAN Employee Portal: Loan Application, NID Recheck</span></div>
     <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://www.uddipanprobe.com/','_blank')">প্রোব / স্বাস্থ্যসেবা</div></h2><span>Employee Profile, Service, Doctor, Health Card, Report</span></div>
-    <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://sib.mra.gov.bd/','_blank')">এমআরএ - এসআইবি</div></h2><span>User Id, Password, Dashboard, Staff Information, Profile, Resign, Support</span></div>
-    <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://ndb.mra.gov.bd/mfi-dbms/','_blank')">এমআরএ - এমআইএস</div></h2><span>Branch Users, Loan, Savings, Client & Social Welfare, Insurance, Remittance</span></div>
+    <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://sib.mra.gov.bd/','_blank')">এমআরএ - এসআইবি</div></h2><span>User Id, Password, Dashboard, Staff Information</span></div>
+    <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://ndb.mra.gov.bd/mfi-dbms/','_blank')">এমআরএ - এমআইএস</div></h2><span>Branch Users, Loan, Savings, Client & Social Welfare</span></div>
     <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://pksfmne.streamstech.com','_blank')">পিকেএসএফ - ওয়াশ</div></h2><span>Group Management, Survey, Reporting, Map Viewer & Others</span></div>
     <div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://ziaul.wuaze.com/index.php','_blank')">অনলাইন - চ্যাট</div></h2><span>Wap Online Community. Register To Enjoy Tens Of Unique Features</span></div>    
 
@@ -256,8 +253,8 @@
                 <a href="https://facebook.com/ziaulz" target="_blank" class="social-icon-small social-fbz" title="Join Ziaul On Facebook">f</a>
                 <a href="https://twitter.com/UDDIPAN_org" target="_blank" class="social-icon-small social-twitter" title="Twitter">𝕏</a>
                 <a href="https://www.linkedin.com/company/uddipan" target="_blank" class="social-icon-small social-linkedin" title="LinkedIn">in</a>
-                <a href="https://www.youtube.com/channel/UCv5buuSHSyE5FXMJN78Lqpg?sub_confirmation=1" target="_blank" class="social-icon-small social-youtube" title="Join UDDIPAN Channel">▶</a>
-                <a href="https://www.youtube.com/channel/UC49rlxc91MZUqHTgKszR_uA?sub_confirmation=1" target="_blank" class="social-icon-small social-youtubez" title="Join ZiauL Channel">▶</a>
+                <a href="https://www.youtube.com/channel/UCv5buuSHSyE5FXMJN78Lqpg" target="_blank" class="social-icon-small social-youtube" title="Join UDDIPAN Channel">▶</a>
+                <a href="https://www.youtube.com/channel/UC49rlxc91MZUqHTgKszR_uA" target="_blank" class="social-icon-small social-youtubez" title="Join ZiauL Channel">▶</a>
             </div>
         </div>
         <div class="exact-right">
@@ -299,8 +296,32 @@
 <div id="networkStatus"><span id="statusIcon">📡</span><span id="statusMessage"></span></div>
 
 <script>
-// ==================== LOADING SCREEN (FIXED) ====================
-(function() {
+// ==================== LOAD INCLUDED FILES ====================
+function loadHTML(file, elementId) {
+    fetch(file)
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById(elementId).innerHTML = data;
+            if(file === 'loading.html') {
+                initLoadingScreen();
+            }
+            if(file === 'message.html') {
+                initScrollingBanner();
+            }
+            if(file === 'histats.html') {
+                initHistats();
+            }
+        })
+        .catch(error => console.log('Error loading ' + file, error));
+}
+
+// Load all includes
+loadHTML('loading.html', 'loadingContainer');
+loadHTML('message.html', 'messageContainer');
+loadHTML('histats.html', 'histatsContainer');
+
+// ==================== LOADING SCREEN INIT ====================
+function initLoadingScreen() {
     let currentProgress = 0;
     let startTime = Date.now();
     let messages = ['স্টার্ট হচ্ছে...', 'সংযোগ স্থাপন করা হচ্ছে...', 'রিসোর্স লোড হচ্ছে...', 'প্রায় শেষ...', 'চূড়ান্ত করা হচ্ছে...', 'সম্পন্ন!'];
@@ -331,8 +352,61 @@
             }, 500);
         }
     }, 50);
-})();
+}
 
+// ==================== SCROLLING BANNER INIT ====================
+function initScrollingBanner() {
+    const track = document.getElementById('baniTrack');
+    if(!track) return;
+    
+    track.innerHTML = '';
+    
+    function createBanner() {
+        for(let i = 0; i < 3; i++) {
+            let div = document.createElement('div');
+            div.className = 'bani-text';
+            div.innerHTML = document.getElementById('baniTextOriginal') ? document.getElementById('baniTextOriginal').innerHTML : 'UDDIPAN - Weblink Portal';
+            track.appendChild(div);
+        }
+    }
+    createBanner();
+    
+    let scrollPos = window.innerWidth;
+    let speed = 0.8;
+    let animationId = null;
+    
+    function animateBanner() {
+        scrollPos -= speed;
+        let singleWidth = track.children[0] ? track.children[0].offsetWidth : 1000;
+        if(scrollPos <= -singleWidth) {
+            scrollPos = window.innerWidth;
+        }
+        track.style.transform = `translateX(${scrollPos}px)`;
+        animationId = requestAnimationFrame(animateBanner);
+    }
+    
+    animateBanner();
+    
+    window.addEventListener('resize', function() {
+        scrollPos = window.innerWidth;
+    });
+}
+
+// ==================== HISTATS INIT ====================
+function initHistats() {
+    var _Hasync = _Hasync || [];
+    _Hasync.push(['Histats.start', '1,4993494,4,19,200,40,00000111']);
+    _Hasync.push(['Histats.fasi', '1']);
+    (function() {
+        var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+        hs.src = '//s10.histats.com/js15_as.js';
+        document.getElementsByTagName('head')[0].appendChild(hs);
+    })();
+    setInterval(function(){ 
+        let counter = document.getElementById('histats_counter');
+        if(counter) counter.style.pointerEvents = 'none'; 
+    }, 500);
+}
 
 // ==================== LIVE TIME ====================
 function updateTime() {
@@ -596,20 +670,6 @@ function updateNetwork() {
 window.addEventListener('online', updateNetwork);
 window.addEventListener('offline', updateNetwork);
 updateNetwork();
-
-// ==================== HISTATS COUNTER ====================
-var _Hasync = _Hasync || [];
-_Hasync.push(['Histats.start', '1,4993494,4,19,200,40,00000111']);
-_Hasync.push(['Histats.fasi', '1']);
-(function() {
-    var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
-    hs.src = '//s10.histats.com/js15_as.js';
-    document.getElementsByTagName('head')[0].appendChild(hs);
-})();
-setInterval(function(){ 
-    let counter = document.getElementById('histats_counter');
-    if(counter) counter.style.pointerEvents = 'none'; 
-}, 500);
 
 // ==================== SECURITY ====================
 document.addEventListener('contextmenu', e => e.preventDefault());
