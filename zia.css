@@ -11,7 +11,7 @@ body{font-family:"Noto Sans Bengali",sans-serif;background:linear-gradient(135de
 /* ==================== Header ==================== */
 header{position:fixed;top:0;left:0;width:100%;background:#fff;box-shadow:0 3px 8px rgba(0,0,0,0.12);z-index:1000;padding:18px 30px;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap}
 header img{height:90px}
-header h1{font-family:'Times New Roman',serif;font-size:62px;color:#008000;cursor:pointer;transition:all 0.5s ease;text-shadow:1px 1px 2px rgba(0,0,0,0.15);display:inline-block;padding:5px 10px;border-radius:8px;position:relative;overflow:hidden}
+header h1{font-family:'Times New Roman',serif;font-size:55px;color:#008000;cursor:pointer;transition:all 0.5s ease;text-shadow:1px 1px 2px rgba(0,0,0,0.15);display:inline-block;padding:5px 10px;border-radius:8px;position:relative;overflow:hidden}
 header h1:hover{color:#fff;background:linear-gradient(to right,#43A047,#66BB6A);box-shadow:0 0 20px rgba(76,175,80,0.8);transform:scaleX(1.10) scaleY(1.05)}
 
 /* Mobile Header */
