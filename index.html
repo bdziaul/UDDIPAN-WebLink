@@ -163,9 +163,6 @@
     </div>
 </header>
 
-<!-- Include Scrolling Message -->
-<div id="messageContainer"></div>
-
 <!-- Main Container -->
 <div class="container">
     <div class="box">
@@ -296,64 +293,6 @@
 <div id="networkStatus"><span id="statusIcon">📡</span><span id="statusMessage"></span></div>
 
 <script>
-// ==================== LOAD INCLUDED FILES ====================
-function loadHTML(file, elementId) {
-    fetch(file)
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById(elementId).innerHTML = data;
-            if(file === 'loading.html') {
-                initLoadingScreen();
-            }
-            if(file === 'message.html') {
-                initScrollingBanner();
-            }
-            if(file === 'histats.html') {
-                initHistats();
-            }
-        })
-        .catch(error => console.log('Error loading ' + file, error));
-}
-
-// Load all includes
-loadHTML('loading.html', 'loadingContainer');
-loadHTML('message.html', 'messageContainer');
-loadHTML('histats.html', 'histatsContainer');
-
-// ==================== LOADING SCREEN INIT ====================
-function initLoadingScreen() {
-    let currentProgress = 0;
-    let startTime = Date.now();
-    let messages = ['স্টার্ট হচ্ছে...', 'সংযোগ স্থাপন করা হচ্ছে...', 'রিসোর্স লোড হচ্ছে...', 'প্রায় শেষ...', 'চূড়ান্ত করা হচ্ছে...', 'সম্পন্ন!'];
-    
-    let interval = setInterval(function() {
-        let elapsed = Date.now() - startTime;
-        currentProgress = Math.min((elapsed / 3000) * 100, 100);
-        
-        let percentElem = document.getElementById('loadingPercentage');
-        let progressElem = document.getElementById('progressBar');
-        let msgElem = document.getElementById('loadingMessage');
-        
-        if(percentElem) percentElem.textContent = Math.floor(currentProgress) + '%';
-        if(progressElem) progressElem.style.width = currentProgress + '%';
-        
-        if(currentProgress < 20) msgElem.textContent = messages[0];
-        else if(currentProgress < 40) msgElem.textContent = messages[1];
-        else if(currentProgress < 60) msgElem.textContent = messages[2];
-        else if(currentProgress < 80) msgElem.textContent = messages[3];
-        else if(currentProgress < 100) msgElem.textContent = messages[4];
-        else msgElem.textContent = messages[5];
-        
-        if(currentProgress >= 100) {
-            clearInterval(interval);
-            setTimeout(function() {
-                let overlay = document.getElementById('loadingOverlay');
-                if(overlay) overlay.classList.add('hidden');
-            }, 500);
-        }
-    }, 50);
-}
-
 // ==================== SCROLLING BANNER INIT ====================
 function initScrollingBanner() {
     const track = document.getElementById('baniTrack');
