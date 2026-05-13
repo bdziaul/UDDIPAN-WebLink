@@ -155,8 +155,14 @@
             <span id="liveDate">তারিখ লোড হচ্ছে...</span> | 
             <span id="liveClock">সময় লোড হচ্ছে...</span>
         </div>
-        <!-- Include Histats -->
-        <div id="histatsContainer"></div>
+        
+        <!-- ==================== HISTATS COUNTER (FULL ADDED) ==================== -->
+        <div id="histats_counter" class="no-pointer-events" 
+             onclick="return false;"
+             onmousedown="return false;"
+             style="pointer-events: none !important; cursor: default !important;">
+        </div>
+        
     </div>
 </header>
 
@@ -289,61 +295,27 @@
 <button id="scrollToTopBtn" title="Go to top">⬆</button>
 <div id="networkStatus"><span id="statusIcon">📡</span><span id="statusMessage"></span></div>
 
+<!-- ==================== HISTATS SCRIPT (FULL ADDED) ==================== -->
+<script type="text/javascript">
+var _Hasync= _Hasync|| [];
+_Hasync.push(['Histats.start', '1,4993494,4,19,200,40,00000111']);
+_Hasync.push(['Histats.fasi', '1']);
+_Hasync.push(['Histats.track_hits', '']);
+(function() {
+  var hs = document.createElement('script'); 
+  hs.type = 'text/javascript'; 
+  hs.async = true;
+  hs.src = ('//s10.histats.com/js15_as.js');
+  document.getElementsByTagName('head')[0].appendChild(hs);
+})();
+</script>
+<noscript>
+  <a href="/" target="_blank">
+    <img src="//sstatic1.histats.com/0.gif?4993494&101" alt="website page counter" border="0">
+  </a>
+</noscript>
+
 <script>
-// ==================== SCROLLING BANNER INIT ====================
-function initScrollingBanner() {
-    const track = document.getElementById('baniTrack');
-    if(!track) return;
-    
-    track.innerHTML = '';
-    
-    function createBanner() {
-        for(let i = 0; i < 3; i++) {
-            let div = document.createElement('div');
-            div.className = 'bani-text';
-            div.innerHTML = document.getElementById('baniTextOriginal') ? document.getElementById('baniTextOriginal').innerHTML : 'UDDIPAN - Weblink Portal';
-            track.appendChild(div);
-        }
-    }
-    createBanner();
-    
-    let scrollPos = window.innerWidth;
-    let speed = 0.8;
-    let animationId = null;
-    
-    function animateBanner() {
-        scrollPos -= speed;
-        let singleWidth = track.children[0] ? track.children[0].offsetWidth : 1000;
-        if(scrollPos <= -singleWidth) {
-            scrollPos = window.innerWidth;
-        }
-        track.style.transform = `translateX(${scrollPos}px)`;
-        animationId = requestAnimationFrame(animateBanner);
-    }
-    
-    animateBanner();
-    
-    window.addEventListener('resize', function() {
-        scrollPos = window.innerWidth;
-    });
-}
-
-// ==================== HISTATS INIT ====================
-function initHistats() {
-    var _Hasync = _Hasync || [];
-    _Hasync.push(['Histats.start', '1,4993494,4,19,200,40,00000111']);
-    _Hasync.push(['Histats.fasi', '1']);
-    (function() {
-        var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
-        hs.src = '//s10.histats.com/js15_as.js';
-        document.getElementsByTagName('head')[0].appendChild(hs);
-    })();
-    setInterval(function(){ 
-        let counter = document.getElementById('histats_counter');
-        if(counter) counter.style.pointerEvents = 'none'; 
-    }, 500);
-}
-
 // ==================== LIVE TIME ====================
 function updateTime() {
     const now = new Date();
@@ -606,6 +578,12 @@ function updateNetwork() {
 window.addEventListener('online', updateNetwork);
 window.addEventListener('offline', updateNetwork);
 updateNetwork();
+
+// ==================== HISTATS CLICK PROTECTION ====================
+setInterval(function(){
+    let counter = document.getElementById('histats_counter');
+    if(counter) counter.style.pointerEvents = 'none';
+}, 500);
 
 // ==================== SECURITY ====================
 document.addEventListener('contextmenu', e => e.preventDefault());
