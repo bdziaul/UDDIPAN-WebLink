@@ -1,237 +1,105 @@
+<?php
+header("Cache-Control: no-cache, no-store, must-revalidate, private");
+header("Pragma: no-cache");
+header("Expires: 0");
+header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+?>
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<!-- Favicon -->
-<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/bdziaul/Login.php/main/login-logo.png">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="google" content="notranslate">
 
-<!-- Apple Touch Icon (iOS) -->
-<link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/bdziaul/Login.php/main/login-logo.png">
+    <link rel="icon" type="image/png" href="picture/login.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="picture/login.png">
+    <link rel="manifest" href="/manifest.json">
 
-<!-- Manifest -->
-<link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#008000">
 
-<title>UDDIPAN - Weblink</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali&display=swap" rel="stylesheet">
+    <title>UDDIPAN - Weblink</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{
-  font-family:"Noto Sans Bengali",sans-serif;
-  background:linear-gradient(135deg,#f7fafc 0%,#eef2f7 100%);
-  color:#333;
-  text-align:center;
-  padding-top:110px;
-  user-select: none;
-}
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali&display=swap" rel="stylesheet">
 
-/* Header */
-header{
-  position:fixed;
-  top:0;left:0;width:100%;
-  background:#fff;
-  box-shadow:0 3px 8px rgba(0,0,0,0.12);
-  z-index:1000;
-  padding:10px 25px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  flex-wrap:wrap;
-}
-header img{height:80px;}
-header h1{
-  font-family:'Times New Roman',serif;
-  font-size:50px;
-  color:#008000;
-  cursor:default;
-  transition:all 0.4s ease;
-  text-shadow:1px 1px 2px rgba(0,0,0,0.15);
-  display:inline-block;
-  padding:6px 12px;
-  border-radius:8px;
-  position: relative;
-  overflow: hidden;
-}
-header h1:hover{
-  color:#fff;
-  background: linear-gradient(to right, #43A047, #66BB6A);
-  box-shadow:0 0 20px rgba(76,175,80,0.8);
-  transform: scaleX(1.15) scaleY(1.05);
-}
+    <link rel="stylesheet" href="zia.css?v=<?php echo filemtime('zia.css'); ?>">
+<script>
+if ('serviceWorker' in navigator) {
 
-/* Info box */
-.info-box{text-align:right;font-size:14px;color:#444;}
-.time{font-weight:bold;color:#c11b1b;font-size:15px;}
-.visitor{margin-top:4px;font-size:14px;}
+  navigator.serviceWorker.register('/service-worker.js')
+    .then(reg => {
 
-/* Container */
-.container{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:20px;
-  max-width:1200px;
-  margin:0 auto;
-  padding:20px;
-}
+      reg.addEventListener('updatefound', () => {
+        const newWorker = reg.installing;
 
-/* Box */
-.box{
-  background:#fff;
-  border-radius:18px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1); /* normal shadow */
-  padding:25px 18px;
-  transition: all 0.3s ease;
-  transform: scale(1);
-}
+        newWorker?.addEventListener('statechange', () => {
+          if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+            newWorker.postMessage({ type: 'SKIP_WAITING' });
+          }
+        });
+      });
 
-/* Hover effect: green glow */
-.box:hover{
-  box-shadow: 0 0 20px rgba(0,255,0,0.7), 0 0 30px rgba(0,255,0,0.5);
-  transform: scale(1.04); /* চাইলে সামান্য বড়ও হবে */
-}
+      if (reg.waiting) {
+        reg.waiting.postMessage({ type: 'SKIP_WAITING' });
 
-/* Headline */
-.box h2 {margin-bottom:10px; font-size:28px; display:flex; justify-content:center; 
- align-items:center; padding:10px 0; text-align:center; flex-wrap:wrap;}
-.box span:not(.no-click){color:#8B0000;font-size:18px;}
-.box span{text-align:left;display:block;vertical-align:top;line-height:1.6;}
+        reg.waiting.addEventListener("statechange", () => {
+          if (reg.waiting.state === "activated") {
+            window.location.reload();
+          }
+        });
+      }
 
-/* Link style */
-.link-title{
-  font-size:28px;
-  position:relative;
-  text-decoration:none;
-  color:#0a4d9b;
-  font-weight:600;
-  transition:color .3s ease, font-size .3s ease;
+    })
+    .catch(err => console.log("SW Error:", err));
 }
-.link-title::after{
-  content:"";
-  position:absolute;
-  left:50%;
-  bottom:-3px;
-  width:100%;
-  height:3px;
-  background-color:currentColor;
-  transform:translateX(-50%) scaleX(0);
-  transform-origin:center;
-  transition:transform .4s ease;
-}
-.link-title:hover::after{
-  transform:translateX(-50%) scaleX(1);
-}
-.link-title:hover{
-  color:#ff6600;
-  font-size:29px;
-}
-
-/* Automation / Exam */
-.no-click {
-  font-size:28px;
-  font-weight:700;
-  color:#0a4d9b;
-  cursor:default;
-  position:relative;
-  transition: color 0.3s ease, font-size 0.3s ease;
-}
-.no-click::after{
-  content:"";
-  position:absolute;
-  left:50%;
-  bottom:-5px;
-  width:100%;
-  height:3px;
-  background-color:currentColor;
-  transform:translateX(-50%) scaleX(0);
-  transform-origin:center;
-  transition: transform 0.4s ease;
-}
-.no-click:hover{
-  color:#ff6600;
-  font-size:29px;
-}
-.no-click:hover::after{
-  transform:translateX(-50%) scaleX(1); 
-}
-
-/* Dropdown & Buttons */
-select{
-  padding:8px 12px;
-  border-radius:8px;
-  border:1px solid #ccc;
-  font-size:13px;
-  color: #008000;
-  width:100%;
-  max-width:260px;
-  margin-bottom:10px;
-}
-.open-btn {
-  display: inline-block;
-  background: linear-gradient(45deg, #43A047, #66BB6A);
-  color: #fff;
-  padding: 10px 12px;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: 0 0 0 rgba(76,175,80,0);
-  transition: all 0.3s ease;
-}
-.open-btn:hover {  
-  background: linear-gradient(45deg, #8B0000, #B22222);
-  box-shadow: 0 0 15px rgba(76,175,80,0.8);
-  transform: scale(1.05);
-}
-
-/* Footer */
-footer{
-  background:#fff;
-  padding:15px;
-  font-size:14px;
-  color:#555;
-  box-shadow:0 -2px 6px rgba(0,0,0,0.1);
-  margin-top:40px;
-  text-align:center; 
-}
-footer a.uddipan,footer a.mfcib{
-  color:#008000;
-  text-decoration:none;
-  font-weight:600;
-}
-footer a:hover{color:#ff6600;}
-
-/* Responsive */
-@media(max-width:800px){
-  header{flex-direction:column;text-align:center;}
-  header h1{font-size:28px;margin:9px 0;}
-  .info-box{text-align:center;margin-top:8px;}
-  .container {grid-template-columns:1fr;padding:9px;}
-  .box {padding:14px 9px;font-size:13px;}
-  select, .open-btn {width:100%;font-size:14px;}
-  body {padding-top:230px;} 
-}
-</style>
+</script>
 </head>
-<body oncontextmenu="return false">
+
+<body>
+
+<?php include 'loading.php'; ?>
+
+<button id="darkModeToggle" title="ডার্ক/লাইট মোড">🌙</button>
+
+<?php include 'extra.php'; ?>
+
+<div id="installPromptContainer"></div>
 
 <header>
-  <img src="https://raw.githubusercontent.com/bdziaul/logo.png/main/Update-uddipan-logo.png" alt="UDDIPAN Logo">
-  <h1>UDDIPAN - Weblink Portal</h1>
-  <div class="info-box">
-    <div class="time" id="liveTime">সময় লোড হচ্ছে...</div>
-    <div class="visitor">ভিজিটের সংখ্যা: <span id="visitorCount">0</span></div>
-  </div>
-</header>
+        <img src="picture/logo.png" alt="UDDIPAN Logo">
+        <h1>UDDIPAN - Weblink Portal</h1>
 
-<div class="container">
+        <div class="info-box">
+            <div class="time" id="liveTime">
+                <span id="liveDate">তারিখ লোড হচ্ছে...</span> | 
+                <span id="liveClock">সময় লোড হচ্ছে...</span>
+            </div>
+            
+            <!-- Histats Counter -->
+            <?php include 'histats.php'; ?>
+        </div>
+    </header>
+
+    <!-- Scrolling Banner -->
+    <div class="scroll-bani">
+        <span><?php include 'message.php'; ?></span>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+  
   <!-- Automation -->
   <div class="box">
     <h2><span class="no-click">অটোমেশন লিংক</span></h2>
     <select id="zoneSelect">
       <option value="" style="font-weight:bold; font-size:15px;">আপনার জোন নির্বাচন করুন</option>
+      <option value="http://172.16.11.20:7070/omni/index.do">লিংক নং - ২০</option>
+      <option value="http://103.12.205.23:7070/omni/index.do">লিংক নং - ২৩</option>
+      <option value="http://103.12.205.24:7070/omni/index.do">লিংক নং - ২৪</option>
+      <option value="http://103.12.205.31:7070/omni/index.do">লিংক নং - ৩১</option>
       <option value="http://172.16.11.57:7070/omni/index.do">৫৭. রংপুর জোন</option>
       <option value="http://172.16.11.56:7070/omni/index.do">৫৬. রাজশাহী জোন</option>
       <option value="http://172.16.11.42:7070/omni/index.do">৪২. ঢাকা জোন</option>
@@ -254,129 +122,991 @@ footer a:hover{color:#ff6600;}
       <option value="http://103.12.205.36:7070/omni/index.do">৩৬. পিরোজপুর জোন</option>
       <option value="http://103.12.205.35:7070/omni/index.do">৩৫. বরিশাল জোন</option>
       <option value="http://103.12.205.24:7070/omni/index.do">২৪. হেড অফিস</option>
-    </select>    
+    </select>
+
     <button class="open-btn" onclick="openZone()">Open Automation</button>
   </div>
 
-  <!-- Weblinks -->
-  <div class="box"><h2><a href="https://mail.uddipan.org:8443/" class="link-title" onclick="openNewTab(event)">ই-মেইল / ওয়েবমেইল</a></h2><span>Zimbra: Open-Source, Enterprise E-mail & Collaboration Platform With E-mail, Calendar, Contacts, File Sharing & Chat</span></div>
-  <div class="box"><h2><a href="http://172.16.11.23/HR/" class="link-title" onclick="openNewTab(event)">মানবসম্পদ ব্যবস্থাপনা</a></h2><span>UDDIPAN HR: Administration, Work Time, Payroll, Attendance, Leave, Self Service, Separation Mgt. & Reports</span></div>
-  <div class="box"><h2><a href="http://103.12.205.37/uddipanonline/" class="link-title" onclick="openNewTab(event)">উদ্দীপন অনলাইন</a></h2><span>Asset, Budget, Transaction, OTP, Omni Support, RM Monitoring & Report</span></div>
-  <div class="box"><h2><a href="http://103.12.205.37/dashboard/" class="link-title" onclick="openNewTab(event)">উদ্দীপন ড্যাশবোর্ড</a></h2><span>M.F.P, Customer Feedback, Performer, Trend & Report</span></div>
-  <div class="box"><h2><a href="http://103.12.205.37/itmonitoringtools/" class="link-title" onclick="openNewTab(event)">আইটি মনিটরিং</a></h2><span>Support Request, Purchase, Servicing Form, Report</span></div>
-  <div class="box"><h2><a href="https://nvs.mra.gov.bd/dashboard/" class="link-title" onclick="openNewTab(event)">জাতীয় পরিচয়পত্র</a></h2><span>Member NID Verification System Check Is For MFCIB Team Only</span></div>
-  <div class="box"><h2><a href="https://everify.bdris.gov.bd/?locale=bn" class="link-title" onclick="openNewTab(event)">জন্ম ও মৃত্যু নিবন্ধন</a></h2><span>Customer Birth And Death Registration Online Verification process</span></div>
-  <div class="box"><h2><a href="https://tinyurl.com/ytjtsxpn" class="link-title" onclick="openNewTab(event)">উদ্দীপন ডিজিটাল সার্ভিস</a></h2><span>Explore UDDIPAN, Employee Portal : (Loan Application,NID Recheck)</span></div>
-  <div class="box"><h2><a href="https://shorturl.at/8sYxF" class="link-title" onclick="openNewTab(event)">উদ্দীপন শাখা ও কর্মকর্তাগণ</a></h2><span>Branch Address,Email,Employee Mobile & WhatsApp Number</span></div>
-  <div class="box"><h2><a href="https://ln.run/9aWBw" class="link-title" onclick="openNewTab(event)">কাজের জন্য গুগল শিট</a></h2><span>MFCIB Verified/Unverified/Reject Data List, Updating Many Types Of Work</span></div>
-  <div class="box"><h2><a href="https://shorturl.at/wNxsU" class="link-title" onclick="openNewTab(event)">উদ্দীপন অফিসের মানচিত্র</a></h2><span>UDDIPAN All Branch Office, Regional Office & Zone Office Location</span></div>
-  <div class="box"><h2><a href="https://www.uddipanprobe.com/" class="link-title" onclick="openNewTab(event)">প্রোব স্বাস্থ্যসেবা</a></h2><span>Employee Profile,Service,Doctor,Health Card, Report</span></div>
-  <div class="box"><h2><a href="https://chatudpn.netlify.app/" class="link-title" onclick="openNewTab(event)">অনলাইন চ্যাট</a></h2><span>Please Identify Yourself : Username & Password</span></div>
-    <!-- Examination -->
+<!-- Main Links Section -->
+<div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://mail.uddipan.org:8443/','_blank')">ই-মেইল / ওয়েবমেইল</div></h2><span>Zimbra: Open-Source, Enterprise E-mail & Collaboration &nbsp; Platform With &nbsp; E-mail, Calendar, Contacts, File Sharing & Chat</span></div>
+
+<div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('http://172.16.11.23/HR/','_blank')">মানবসম্পদ - ব্যবস্থাপনা</div></h2><span>UDDIPAN HR:&nbsp;&nbsp; Administration, Work Time, Payroll, Attendance, Leave, Self Service, Separation Mgt. & Reports</span></div>
+
+<div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('http://103.12.205.37/uddipanonline/','_blank')">উদ্দীপন - অনলাইন</div></h2><span>Asset, Budget, Transaction, OTP, Omni Support, RM Monitoring & Report</span></div>
+
+<div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('http://103.12.205.37/dashboard/','_blank')">উদ্দীপন - ড্যাশবোর্ড</div></h2><span>M.F.P, Customer Feedback, Performer, Trend & Report</span></div>
+
+<div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('http://103.12.205.37/itmonitoringtools/','_blank')">আইটি - মনিটরিং</div></h2><span>Support Request, Purchase, Servicing Form, Report</span></div>
+
+<div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('http://103.12.205.37/caselog/','_blank')">উদ্দীপন কেস লগ</div></h2><span>Legal Case Details -/- Disposed Report , Case Management System Dashboard.</span></div>
+    
+<div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://shorturl.at/8sYxF','_blank')">উদ্দীপন শাখা ও কর্মকর্তাগণ</div></h2><span>Branch Address,Email,Employee Mobile & WhatsApp Number</span></div>
+    
+<div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://shorturl.at/wNxsU','_blank')">উদ্দীপন অফিসের মানচিত্র</div></h2><span>UDDIPAN &nbsp; All &nbsp; Branch &nbsp; Office, Regional Office & Zone Office Location</span></div>    
+
+<div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://nvs.mra.gov.bd/dashboard/','_blank')">জাতীয় - পরিচয়পত্র</div></h2><span>Customar's National ID Card Verification System Check Is For MFCIB Team Only</span></div>
+
+<div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://everify.bdris.gov.bd/?locale=bn','_blank')">জন্ম ও মৃত্যু নিবন্ধন</div></h2><span>Customer Birth And Death Registration Cretificate Online Verification process</span></div>
+    
+<div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://zia.gt.tc/index.php','_blank')">সিআইবি - ড্যাশবোর্ড</div></h2><span>Customer's &nbsp; National ID Card Or Birth Registration Certificate Storage Room</span></div>
+    
+<div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://sheet.gt.tc/','_blank')">কাজের জন্য শীট পোর্টাল</div></h2><span>NID -&nbsp; Verified And Rejected Data List, Verification & Updating A Lot Of Work</span></div>    
+
+<div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://uddipan.org/nidcapture/','_blank')">উদ্দীপন ডিজিটাল সার্ভিস</div></h2><span>Explore &nbsp; UDDIPAN, Employee - Portal : &nbsp; ( Loan Application, NID Recheck )</span></div>
+
+<div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://www.uddipanprobe.com/','_blank')">প্রোব / স্বাস্থ্যসেবা</div></h2><span>Employee Profile, Service, Doctor, Health Card, Report</span></div>
+
+<div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://sib.mra.gov.bd/','_blank')">এমআরএ - এসআইবি</div></h2><span>User Id, Password,&nbsp; Dashboard, Staff Information, Profile, Resign, Support</span></div>
+
+<div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://ndb.mra.gov.bd/mfi-dbms/','_blank')">এমআরএ - এমআইএস</div></h2><span>Branch &nbsp; Users, Loan, Savings, Client & Social Welfare, Insurance, Remittance</span></div>
+
+<div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://pksfmne.streamstech.com','_blank')">পিকেএসএফ - ওয়াশ</div></h2><span>Group Management, Survey, Reporting, Map Viewer & Others</span></div>
+    
+<div class="box"><h2><div class="link-title" style="cursor:pointer" onclick="window.open('https://ziaul.wuaze.com/index.php','_blank')">অনলাইন - চ্যাট</div></h2><span>Wap Online Community. Register To Enjoy Tens Of Unique Features</span></div>    
+
+  <!-- Examination -->
   <div class="box">
     <h2><span class="no-click">পরিক্ষার ফলাফল</span></h2>
     <select onchange="if(this.value) window.open(this.value, '_blank', 'noopener,noreferrer'); this.selectedIndex=0;">      
       <option value="" style="font-weight:bold; font-size:15px;">Select Education Board</option>
       <option value="http://www.educationboardresults.gov.bd/">Secondary & Intermediate Education Boards</option>
       <option value="http://180.211.162.102:8444/result_arch/index.php">Bangladesh Technical Education Board</option>
+      <option value="https://result.bou.ac.bd/">Bangladesh Open University</option>
+      <option value="https://bup.edu.bd/result">Bangladesh Academic Result</option>
       <option value="http://results.nu.ac.bd/">National University</option>
+      <option value="http://result.dghs.gov.bd/mbbs/">MBBS Result</option>
       <option value="https://www.eboardresults.com/v2/home">Web Based Result Publication</option>
     </select>
+  </div>
+
+</div>
+
+
+<div class="exact-section">
+  <div class="exact-row">
+    <!-- Left Side: Logo + Description + Social -->
+    <div class="exact-left">
+      <div class="exact-logo-box">
+        <img src="picture/logo.png" alt="UDDIPAN Logo" class="exact-main-logo">
+      </div>
+      
+      <div class="exact-description">
+        <p>United Development Initiatives for</p>
+        <p>Programmed Actions-(UDDIPAN)</p>
+        <p>started functioning from 1984.</p>
+      </div>
+      
+<div class="social-media-small">
+  <a href="https://facebook.com/uddipan.org" target="_blank" class="social-icon-small social-fb" title="Join Uddipan On Facbook">f</a>
+  <a href="https://facebook.com/ziaulz" target="_blank" class="social-icon-small social-fbz" title="Join Ziaul On Facbook">f</a>
+  <a href="https://twitter.com/UDDIPAN_org" target="_blank" class="social-icon-small social-twitter" title="Twitter">𝕏</a>
+  <a href="https://www.linkedin.com/company/uddipan" target="_blank" class="social-icon-small social-linkedin" title="LinkedIn">in</a>
+  <a href="https://www.youtube.com/channel/UCv5buuSHSyE5FXMJN78Lqpg?sub_confirmation=1" target="_blank" class="social-icon-small social-youtube" title="Join UDDIPAN Channel">▶</a>
+  <a href="https://www.youtube.com/channel/UC49rlxc91MZUqHTgKszR_uA?sub_confirmation=1" target="_blank" class="social-icon-small social-youtubez" title="Join ZiauL Channel">▶</a>
+    
+</div>
+      </div>
+    
+    <!-- Right Side: Three Columns -->
+    <div class="exact-right">
+      <div class="exact-col">
+        <h4 class="exact-title">About</h4>
+        <a href="https://uddipan.org/index.php/leadership-and-governance/" target="_blank" class="footer-link-item">Board of Directors</a>
+        <a href="https://uddipan.org/index.php/general-body//" target="_blank" class="footer-link-item">General Body</a>
+        <a href="https://uddipan.org/index.php/message-from-acting-chair/" target="_blank" class="footer-link-item">Message from the Acting Chairman</a>
+        <a href="https://uddipan.org/index.php/head-of-departments/" target="_blank" class="footer-link-item">Head of Departments</a>  
+        <a href="https://uddipan.org/index.php/organogram//" target="_blank" class="footer-link-item">Organogram</a>  
+        <a href="https://uddipan.org/nidcapture" target="_blank" class="footer-link-item">UDDIPAN Digital Service</a>             
+      </div>
+      
+      <div class="exact-col">
+        <h4 class="exact-title">Information</h4>
+        <a href="https://urel.energy/" target="_blank" class="footer-link-item">UDDIPAN Renewable Energy Limited</a>
+        <a href="https://uddipanagroltd.com/" target="_blank" class="footer-link-item">UDDIPAN Agricultural Limited</a>
+        <a href="https://www.uddipanacademy.com/" target="_blank" class="footer-link-item">UDDIPAN Academy</a>
+        <a href="https://gbsl.com.bd/" target="_blank" class="footer-link-item">Gram Bangla Service LTD.</a>
+        <a href="https://uddipan.org/index.php/health-2//" target="_blank" class="footer-link-item">Health Program</a>
+      </div>
+      
+      <div class="exact-col">
+        <h4 class="exact-title">Contact</h4>
+        <a href="https://maps.app.goo.gl/5DRVoKLQ7rKCcar79" target="_blank" class="footer-link-item">House - 09, Road - 01, Block -F.Ring Road, Adabar, Dhaka-1200</a>        
+        <a href="tel:09612778778" class="footer-link-item">Telephone : 09612 778 778</a>
+        <a href="tel:16779" class="footer-link-item">Hotline : 16779</a>  
+        <a href="mailto:info@uddipan.org" class="footer-link-item">E-mail : info@uddipan.org</a>  
+        <a href="mailto:udpn@agni.com" class="footer-link-item">E-mail : udpn@agni.com</a> 
+      </div>
+    </div>
   </div>
 </div>
 
 <footer>
-  © 2025 <a href="https://www.uddipan.org" class="uddipan" onclick="openNewTab(event)">UDDIPAN</a> | Developed by <a href="https://www.facebook.com/ziaulz" class="mfcib" onclick="openNewTab(event)">MFCIB</a> Team
+  © 2026 
+  <a class="uddipan" style="cursor:pointer" onclick="window.open('https://www.uddipan.org','_blank')">UDDIPAN</a> - Weblink | 
+  Developed by 
+  <a class="mfcib" style="cursor:pointer;" onclick="window.open('team.php','_blank')">MFCIB</a> Team
 </footer>
 
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTopBtn" title="Go to top">⬆</button>
+
 <script>
-// Live Time
+
+// ================= LIVE TIME ===================
 function updateTime(){
-  const now=new Date();
-  const options={weekday:'long',year:'numeric',month:'long',day:'numeric'};
-  const date=now.toLocaleDateString('bn-BD',options);
-  const time=now.toLocaleTimeString('bn-BD');
-  document.getElementById('liveTime').innerHTML=`${date} | ${time}`;
+    const now = new Date();
+    const weekday = now.toLocaleDateString('bn-BD', { weekday: 'long' });
+    const day = now.toLocaleDateString('bn-BD', { day: 'numeric' });
+    const month = now.toLocaleDateString('bn-BD', { month: 'long' });
+    const year = now.toLocaleDateString('bn-BD', { year: 'numeric' });
+    
+    const date = `${weekday}, ${day} ${month} ${year}`;
+    const time = now.toLocaleTimeString('bn-BD');
+
+    document.getElementById('liveDate').textContent = date;
+    document.getElementById('liveClock').textContent = time;
 }
-setInterval(updateTime,1000);
+setInterval(updateTime, 1000);
 updateTime();
-
-// Visitor Count
-let count=localStorage.getItem('visitorCount');
-count=count?parseInt(count)+1:1;
-localStorage.setItem('visitorCount',count);
-document.getElementById('visitorCount').textContent=count;
-
-// Open Zone (New Tab)
-function openZone(){
-  const url = document.getElementById("zoneSelect").value;
-  if(url) window.open(url, '_blank', 'noopener,noreferrer'); 
-  else alert("🚫 দয়া করে প্রথমে আপনার জোন নির্বাচন করুন.....❗");
-}
-
-// Open links in new tab
-function openNewTab(e){
-  e.preventDefault();
-  window.open(e.currentTarget.href, '_blank', 'noopener,noreferrer');
-}
-
-/* === Copy Protection Script === */
-document.addEventListener('keydown', function(e){
-  if(e.ctrlKey && (e.key==='c' || e.key==='u' || e.key==='s' || e.key==='x' || e.key==='a' || e.key==='p' || e.key==='i' || e.key==='j')){
-    e.preventDefault();
-    return false;
-  }
-});
-document.addEventListener('contextmenu', e => e.preventDefault());
-document.addEventListener('selectstart', e => e.preventDefault());
-document.addEventListener('copy', e => e.preventDefault());
-document.addEventListener('cut', e => e.preventDefault());
-  
-/* === Mouse Idle "Zia" Circular Follow (Green) === */
-let idleTimer;
-const ziaDiv = document.createElement("div");
-ziaDiv.textContent = "Zia";
-ziaDiv.style.position = "fixed";
-ziaDiv.style.color = "rgba(0,128,0,0.3)"; // হালকা সবুজ
-ziaDiv.style.background = "rgba(200,255,200,0.35)"; // হালকা সবুজ গোলাকার ব্যাকগ্রাউন্ড
-ziaDiv.style.borderRadius = "50%"; // গোলাকার
-ziaDiv.style.padding = "8px 12px";
-ziaDiv.style.fontSize = "10px";
-ziaDiv.style.fontWeight = "300";
-ziaDiv.style.pointerEvents = "none";
-ziaDiv.style.transition = "opacity 0.3s ease, transform 0.1s linear";
-ziaDiv.style.opacity = "0";
-document.body.appendChild(ziaDiv);
-
-let mouseX = 0, mouseY = 0;
-let angle = 0;
-
-document.addEventListener("mousemove", (e) => {
-  clearTimeout(idleTimer);
-  ziaDiv.style.opacity = "0";
-  mouseX = e.pageX;
-  mouseY = e.pageY;
-  
-  idleTimer = setTimeout(() => {
-    ziaDiv.style.opacity = "1";
-    // Circular animation
-    function animateZia() {
-      angle += 0.07; // ঘূর্ণনের গতি
-      const radius = 8; // কার্সরের চারপাশ দূরত্ব
-      ziaDiv.style.left = mouseX + radius * Math.cos(angle) + "px";
-      ziaDiv.style.top  = mouseY + radius * Math.sin(angle) + "px";
-      if(ziaDiv.style.opacity == "1"){
-        requestAnimationFrame(animateZia);
-      }
+    
+    // ========== Open Zone ==========
+    function openZone(){
+        const url = document.getElementById("zoneSelect").value;
+        if(url) window.open(url, '_blank', 'noopener,noreferrer'); 
+        else alert("🚫 দয়া করে প্রথমে আপনার জোন নির্বাচন করুন.....❗");
     }
-    animateZia();
-  }, 5000); // 5 সেকেন্ড idle
-});
+
+    // ========== Open links in new tab ==========
+    function openNewTab(e){
+        e.preventDefault();
+        window.open(e.currentTarget.href, '_blank', 'noopener,noreferrer');
+    }
+
+    // ========== Copy Protect ==========
+    document.addEventListener('keydown', function(e){
+        if(e.ctrlKey && (e.key === 'c' || e.key === 'u' || e.key === 's' || e.key === 'a')) {
+            e.preventDefault();
+        }
+        if(e.key === 'F12') {
+            e.preventDefault();
+        }
+    });
+
+    // Disable text selection
+    document.addEventListener('selectstart', e => e.preventDefault());
+
+    // Disable drag
+    document.addEventListener('dragstart', e => e.preventDefault());
+
+    // Idle Zia Animation
+    let idleTimer;
+    const ziaDiv=document.createElement("div");
+    ziaDiv.textContent="Zia";
+    ziaDiv.style.position="fixed";
+    ziaDiv.style.color="rgba(0,128,0,0.3)";
+    ziaDiv.style.background="rgba(200,255,200,0.35)";
+    ziaDiv.style.borderRadius="50%";
+    ziaDiv.style.padding="8px 12px";
+    ziaDiv.style.fontSize="10px";
+    ziaDiv.style.fontWeight="300";
+    ziaDiv.style.pointerEvents="none";
+    ziaDiv.style.transition="opacity 0.3s ease, transform 0.1s linear";
+    ziaDiv.style.opacity="0";
+    document.body.appendChild(ziaDiv);
+    let mouseX=0,mouseY=0,angle=0;
+    document.addEventListener("mousemove",e=>{
+        clearTimeout(idleTimer); ziaDiv.style.opacity="0"; mouseX=e.pageX; mouseY=e.pageY;
+        idleTimer=setTimeout(()=>{ziaDiv.style.opacity="1";
+            function animateZia(){angle+=0.07; const radius=8;
+                ziaDiv.style.left=mouseX+radius*Math.cos(angle)+"px";
+                ziaDiv.style.top=mouseY+radius*Math.sin(angle)+"px";
+                if(ziaDiv.style.opacity=="1") requestAnimationFrame(animateZia);
+            }
+            animateZia();
+        },10000);
+    });
+
+    // ================= SCROLL TO TOP =================
+    const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+    if (scrollToTopBtn) {
+        // Show/Hide button based on scroll position
+        window.addEventListener('scroll', function() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                scrollToTopBtn.style.display = 'block';
+            } else {
+                scrollToTopBtn.style.display = 'none';
+            }
+        });
+
+        // Smooth scroll to top when clicked
+        scrollToTopBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            if ('scrollBehavior' in document.documentElement.style) {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            } else {
+                const scrollStep = -window.scrollY / 15;
+                const scrollInterval = setInterval(function() {
+                    if (window.scrollY !== 0) {
+                        window.scrollBy(0, scrollStep);
+                    } else {
+                        clearInterval(scrollInterval);
+                    }
+                }, 15);
+            }
+        });
+
+        // Keyboard shortcut (Alt + Up Arrow)
+        document.addEventListener('keydown', function(e) {
+            if (e.altKey && e.key === 'ArrowUp') {
+                e.preventDefault();
+                scrollToTopBtn.click();
+            }
+        });
+    }
+
+    // ================= HISTATS CLICK PROTECTION =================
+    setInterval(function(){
+        document.getElementById('histats_counter').style.pointerEvents = 'none';
+    }, 500);
+
+</script>
+<!-- Scroll to Top JS -->
+<script src="/scroll-top.js?v=<?php echo filemtime('scroll-top.js'); ?>"></script>
+
+<!-- Install JS -->
+<script src="/install.js?v=<?php echo filemtime('install.js'); ?>"></script>
+
+
+<!-- ========== Network Status ========== -->
+<div id="networkStatus">
+    <span id="statusIcon">📡</span>
+    <span id="statusMessage"></span>
+</div>
+
+<script>
+(function () {
+    'use strict';
+
+    const status = document.getElementById('networkStatus');
+    const icon = document.getElementById('statusIcon');
+    const msg = document.getElementById('statusMessage');
+
+    let timer;
+    let anim;
+    let wasOffline = false;
+
+    function animStart() {
+        if (anim) clearInterval(anim);
+        let toggle = true;
+
+        anim = setInterval(() => {
+            icon.textContent = toggle ? '📡' : '🛜';
+            toggle = !toggle;
+        }, 600);
+    }
+
+    function animStop() {
+        if (anim) clearInterval(anim);
+        anim = null;
+    }
+
+    function showOffline() {
+        clearTimeout(timer);
+
+        status.classList.remove('online');
+        status.classList.add('offline');
+
+        msg.textContent = 'আপনি অফলাইনে আছেন !';
+        status.style.display = 'flex';
+        status.style.opacity = '1';
+
+        animStart();
+        wasOffline = true;
+    }
+
+    function showOnline() {
+        clearTimeout(timer);
+
+        if (wasOffline) {
+            animStop();
+
+            status.classList.remove('offline');
+            status.classList.add('online');
+
+            icon.textContent = '🛜';
+            msg.textContent = 'অভিনন্দন, অনলাইনে এসেছেন !';
+
+            status.style.display = 'flex';
+            status.style.opacity = '1';
+
+            timer = setTimeout(() => {
+                status.style.opacity = '0';
+                setTimeout(() => {
+                    status.style.display = 'none';
+                }, 300);
+            }, 2000);
+
+            wasOffline = false;
+        } else {
+            status.style.display = 'none';
+        }
+    }
+
+    function update() {
+        navigator.onLine ? showOnline() : showOffline();
+    }
+
+    window.addEventListener('online', update);
+    window.addEventListener('offline', update);
+    window.addEventListener('beforeunload', animStop);
+
+    if (!navigator.onLine) showOffline();
+})();
 </script>
 
+<!-- ========== DARK MODE START (FIXED SAFE INIT) ========== -->
+<script>
+(function () {
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const body = document.body;
+
+    // Check preference from localStorage
+    const isDarkMode = localStorage.getItem('darkMode') === 'enabled';
+
+    // If dark mode is active, apply it on load
+    if (isDarkMode) {
+        body.classList.add('dark-mode');
+        darkModeToggle.textContent = '☀️';
+        darkModeToggle.title = 'Switch to Light Mode';
+    }
+
+    // Toggle button click event
+    if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', function() {
+            if (body.classList.contains('dark-mode')) {
+                // Dark → Light
+                body.classList.remove('dark-mode');
+                localStorage.setItem('darkMode', 'disabled');
+                darkModeToggle.textContent = '🌙';
+                darkModeToggle.title = 'Switch to Dark Mode';
+
+                // Animation effect (rotate)
+                darkModeToggle.style.transform = 'rotate(180deg)';
+                setTimeout(() => {
+                    darkModeToggle.style.transform = 'rotate(0deg)';
+                }, 300);
+            } else {
+                // Light → Dark
+                body.classList.add('dark-mode');
+                localStorage.setItem('darkMode', 'enabled');
+                darkModeToggle.textContent = '☀️';
+                darkModeToggle.title = 'Switch to Light Mode';
+
+                // Animation effect (rotate)
+                darkModeToggle.style.transform = 'rotate(180deg)';
+                setTimeout(() => {
+                    darkModeToggle.style.transform = 'rotate(0deg)';
+                }, 300);
+            }
+        });
+
+        // Hover effect (scale up/down)
+        darkModeToggle.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.1)';
+        });
+
+        darkModeToggle.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+        });
+    }
+})();   
+
+// ==================== Analog Watch Function ====================
+function initAnalogWatch() {
+    const canvas = document.getElementById('watchCanvas');
+    
+    // Check if canvas exists
+    if (!canvas) {
+        console.log('Canvas not found');
+        return;
+    }
+    
+    const ctx = canvas.getContext('2d');
+    const digitalDisplay = document.getElementById('digitalTime');
+    
+    function drawWatch() {
+        const now = new Date();
+        const hours = now.getHours();
+        const minutes = now.getMinutes();
+        const seconds = now.getSeconds();
+        
+        // Update digital time display
+        if (digitalDisplay) {
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            const displayHours = hours % 12 || 12;
+            digitalDisplay.textContent = `${displayHours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
+        }
+        
+        // Canvas dimensions
+        const w = canvas.width;
+        const h = canvas.height;
+        const centerX = w / 2;
+        const centerY = h / 2;
+        const radius = Math.min(w, h) / 2 - 3;
+        
+        // Clear canvas
+        ctx.clearRect(0, 0, w, h);
+        
+        // Check dark mode
+        const isDark = document.body.classList.contains('dark-mode');
+        
+        // Watch face (circle)
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+        ctx.fillStyle = isDark ? '#2a2a2a' : '#f0f0f0';
+        ctx.fill();
+        ctx.strokeStyle = isDark ? '#ffaa00' : '#333';
+        ctx.lineWidth = 3;
+        ctx.stroke();
+        
+        // Hour numbers (1–12)
+        ctx.font = 'bold 12px Arial';
+        ctx.fillStyle = isDark ? '#ffaa00' : '#333';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        
+        for (let i = 1; i <= 12; i++) {
+            const angle = (i * 30 - 90) * Math.PI / 180;
+            const x = centerX + Math.cos(angle) * (radius - 15);
+            const y = centerY + Math.sin(angle) * (radius - 15);
+            ctx.fillText(i.toString(), x, y);
+        }
+        
+        // ===== Hour hand (accurate calculation) =====
+        const hourDegrees = (hours % 12) * 30 + minutes * 0.5 + seconds * (0.5 / 60);
+        const hourAngle = (hourDegrees - 90) * Math.PI / 180;
+        
+        ctx.beginPath();
+        ctx.moveTo(centerX, centerY);
+        ctx.lineTo(
+            centerX + Math.cos(hourAngle) * (radius - 25),
+            centerY + Math.sin(hourAngle) * (radius - 25)
+        );
+        ctx.strokeStyle = isDark ? '#ffaa00' : '#333';
+        ctx.lineWidth = 4;
+        ctx.lineCap = 'round';
+        ctx.stroke();
+        
+        // ===== Minute hand =====
+        const minuteDegrees = minutes * 6 + seconds * 0.1;
+        const minuteAngle = (minuteDegrees - 90) * Math.PI / 180;
+        
+        ctx.beginPath();
+        ctx.moveTo(centerX, centerY);
+        ctx.lineTo(
+            centerX + Math.cos(minuteAngle) * (radius - 15),
+            centerY + Math.sin(minuteAngle) * (radius - 15)
+        );
+        ctx.strokeStyle = isDark ? '#ffaa00' : '#666';
+        ctx.lineWidth = 3;
+        ctx.stroke();
+        
+        // ===== Second hand =====
+        const secondDegrees = seconds * 6;
+        const secondAngle = (secondDegrees - 90) * Math.PI / 180;
+        
+        ctx.beginPath();
+        ctx.moveTo(centerX, centerY);
+        ctx.lineTo(
+            centerX + Math.cos(secondAngle) * (radius - 8),
+            centerY + Math.sin(secondAngle) * (radius - 8)
+        );
+        ctx.strokeStyle = '#ff0000';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        
+        // Center dot
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, 5, 0, 2 * Math.PI);
+        ctx.fillStyle = isDark ? '#ffaa00' : '#333';
+        ctx.fill();
+        ctx.strokeStyle = '#fff';
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+        
+        // Minute tick marks (every minute except where numbers are)
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = isDark ? '#ffaa00' : '#999';
+        
+        for (let i = 0; i < 60; i++) {
+            if (i % 5 === 0) continue;
+            
+            const angle = (i * 6 - 90) * Math.PI / 180;
+            const startX = centerX + Math.cos(angle) * (radius - 3);
+            const startY = centerY + Math.sin(angle) * (radius - 3);
+            const endX   = centerX + Math.cos(angle) * (radius - 7);
+            const endY   = centerY + Math.sin(angle) * (radius - 7);
+            
+            ctx.beginPath();
+            ctx.moveTo(startX, startY);
+            ctx.lineTo(endX, endY);
+            ctx.stroke();
+        }
+    }
+    
+    // Initial draw + update every second
+    drawWatch();
+    setInterval(drawWatch, 1000);
+    
+    // Redraw when dark mode changes
+    const observer = new MutationObserver(drawWatch);
+    observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+    }
+
+    // Initialize watch when DOM is ready
+    document.addEventListener('DOMContentLoaded', initAnalogWatch);
+    
+    // ==================== Left Side Tools Toggle ====================
+document.addEventListener('DOMContentLoaded', function() {
+    // Tools panel toggle
+    const toggleBtn = document.getElementById('toggleTools');
+    const toolsPanel = document.querySelector('.left-tools-panel');
+    
+    toggleBtn.addEventListener('click', function() {
+        toolsPanel.classList.toggle('collapsed');
+        toggleBtn.textContent = toolsPanel.classList.contains('collapsed') ? '▶' : '▼';
+    });
+    
+    // Toggle the tool item
+    window.toggleTool = function(header) {
+        const toolItem = header.closest('.tool-item');
+        toolItem.classList.toggle('collapsed');
+    };
+    
+    // Initialize all functions
+    initWeather();
+    initBattery();
+    initNote();
+    initPomodoro();
+});
+
+// ========== Real Weather Widget with OpenWeatherMap API ==========
+function initWeather() {
+    refreshWeather();
+    // Updated every 30 minutes
+    setInterval(refreshWeather, 900000);
+}
+
+window.refreshWeather = function() {
+    const weatherIcon = document.getElementById('weatherIcon');
+    const weatherTemp = document.getElementById('weatherTemp');
+    const weatherCity = document.getElementById('weatherCity');
+    const weatherCondition = document.getElementById('weatherCondition');
+    const weatherHumidity = document.getElementById('weatherHumidity');
+    const weatherWind = document.getElementById('weatherWind');
+    
+    // Enter the API Key here
+    const API_KEY = '6122297363e48d7f5b4ddf1b1aeeeecb';
+    const CITY = 'Dhaka';
+    
+    // API URL
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${CITY}&units=metric&appid=${API_KEY}`;
+    
+    // Loading state
+    weatherTemp.textContent = '...°C';
+    weatherCondition.textContent = 'লোড হচ্ছে...';
+    
+    fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Weather Data:', data);
+            
+            // Data Extract
+            const temp = Math.round(data.main.temp);
+            const feelsLike = Math.round(data.main.feels_like);
+            const humidity = data.main.humidity;
+            const windSpeed = data.wind.speed;
+            const description = data.weather[0].description;
+            const iconCode = data.weather[0].icon;
+            const cityName = data.name;
+            
+            // UI update
+            weatherTemp.textContent = temp + '°C';
+            weatherCity.textContent = cityName;
+            weatherCondition.textContent = getBanglaCondition(description);
+            weatherHumidity.textContent = `আর্দ্রতা: ${humidity}%`;
+            weatherWind.textContent = `বাতাস: ${windSpeed} km/h`;
+            weatherIcon.textContent = getWeatherIcon(iconCode);
+            
+            console.log('Weather updated successfully');
+        })
+        .catch(error => {
+            console.error('Weather API Error:', error);
+            
+            // Show demo data if error
+            weatherTemp.textContent = '--°C';
+            weatherCondition.textContent = 'সংযোগ ব্যর্থ';
+            weatherIcon.textContent = '❌';
+        });
+};
+
+// Bengali condition translate function
+function getBanglaCondition(englishCondition) {
+    const conditions = {
+        'clear sky': 'পরিষ্কার আকাশ',
+        'few clouds': 'আংশিক মেঘলা',
+        'scattered clouds': 'ছিটানো মেঘ',
+        'broken clouds': 'মেঘলা',
+        'overcast clouds': 'ঘন মেঘলা',
+        'light rain': 'হালকা বৃষ্টি',
+        'moderate rain': 'মাঝারি বৃষ্টি',
+        'heavy rain': 'ভারী বৃষ্টি',
+        'thunderstorm': 'বজ্রপাত',
+        'mist': 'কুয়াশা',
+        'haze': 'হালকা কুয়াশা',
+        'fog': 'ঘন কুয়াশা',
+        'smoke': 'ধোঁয়াশা',
+        'dust': 'ধুলোবালি',
+        'sand': 'বালির ঝড়',
+        'ash': 'ছাই',
+        'squall': 'ঝড়ো হাওয়া',
+        'tornado': 'টর্নেডো'
+    };
+    
+    return conditions[englishCondition.toLowerCase()] || englishCondition;
+}
+
+// Weather icon function
+function getWeatherIcon(iconCode) {
+    // OpenWeatherMap icon codes
+    const iconMap = {
+        '01d': '☀️', // clear sky day
+        '01n': '🌙', // clear sky night
+        '02d': '⛅', // few clouds day
+        '02n': '☁️', // few clouds night
+        '03d': '☁️', // scattered clouds
+        '03n': '☁️',
+        '04d': '☁️', // broken clouds
+        '04n': '☁️',
+        '09d': '🌧️', // shower rain
+        '09n': '🌧️',
+        '10d': '🌦️', // rain day
+        '10n': '🌧️', // rain night
+        '11d': '⛈️', // thunderstorm
+        '11n': '⛈️',
+        '13d': '❄️', // snow
+        '13n': '❄️',
+        '50d': '🌫️', // mist
+        '50n': '🌫️'
+    };
+    
+    return iconMap[iconCode] || '☁️';
+}
+
+// ========== Battery Status ==========
+function initBattery() {
+    if ('getBattery' in navigator) {
+        navigator.getBattery().then(updateBattery);
+    } else {
+        // Fallback
+        document.getElementById('batteryPercentage').textContent = '--%';
+        document.getElementById('batteryStatus').textContent = 'এই ব্রাউজারে ব্যাটারি সাপোর্ট করে না';
+    }
+}
+
+function updateBattery(battery) {
+    const batteryIcon = document.getElementById('batteryIcon');
+    const batteryPercentage = document.getElementById('batteryPercentage');
+    const batteryProgress = document.getElementById('batteryProgress');
+    const batteryStatus = document.getElementById('batteryStatus');
+    const batteryTime = document.getElementById('batteryTime');
+    const batteryWarning = document.getElementById('batteryWarning');
+    
+    function updateAll() {
+        const level = Math.round(battery.level * 100);
+        batteryPercentage.textContent = level + '%';
+        batteryProgress.style.width = level + '%';
+        
+        // Set Icon
+        if(battery.charging) {
+            batteryIcon.textContent = '⚡';
+            batteryStatus.textContent = 'চার্জ হচ্ছে';
+        } else {
+            batteryIcon.textContent = level > 20 ? '🔋' : '🪫';
+            batteryStatus.textContent = 'ব্যাটারি';
+        }
+        
+        // Time calculation
+        if(battery.charging && battery.chargingTime !== Infinity) {
+            const min = Math.round(battery.chargingTime / 60);
+            batteryTime.textContent = `⏳ ${min} মিনিট লাগবে`;
+        } else if(!battery.charging && battery.dischargingTime !== Infinity) {
+            const min = Math.round(battery.dischargingTime / 60);
+            const hours = Math.floor(min / 60);
+            const mins = min % 60;
+            batteryTime.textContent = `⏳ বাকি ${hours}ঘ ${mins}মি`;
+        } else {
+            batteryTime.textContent = '';
+        }
+        
+        // Warning
+        if(level <= 15 && !battery.charging) {
+            batteryWarning.textContent = '⚠️ ব্যাটারি খুব কম!';
+        } else if(level <= 5 && !battery.charging) {
+            batteryWarning.textContent = '🔴 চার্জ দিন!';
+        } else {
+            batteryWarning.textContent = '';
+        }
+    }
+    
+    updateAll();
+    battery.addEventListener('levelchange', updateAll);
+    battery.addEventListener('chargingchange', updateAll);
+    battery.addEventListener('chargingtimechange', updateAll);
+    battery.addEventListener('dischargingtimechange', updateAll);
+}
+
+// ========== Quick Note ==========
+function initNote() {
+    const noteArea = document.getElementById('noteArea');
+    const savedNote = localStorage.getItem('quickNote');
+    if(savedNote) noteArea.value = savedNote;
+}
+
+window.saveNote = function() {
+    const note = document.getElementById('noteArea').value;
+    localStorage.setItem('quickNote', note);
+    document.getElementById('noteStatus').textContent = '✅ নোট সেভ হয়েছে';
+    setTimeout(() => document.getElementById('noteStatus').textContent = '', 2000);
+};
+
+window.clearNote = function() {
+    document.getElementById('noteArea').value = '';
+    localStorage.removeItem('quickNote');
+    document.getElementById('noteStatus').textContent = '🗑️ নোট ক্লিয়ার';
+    setTimeout(() => document.getElementById('noteStatus').textContent = '', 2000);
+};
+
+window.copyNote = function() {
+    const note = document.getElementById('noteArea').value;
+    navigator.clipboard.writeText(note);
+    document.getElementById('noteStatus').textContent = '📋 কপি হয়েছে';
+    setTimeout(() => document.getElementById('noteStatus').textContent = '', 2000);
+};
+
+// ========== Calculator ==========
+let calcDisplay = document.getElementById('calcDisplay');
+if(!calcDisplay) calcDisplay = {value: '0'};
+
+window.appendCalc = function(val) {
+    const display = document.getElementById('calcDisplay');
+    if(display.value === '0' && val !== '.') {
+        display.value = val;
+    } else {
+        display.value += val;
+    }
+};
+
+window.clearCalc = function() {
+    document.getElementById('calcDisplay').value = '0';
+};
+
+window.backspaceCalc = function() {
+    const display = document.getElementById('calcDisplay');
+    display.value = display.value.slice(0, -1) || '0';
+};
+
+window.calculateCalc = function() {
+    try {
+        const display = document.getElementById('calcDisplay');
+        let expression = display.value.replace(/×/g, '*').replace(/÷/g, '/');
+        display.value = eval(expression);
+    } catch {
+        document.getElementById('calcDisplay').value = 'Error';
+    }
+};
+
+// ========== Monthly Calendar with Month Change (Bangla) ==========
+
+let currentDate = new Date();
+
+// fixed holidays (same every year)
+const permanentHolidays = {
+    '1-21': 'শহীদ দিবস',
+    '2-26': 'স্বাধীনতা দিবস',
+    '3-14': 'পহেলা বৈশাখ',
+    '4-1':  'মে দিবস',
+    '7-5':  'জুলাই গণঅভ্যুত্থান দিবস',
+    '11-16': 'বিজয় দিবস',
+    '11-25': 'বড় দিন'
+};
+
+// Special holiday of 2026
+const specialHolidays2026 = {
+    '1-4': 'শবে বরাত',
+    '1-11': 'সংসদ নির্বাচন (১ম দিন)',
+    '1-12': 'সংসদ নির্বাচন (২য় দিন)',
+    '2-17': 'শবে কদর',
+    '2-19': 'ঈদ-উল-ফিতর (১)',
+    '2-20': 'ঈদ-উল-ফিতর (২)',
+    '2-21': 'ঈদ-উল-ফিতর (৩)',
+    '2-22': 'ঈদ-উল-ফিতর (৪)',
+    '2-23': 'ঈদ-উল-ফিতর (৫)',
+    '4-1': 'বুদ্ধ পূর্ণিমা',
+    '4-26': 'ঈদ-উল-আজহা (১)',
+    '4-27': 'ঈদ-উল-আজহা (২)',
+    '4-28': 'ঈদ-উল-আজহা (৩)',
+    '4-29': 'ঈদ-উল-আজহা (৪)',
+    '4-30': 'ঈদ-উল-আজহা (৫)',
+    '4-31': 'ঈদ-উল-আজহা (৬)',
+    '5-26': 'আশুরা',
+    '7-26': 'ঈদ-এ-মিলাদুন্নবী',
+    '8-4': 'জনমাষ্টমী',
+    '9-20': 'দুর্গাপূজা (১)',
+    '9-21': 'দুর্গাপূজা (২)'
+};
+
+function initMonthlyCalendar() {
+    renderBanglaCalendar();
+}
+
+function renderBanglaCalendar() {
+    const year  = currentDate.getFullYear();
+    const month = currentDate.getMonth();
+    const today = new Date();
+
+    const banglaMonths = [
+        'জানুয়ারি', 'ফেব্রুয়ারি', 'মার্চ', 'এপ্রিল', 'মে', 'জুন',
+        'জুলাই', 'আগস্ট', 'সেপ্টেম্বর', 'অক্টোবর', 'নভেম্বর', 'ডিসেম্বর'
+    ];
+
+    const banglaDays = ['রবি', 'সোম', 'মঙ্গল', 'বুধ', 'বৃহঃ', 'শুক্র', 'শনি'];
+
+    function toBanglaNumber(num) {
+        const banglaDigits = ['০','১','২','৩','৪','৫','৬','৭','৮','৯'];
+        return num.toString().split('').map(d => banglaDigits[parseInt(d)]).join('');
+    }
+
+    const firstDay    = new Date(year, month, 1).getDay();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+    document.getElementById('displayMonthYear').textContent = 
+        banglaMonths[month] + ' ' + toBanglaNumber(year);
+
+    let gridHTML = '';
+
+    banglaDays.forEach(day => {
+        gridHTML += `<div class="grid-header">${day}</div>`;
+    });
+
+    for (let i = 0; i < firstDay; i++) {
+        gridHTML += `<div class="grid-cell empty"></div>`;
+    }
+
+    for (let date = 1; date <= daysInMonth; date++) {
+        let cellClass = 'grid-cell';
+        let holidayName = '';
+        let holidayType = '';
+
+        const key = `${month}-${date}`;
+
+        if (permanentHolidays[key]) {
+            cellClass += ' holiday permanent';
+            holidayName = permanentHolidays[key];
+            holidayType = 'permanent';
+        }
+        else if (year === 2026 && specialHolidays2026[key]) {
+            cellClass += ' holiday special';
+            holidayName = specialHolidays2026[key];
+            holidayType = 'special';
+        }
+
+        if (date === today.getDate() && 
+            month === today.getMonth() && 
+            year === today.getFullYear()) {
+            cellClass += ' today';
+        }
+
+        const dayOfWeek = new Date(year, month, date).getDay();
+        if (dayOfWeek === 5 || dayOfWeek === 6) {
+            cellClass += ' weekend';
+        }
+
+        let tooltip = '';
+        if (holidayName) {
+            tooltip = holidayName;
+            if (holidayType === 'permanent') tooltip += ' (স্থায়ী ছুটি)';
+        }
+
+        const content = toBanglaNumber(date);
+        gridHTML += tooltip 
+            ? `<div class="${cellClass}" title="${tooltip}">${content}</div>`
+            : `<div class="${cellClass}">${content}</div>`;
+    }
+
+    document.getElementById('monthlyCalendarGrid').innerHTML = gridHTML;
+}
+
+window.changeMonth = function(direction) {
+    currentDate.setMonth(currentDate.getMonth() + direction);
+    renderBanglaCalendar();
+
+    const grid = document.getElementById('monthlyCalendarGrid');
+    grid.style.opacity = '0.5';
+    setTimeout(() => grid.style.opacity = '1', 200);
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    if (document.getElementById('monthlyCalendarWidget')) {
+        initMonthlyCalendar();
+    }
+});
+    
+// ========== Prayer Widget Toggle ==========
+function togglePrayerWidget() {
+    const widget = document.getElementById('prayerWidget');
+    const toggle = document.getElementById('prayerToggle');
+    
+    widget.classList.toggle('collapsed');
+    
+    if (widget.classList.contains('collapsed')) {
+        toggle.textContent = '▶';
+    } else {
+        toggle.textContent = '▼';
+    }
+}
+// ====== Update greeting based on time ======
+function updateGreeting() {
+    const hour = new Date().getHours();
+    const greeting = document.getElementById('greetingMessage');
+    
+    if (!greeting) return;
+    
+    if (hour >= 5 && hour < 12) {
+        greeting.textContent = '🌅 শুভ সকাল';
+    } else if (hour >= 12 && hour < 16) {
+        greeting.textContent = '☀️ শুভ দুপুর';
+    } else if (hour >= 16 && hour < 19) {
+        greeting.textContent = '🌆 শুভ সন্ধ্যা';
+    } else {
+        greeting.textContent = '🌙 শুভ রাত্রি';
+    }
+}
+
+// Call initially and every minute
+updateGreeting();
+setInterval(updateGreeting, 60000);
+    
+</script>
 </body>
 </html>
-
-
-
-
